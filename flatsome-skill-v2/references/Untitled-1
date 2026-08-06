@@ -1,0 +1,1347 @@
+[UX Themes Docs](https://docs.uxthemes.com/)
+- [Flatsome](https://docs.uxthemes.com/collection/1-flatsome)
+- [Localization](https://docs.uxthemes.com/collection/422-localization)
+- [Unofficial](https://docs.uxthemes.com/collection/287-unofficial)
+[Flatsome](https://docs.uxthemes.com/collection/1-flatsome)
+[Localization](https://docs.uxthemes.com/collection/422-localization)
+[Unofficial](https://docs.uxthemes.com/collection/287-unofficial)
+
+### Actions
+
+- [flatsome_absolute_footer_primary](https://docs.uxthemes.com/article/385-hooks#flatsome-absolute-footer-primary)
+- [flatsome_absolute_footer_secondary](https://docs.uxthemes.com/article/385-hooks#flatsome-absolute-footer-secondary)
+- [flatsome_account_links](https://docs.uxthemes.com/article/385-hooks#flatsome-account-links)
+- [flatsome_after_404](https://docs.uxthemes.com/article/385-hooks#flatsome-after-404)
+- [flatsome_after_account_user](https://docs.uxthemes.com/article/385-hooks#flatsome-after-account-user)
+- [flatsome_after_blog](https://docs.uxthemes.com/article/385-hooks#flatsome-after-blog)
+- [flatsome_after_body_open](https://docs.uxthemes.com/article/385-hooks#flatsome-after-body-open)
+- [flatsome_after_breadcrumb](https://docs.uxthemes.com/article/385-hooks#flatsome-after-breadcrumb)
+- [flatsome_after_footer](https://docs.uxthemes.com/article/385-hooks#flatsome-after-footer)
+- [flatsome_after_header](https://docs.uxthemes.com/article/385-hooks#flatsome-after-header)
+- [flatsome_after_header_bottom](https://docs.uxthemes.com/article/385-hooks#flatsome-after-header-bottom)
+- [flatsome_after_mini_cart_contents](https://docs.uxthemes.com/article/385-hooks#flatsome-after-mini-cart-contents)
+- [flatsome_after_mini_cart_cross_sells](https://docs.uxthemes.com/article/385-hooks#flatsome-after-mini-cart-cross-sells)
+- [flatsome_after_mini_cart_empty_message](https://docs.uxthemes.com/article/385-hooks#flatsome-after-mini-cart-empty-message)
+- [flatsome_after_page](https://docs.uxthemes.com/article/385-hooks#flatsome-after-page)
+- [flatsome_after_page_content](https://docs.uxthemes.com/article/385-hooks#flatsome-after-page-content)
+- [flatsome_after_product_images](https://docs.uxthemes.com/article/385-hooks#flatsome-after-product-images)
+- [flatsome_after_product_page](https://docs.uxthemes.com/article/385-hooks#flatsome-after-product-page)
+- [flatsome_after_sidebar_menu](https://docs.uxthemes.com/article/385-hooks#flatsome-after-sidebar-menu)
+- [flatsome_after_sidebar_menu_elements](https://docs.uxthemes.com/article/385-hooks#flatsome-after-sidebar-menu-elements)
+- [flatsome_after_single_product_lightbox](https://docs.uxthemes.com/article/385-hooks#flatsome-after-single-product-lightbox)
+- [flatsome_before_404](https://docs.uxthemes.com/article/385-hooks#flatsome-before-404)
+- [flatsome_before_blog](https://docs.uxthemes.com/article/385-hooks#flatsome-before-blog)
+- [flatsome_before_breadcrumb](https://docs.uxthemes.com/article/385-hooks#flatsome-before-breadcrumb)
+- [flatsome_before_comments](https://docs.uxthemes.com/article/385-hooks#flatsome-before-comments)
+- [flatsome_before_footer](https://docs.uxthemes.com/article/385-hooks#flatsome-before-footer)
+- [flatsome_before_header](https://docs.uxthemes.com/article/385-hooks#flatsome-before-header)
+- [flatsome_before_mini_cart_cross_sells](https://docs.uxthemes.com/article/385-hooks#flatsome-before-mini-cart-cross-sells)
+- [flatsome_before_mini_cart_empty_message](https://docs.uxthemes.com/article/385-hooks#flatsome-before-mini-cart-empty-message)
+- [flatsome_before_mini_cart_total](https://docs.uxthemes.com/article/385-hooks#flatsome-before-mini-cart-total)
+- [flatsome_before_page](https://docs.uxthemes.com/article/385-hooks#flatsome-before-page)
+- [flatsome_before_page_content](https://docs.uxthemes.com/article/385-hooks#flatsome-before-page-content)
+- [flatsome_before_product_images](https://docs.uxthemes.com/article/385-hooks#flatsome-before-product-images)
+- [flatsome_before_product_page](https://docs.uxthemes.com/article/385-hooks#flatsome-before-product-page)
+- [flatsome_before_product_sidebar](https://docs.uxthemes.com/article/385-hooks#flatsome-before-product-sidebar)
+- [flatsome_before_sidebar_menu](https://docs.uxthemes.com/article/385-hooks#flatsome-before-sidebar-menu)
+- [flatsome_before_sidebar_menu_elements](https://docs.uxthemes.com/article/385-hooks#flatsome-before-sidebar-menu-elements)
+- [flatsome_before_single_product_custom](https://docs.uxthemes.com/article/385-hooks#flatsome-before-single-product-custom)
+- [flatsome_before_single_product_lightbox](https://docs.uxthemes.com/article/385-hooks#flatsome-before-single-product-lightbox)
+- [flatsome_blog_post_after](https://docs.uxthemes.com/article/385-hooks#flatsome-blog-post-after)
+- [flatsome_blog_post_before](https://docs.uxthemes.com/article/385-hooks#flatsome-blog-post-before)
+- [flatsome_breadcrumb](https://docs.uxthemes.com/article/385-hooks#flatsome-breadcrumb)
+
+### Actions
+
+- [flatsome_cart_sidebar](https://docs.uxthemes.com/article/385-hooks#flatsome-cart-sidebar)
+- [flatsome_category_title](https://docs.uxthemes.com/article/385-hooks#flatsome-category-title)
+- [flatsome_category_title_alt](https://docs.uxthemes.com/article/385-hooks#flatsome-category-title-alt)
+- [flatsome_footer](https://docs.uxthemes.com/article/385-hooks#flatsome-footer)
+- [flatsome_header_background](https://docs.uxthemes.com/article/385-hooks#flatsome-header-background)
+- [flatsome_header_elements](https://docs.uxthemes.com/article/385-hooks#flatsome-header-elements)
+- [flatsome_header_wrapper](https://docs.uxthemes.com/article/385-hooks#flatsome-header-wrapper)
+- [flatsome_portfolio_title_after](https://docs.uxthemes.com/article/385-hooks#flatsome-portfolio-title-after)
+- [flatsome_portfolio_title_left](https://docs.uxthemes.com/article/385-hooks#flatsome-portfolio-title-left)
+- [flatsome_portfolio_title_right](https://docs.uxthemes.com/article/385-hooks#flatsome-portfolio-title-right)
+- [flatsome_product_attribute_term_fields](https://docs.uxthemes.com/article/385-hooks#flatsome-product-attribute-term-fields)
+- [flatsome_product_box_actions](https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-actions)
+- [flatsome_product_box_after](https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-after)
+- [flatsome_product_box_tools_bottom](https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-tools-bottom)
+- [flatsome_product_box_tools_top](https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-tools-top)
+- [flatsome_product_image_tools_bottom](https://docs.uxthemes.com/article/385-hooks#flatsome-product-image-tools-bottom)
+- [flatsome_product_image_tools_top](https://docs.uxthemes.com/article/385-hooks#flatsome-product-image-tools-top)
+- [flatsome_product_title](https://docs.uxthemes.com/article/385-hooks#flatsome-product-title)
+- [flatsome_product_title_tools](https://docs.uxthemes.com/article/385-hooks#flatsome-product-title-tools)
+- [flatsome_products_after](https://docs.uxthemes.com/article/385-hooks#flatsome-products-after)
+- [flatsome_products_before](https://docs.uxthemes.com/article/385-hooks#flatsome-products-before)
+- [flatsome_sale_flash](https://docs.uxthemes.com/article/385-hooks#flatsome-sale-flash)
+- [flatsome_single_product_lightbox_product_gallery](https://docs.uxthemes.com/article/385-hooks#flatsome-single-product-lightbox-product-gallery)
+- [flatsome_single_product_lightbox_summary](https://docs.uxthemes.com/article/385-hooks#flatsome-single-product-lightbox-summary)
+- [flatsome_woocommerce_shop_loop_images](https://docs.uxthemes.com/article/385-hooks#flatsome-woocommerce-shop-loop-images)
+[flatsome_absolute_footer_primary](https://docs.uxthemes.com/article/385-hooks#flatsome-absolute-footer-primary)
+[flatsome_absolute_footer_secondary](https://docs.uxthemes.com/article/385-hooks#flatsome-absolute-footer-secondary)
+[flatsome_account_links](https://docs.uxthemes.com/article/385-hooks#flatsome-account-links)
+[flatsome_after_404](https://docs.uxthemes.com/article/385-hooks#flatsome-after-404)
+[flatsome_after_account_user](https://docs.uxthemes.com/article/385-hooks#flatsome-after-account-user)
+[flatsome_after_blog](https://docs.uxthemes.com/article/385-hooks#flatsome-after-blog)
+[flatsome_after_body_open](https://docs.uxthemes.com/article/385-hooks#flatsome-after-body-open)
+[flatsome_after_breadcrumb](https://docs.uxthemes.com/article/385-hooks#flatsome-after-breadcrumb)
+[flatsome_after_footer](https://docs.uxthemes.com/article/385-hooks#flatsome-after-footer)
+[flatsome_after_header](https://docs.uxthemes.com/article/385-hooks#flatsome-after-header)
+[flatsome_after_header_bottom](https://docs.uxthemes.com/article/385-hooks#flatsome-after-header-bottom)
+[flatsome_after_mini_cart_contents](https://docs.uxthemes.com/article/385-hooks#flatsome-after-mini-cart-contents)
+[flatsome_after_mini_cart_cross_sells](https://docs.uxthemes.com/article/385-hooks#flatsome-after-mini-cart-cross-sells)
+[flatsome_after_mini_cart_empty_message](https://docs.uxthemes.com/article/385-hooks#flatsome-after-mini-cart-empty-message)
+[flatsome_after_page](https://docs.uxthemes.com/article/385-hooks#flatsome-after-page)
+[flatsome_after_page_content](https://docs.uxthemes.com/article/385-hooks#flatsome-after-page-content)
+[flatsome_after_product_images](https://docs.uxthemes.com/article/385-hooks#flatsome-after-product-images)
+
+### Actions
+
+[flatsome_after_product_page](https://docs.uxthemes.com/article/385-hooks#flatsome-after-product-page)
+[flatsome_after_sidebar_menu](https://docs.uxthemes.com/article/385-hooks#flatsome-after-sidebar-menu)
+[flatsome_after_sidebar_menu_elements](https://docs.uxthemes.com/article/385-hooks#flatsome-after-sidebar-menu-elements)
+[flatsome_after_single_product_lightbox](https://docs.uxthemes.com/article/385-hooks#flatsome-after-single-product-lightbox)
+[flatsome_before_404](https://docs.uxthemes.com/article/385-hooks#flatsome-before-404)
+[flatsome_before_blog](https://docs.uxthemes.com/article/385-hooks#flatsome-before-blog)
+[flatsome_before_breadcrumb](https://docs.uxthemes.com/article/385-hooks#flatsome-before-breadcrumb)
+[flatsome_before_comments](https://docs.uxthemes.com/article/385-hooks#flatsome-before-comments)
+[flatsome_before_footer](https://docs.uxthemes.com/article/385-hooks#flatsome-before-footer)
+[flatsome_before_header](https://docs.uxthemes.com/article/385-hooks#flatsome-before-header)
+[flatsome_before_mini_cart_cross_sells](https://docs.uxthemes.com/article/385-hooks#flatsome-before-mini-cart-cross-sells)
+[flatsome_before_mini_cart_empty_message](https://docs.uxthemes.com/article/385-hooks#flatsome-before-mini-cart-empty-message)
+[flatsome_before_mini_cart_total](https://docs.uxthemes.com/article/385-hooks#flatsome-before-mini-cart-total)
+[flatsome_before_page](https://docs.uxthemes.com/article/385-hooks#flatsome-before-page)
+[flatsome_before_page_content](https://docs.uxthemes.com/article/385-hooks#flatsome-before-page-content)
+[flatsome_before_product_images](https://docs.uxthemes.com/article/385-hooks#flatsome-before-product-images)
+[flatsome_before_product_page](https://docs.uxthemes.com/article/385-hooks#flatsome-before-product-page)
+[flatsome_before_product_sidebar](https://docs.uxthemes.com/article/385-hooks#flatsome-before-product-sidebar)
+[flatsome_before_sidebar_menu](https://docs.uxthemes.com/article/385-hooks#flatsome-before-sidebar-menu)
+[flatsome_before_sidebar_menu_elements](https://docs.uxthemes.com/article/385-hooks#flatsome-before-sidebar-menu-elements)
+[flatsome_before_single_product_custom](https://docs.uxthemes.com/article/385-hooks#flatsome-before-single-product-custom)
+[flatsome_before_single_product_lightbox](https://docs.uxthemes.com/article/385-hooks#flatsome-before-single-product-lightbox)
+[flatsome_blog_post_after](https://docs.uxthemes.com/article/385-hooks#flatsome-blog-post-after)
+[flatsome_blog_post_before](https://docs.uxthemes.com/article/385-hooks#flatsome-blog-post-before)
+[flatsome_breadcrumb](https://docs.uxthemes.com/article/385-hooks#flatsome-breadcrumb)
+[flatsome_cart_sidebar](https://docs.uxthemes.com/article/385-hooks#flatsome-cart-sidebar)
+[flatsome_category_title](https://docs.uxthemes.com/article/385-hooks#flatsome-category-title)
+[flatsome_category_title_alt](https://docs.uxthemes.com/article/385-hooks#flatsome-category-title-alt)
+[flatsome_footer](https://docs.uxthemes.com/article/385-hooks#flatsome-footer)
+[flatsome_header_background](https://docs.uxthemes.com/article/385-hooks#flatsome-header-background)
+[flatsome_header_elements](https://docs.uxthemes.com/article/385-hooks#flatsome-header-elements)
+[flatsome_header_wrapper](https://docs.uxthemes.com/article/385-hooks#flatsome-header-wrapper)
+[flatsome_portfolio_title_after](https://docs.uxthemes.com/article/385-hooks#flatsome-portfolio-title-after)
+[flatsome_portfolio_title_left](https://docs.uxthemes.com/article/385-hooks#flatsome-portfolio-title-left)
+[flatsome_portfolio_title_right](https://docs.uxthemes.com/article/385-hooks#flatsome-portfolio-title-right)
+[flatsome_product_attribute_term_fields](https://docs.uxthemes.com/article/385-hooks#flatsome-product-attribute-term-fields)
+[flatsome_product_box_actions](https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-actions)
+[flatsome_product_box_after](https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-after)
+[flatsome_product_box_tools_bottom](https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-tools-bottom)
+[flatsome_product_box_tools_top](https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-tools-top)
+[flatsome_product_image_tools_bottom](https://docs.uxthemes.com/article/385-hooks#flatsome-product-image-tools-bottom)
+[flatsome_product_image_tools_top](https://docs.uxthemes.com/article/385-hooks#flatsome-product-image-tools-top)
+
+### Actions
+
+[flatsome_product_title](https://docs.uxthemes.com/article/385-hooks#flatsome-product-title)
+[flatsome_product_title_tools](https://docs.uxthemes.com/article/385-hooks#flatsome-product-title-tools)
+[flatsome_products_after](https://docs.uxthemes.com/article/385-hooks#flatsome-products-after)
+[flatsome_products_before](https://docs.uxthemes.com/article/385-hooks#flatsome-products-before)
+[flatsome_sale_flash](https://docs.uxthemes.com/article/385-hooks#flatsome-sale-flash)
+[flatsome_single_product_lightbox_product_gallery](https://docs.uxthemes.com/article/385-hooks#flatsome-single-product-lightbox-product-gallery)
+[flatsome_single_product_lightbox_summary](https://docs.uxthemes.com/article/385-hooks#flatsome-single-product-lightbox-summary)
+[flatsome_woocommerce_shop_loop_images](https://docs.uxthemes.com/article/385-hooks#flatsome-woocommerce-shop-loop-images)
+67 actions
+
+### Filters
+
+- [flatsome_admin_menu_items_enabled](https://docs.uxthemes.com/article/385-hooks#flatsome-admin-menu-items-enabled)
+- [flatsome_ajax_search_function](https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-function)
+- [flatsome_ajax_search_post_type](https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-post-type)
+- [flatsome_ajax_search_products_by_sku_search_meta_query_args](https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-products-by-sku-search-meta-query-args)
+- [flatsome_ajax_search_products_by_sku_search_query](https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-products-by-sku-search-query)
+- [flatsome_ajax_search_products_by_tag_search_query](https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-products-by-tag-search-query)
+- [flatsome_ajax_search_products_search_query](https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-products-search-query)
+- [flatsome_ajax_search_query](https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-query)
+- [flatsome_attachment_size](https://docs.uxthemes.com/article/385-hooks#flatsome-attachment-size)
+- [flatsome_author_bio_avatar_size](https://docs.uxthemes.com/article/385-hooks#flatsome-author-bio-avatar-size)
+- [flatsome_before_body_close_priority](https://docs.uxthemes.com/article/385-hooks#flatsome-before-body-close-priority)
+- [flatsome_cache_clear_items](https://docs.uxthemes.com/article/385-hooks#flatsome-cache-clear-items)
+- [flatsome_custom_product_single_product_hooks](https://docs.uxthemes.com/article/385-hooks#flatsome-custom-product-single-product-hooks)
+- [flatsome_disable_mini_cart](https://docs.uxthemes.com/article/385-hooks#flatsome-disable-mini-cart)
+- [flatsome_dummy_text](https://docs.uxthemes.com/article/385-hooks#flatsome-dummy-text)
+- [flatsome_follow_links](https://docs.uxthemes.com/article/385-hooks#flatsome-follow-links)
+- [flatsome_header_account_username](https://docs.uxthemes.com/article/385-hooks#flatsome-header-account-username)
+- [flatsome_header_class](https://docs.uxthemes.com/article/385-hooks#flatsome-header-class)
+- [flatsome_header_element](https://docs.uxthemes.com/article/385-hooks#flatsome-header-element)
+- [flatsome_header_title_class](https://docs.uxthemes.com/article/385-hooks#flatsome-header-title-class)
+- [flatsome_html_atts](https://docs.uxthemes.com/article/385-hooks#flatsome-html-atts)
+- [flatsome_icon](https://docs.uxthemes.com/article/385-hooks#flatsome-icon)
+- [flatsome_infinite_scroll_params](https://docs.uxthemes.com/article/385-hooks#flatsome-infinite-scroll-params)
+- [flatsome_is_blog_archive](https://docs.uxthemes.com/article/385-hooks#flatsome-is-blog-archive)
+- [flatsome_is_shop_archive](https://docs.uxthemes.com/article/385-hooks#flatsome-is-shop-archive)
+- [flatsome_lightbox_close_btn_inside](https://docs.uxthemes.com/article/385-hooks#flatsome-lightbox-close-btn-inside)
+- [flatsome_lightbox_close_button](https://docs.uxthemes.com/article/385-hooks#flatsome-lightbox-close-button)
+- [flatsome_loop_review_count_html](https://docs.uxthemes.com/article/385-hooks#flatsome-loop-review-count-html)
+- [flatsome_main_class](https://docs.uxthemes.com/article/385-hooks#flatsome-main-class)
+- [flatsome_maintenance_mode](https://docs.uxthemes.com/article/385-hooks#flatsome-maintenance-mode)
+- [flatsome_mini_cart_cross_sells_order](https://docs.uxthemes.com/article/385-hooks#flatsome-mini-cart-cross-sells-order)
+- [flatsome_mini_cart_cross_sells_orderby](https://docs.uxthemes.com/article/385-hooks#flatsome-mini-cart-cross-sells-orderby)
+- [flatsome_mini_cart_cross_sells_total](https://docs.uxthemes.com/article/385-hooks#flatsome-mini-cart-cross-sells-total)
+- [flatsome_new_flash_html](https://docs.uxthemes.com/article/385-hooks#flatsome-new-flash-html)
+- [flatsome_payment_icons](https://docs.uxthemes.com/article/385-hooks#flatsome-payment-icons)
+- [flatsome_product_block](https://docs.uxthemes.com/article/385-hooks#flatsome-product-block)
+- [flatsome_product_block_primary_term_id](https://docs.uxthemes.com/article/385-hooks#flatsome-product-block-primary-term-id)
+- [flatsome_product_block_product_terms_args](https://docs.uxthemes.com/article/385-hooks#flatsome-product-block-product-terms-args)
+- [flatsome_product_box_actions_classes](https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-actions-classes)
+- [flatsome_product_box_classes](https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-classes)
+
+### Filters
+
+- [flatsome_product_box_image_classes](https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-image-classes)
+- [flatsome_product_box_text_classes](https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-text-classes)
+- [flatsome_product_labels](https://docs.uxthemes.com/article/385-hooks#flatsome-product-labels)
+- [flatsome_relay_classes](https://docs.uxthemes.com/article/385-hooks#flatsome-relay-classes)
+- [flatsome_relay_control_classes](https://docs.uxthemes.com/article/385-hooks#flatsome-relay-control-classes)
+- [flatsome_relay_pagination_args](https://docs.uxthemes.com/article/385-hooks#flatsome-relay-pagination-args)
+- [flatsome_sale_bubble_percentage_cache_enabled](https://docs.uxthemes.com/article/385-hooks#flatsome-sale-bubble-percentage-cache-enabled)
+- [flatsome_share_links](https://docs.uxthemes.com/article/385-hooks#flatsome-share-links)
+- [flatsome_shipping_free_shipping_threshold](https://docs.uxthemes.com/article/385-hooks#flatsome-shipping-free-shipping-threshold)
+- [flatsome_show_block_edit_tooltip](https://docs.uxthemes.com/article/385-hooks#flatsome-show-block-edit-tooltip)
+- [flatsome_show_buy_now_button](https://docs.uxthemes.com/article/385-hooks#flatsome-show-buy-now-button)
+- [flatsome_show_mini_cart_item_quantity](https://docs.uxthemes.com/article/385-hooks#flatsome-show-mini-cart-item-quantity)
+- [flatsome_sidebar_class](https://docs.uxthemes.com/article/385-hooks#flatsome-sidebar-class)
+- [flatsome_single_product_thumbnails_classes](https://docs.uxthemes.com/article/385-hooks#flatsome-single-product-thumbnails-classes)
+- [flatsome_single_product_thumbnails_render_without_attachments](https://docs.uxthemes.com/article/385-hooks#flatsome-single-product-thumbnails-render-without-attachments)
+- [flatsome_sticky_add_to_cart_enabled](https://docs.uxthemes.com/article/385-hooks#flatsome-sticky-add-to-cart-enabled)
+- [flatsome_swatch_html](https://docs.uxthemes.com/article/385-hooks#flatsome-swatch-html)
+- [flatsome_swatch_image_size](https://docs.uxthemes.com/article/385-hooks#flatsome-swatch-image-size)
+- [flatsome_swatches_box_attribute](https://docs.uxthemes.com/article/385-hooks#flatsome-swatches-box-attribute)
+- [flatsome_swatches_box_display_min_count](https://docs.uxthemes.com/article/385-hooks#flatsome-swatches-box-display-min-count)
+- [flatsome_swatches_cache_enabled](https://docs.uxthemes.com/article/385-hooks#flatsome-swatches-cache-enabled)
+- [flatsome_swatches_cache_time](https://docs.uxthemes.com/article/385-hooks#flatsome-swatches-cache-time)
+- [flatsome_text_formats](https://docs.uxthemes.com/article/385-hooks#flatsome-text-formats)
+- [flatsome_viewport_meta](https://docs.uxthemes.com/article/385-hooks#flatsome-viewport-meta)
+- [flatsome_woocommerce_get_alt_product_thumbnail](https://docs.uxthemes.com/article/385-hooks#flatsome-woocommerce-get-alt-product-thumbnail)
+- [flatsome_woocommerce_shop_loop_category](https://docs.uxthemes.com/article/385-hooks#flatsome-woocommerce-shop-loop-category)
+- [flatsome_wpseo_breadcrumb_remove_last](https://docs.uxthemes.com/article/385-hooks#flatsome-wpseo-breadcrumb-remove-last)
+[flatsome_admin_menu_items_enabled](https://docs.uxthemes.com/article/385-hooks#flatsome-admin-menu-items-enabled)
+[flatsome_ajax_search_function](https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-function)
+[flatsome_ajax_search_post_type](https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-post-type)
+[flatsome_ajax_search_products_by_sku_search_meta_query_args](https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-products-by-sku-search-meta-query-args)
+[flatsome_ajax_search_products_by_sku_search_query](https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-products-by-sku-search-query)
+[flatsome_ajax_search_products_by_tag_search_query](https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-products-by-tag-search-query)
+[flatsome_ajax_search_products_search_query](https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-products-search-query)
+[flatsome_ajax_search_query](https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-query)
+[flatsome_attachment_size](https://docs.uxthemes.com/article/385-hooks#flatsome-attachment-size)
+[flatsome_author_bio_avatar_size](https://docs.uxthemes.com/article/385-hooks#flatsome-author-bio-avatar-size)
+[flatsome_before_body_close_priority](https://docs.uxthemes.com/article/385-hooks#flatsome-before-body-close-priority)
+
+### Filters
+
+[flatsome_cache_clear_items](https://docs.uxthemes.com/article/385-hooks#flatsome-cache-clear-items)
+[flatsome_custom_product_single_product_hooks](https://docs.uxthemes.com/article/385-hooks#flatsome-custom-product-single-product-hooks)
+[flatsome_disable_mini_cart](https://docs.uxthemes.com/article/385-hooks#flatsome-disable-mini-cart)
+[flatsome_dummy_text](https://docs.uxthemes.com/article/385-hooks#flatsome-dummy-text)
+[flatsome_follow_links](https://docs.uxthemes.com/article/385-hooks#flatsome-follow-links)
+[flatsome_header_account_username](https://docs.uxthemes.com/article/385-hooks#flatsome-header-account-username)
+[flatsome_header_class](https://docs.uxthemes.com/article/385-hooks#flatsome-header-class)
+[flatsome_header_element](https://docs.uxthemes.com/article/385-hooks#flatsome-header-element)
+[flatsome_header_title_class](https://docs.uxthemes.com/article/385-hooks#flatsome-header-title-class)
+[flatsome_html_atts](https://docs.uxthemes.com/article/385-hooks#flatsome-html-atts)
+[flatsome_icon](https://docs.uxthemes.com/article/385-hooks#flatsome-icon)
+[flatsome_infinite_scroll_params](https://docs.uxthemes.com/article/385-hooks#flatsome-infinite-scroll-params)
+[flatsome_is_blog_archive](https://docs.uxthemes.com/article/385-hooks#flatsome-is-blog-archive)
+[flatsome_is_shop_archive](https://docs.uxthemes.com/article/385-hooks#flatsome-is-shop-archive)
+[flatsome_lightbox_close_btn_inside](https://docs.uxthemes.com/article/385-hooks#flatsome-lightbox-close-btn-inside)
+[flatsome_lightbox_close_button](https://docs.uxthemes.com/article/385-hooks#flatsome-lightbox-close-button)
+[flatsome_loop_review_count_html](https://docs.uxthemes.com/article/385-hooks#flatsome-loop-review-count-html)
+[flatsome_main_class](https://docs.uxthemes.com/article/385-hooks#flatsome-main-class)
+[flatsome_maintenance_mode](https://docs.uxthemes.com/article/385-hooks#flatsome-maintenance-mode)
+[flatsome_mini_cart_cross_sells_order](https://docs.uxthemes.com/article/385-hooks#flatsome-mini-cart-cross-sells-order)
+[flatsome_mini_cart_cross_sells_orderby](https://docs.uxthemes.com/article/385-hooks#flatsome-mini-cart-cross-sells-orderby)
+[flatsome_mini_cart_cross_sells_total](https://docs.uxthemes.com/article/385-hooks#flatsome-mini-cart-cross-sells-total)
+[flatsome_new_flash_html](https://docs.uxthemes.com/article/385-hooks#flatsome-new-flash-html)
+[flatsome_payment_icons](https://docs.uxthemes.com/article/385-hooks#flatsome-payment-icons)
+[flatsome_product_block](https://docs.uxthemes.com/article/385-hooks#flatsome-product-block)
+[flatsome_product_block_primary_term_id](https://docs.uxthemes.com/article/385-hooks#flatsome-product-block-primary-term-id)
+[flatsome_product_block_product_terms_args](https://docs.uxthemes.com/article/385-hooks#flatsome-product-block-product-terms-args)
+[flatsome_product_box_actions_classes](https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-actions-classes)
+[flatsome_product_box_classes](https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-classes)
+[flatsome_product_box_image_classes](https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-image-classes)
+[flatsome_product_box_text_classes](https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-text-classes)
+[flatsome_product_labels](https://docs.uxthemes.com/article/385-hooks#flatsome-product-labels)
+[flatsome_relay_classes](https://docs.uxthemes.com/article/385-hooks#flatsome-relay-classes)
+[flatsome_relay_control_classes](https://docs.uxthemes.com/article/385-hooks#flatsome-relay-control-classes)
+[flatsome_relay_pagination_args](https://docs.uxthemes.com/article/385-hooks#flatsome-relay-pagination-args)
+[flatsome_sale_bubble_percentage_cache_enabled](https://docs.uxthemes.com/article/385-hooks#flatsome-sale-bubble-percentage-cache-enabled)
+[flatsome_share_links](https://docs.uxthemes.com/article/385-hooks#flatsome-share-links)
+[flatsome_shipping_free_shipping_threshold](https://docs.uxthemes.com/article/385-hooks#flatsome-shipping-free-shipping-threshold)
+[flatsome_show_block_edit_tooltip](https://docs.uxthemes.com/article/385-hooks#flatsome-show-block-edit-tooltip)
+[flatsome_show_buy_now_button](https://docs.uxthemes.com/article/385-hooks#flatsome-show-buy-now-button)
+[flatsome_show_mini_cart_item_quantity](https://docs.uxthemes.com/article/385-hooks#flatsome-show-mini-cart-item-quantity)
+[flatsome_sidebar_class](https://docs.uxthemes.com/article/385-hooks#flatsome-sidebar-class)
+
+### Filters
+
+[flatsome_single_product_thumbnails_classes](https://docs.uxthemes.com/article/385-hooks#flatsome-single-product-thumbnails-classes)
+[flatsome_single_product_thumbnails_render_without_attachments](https://docs.uxthemes.com/article/385-hooks#flatsome-single-product-thumbnails-render-without-attachments)
+[flatsome_sticky_add_to_cart_enabled](https://docs.uxthemes.com/article/385-hooks#flatsome-sticky-add-to-cart-enabled)
+[flatsome_swatch_html](https://docs.uxthemes.com/article/385-hooks#flatsome-swatch-html)
+[flatsome_swatch_image_size](https://docs.uxthemes.com/article/385-hooks#flatsome-swatch-image-size)
+[flatsome_swatches_box_attribute](https://docs.uxthemes.com/article/385-hooks#flatsome-swatches-box-attribute)
+[flatsome_swatches_box_display_min_count](https://docs.uxthemes.com/article/385-hooks#flatsome-swatches-box-display-min-count)
+[flatsome_swatches_cache_enabled](https://docs.uxthemes.com/article/385-hooks#flatsome-swatches-cache-enabled)
+[flatsome_swatches_cache_time](https://docs.uxthemes.com/article/385-hooks#flatsome-swatches-cache-time)
+[flatsome_text_formats](https://docs.uxthemes.com/article/385-hooks#flatsome-text-formats)
+[flatsome_viewport_meta](https://docs.uxthemes.com/article/385-hooks#flatsome-viewport-meta)
+[flatsome_woocommerce_get_alt_product_thumbnail](https://docs.uxthemes.com/article/385-hooks#flatsome-woocommerce-get-alt-product-thumbnail)
+[flatsome_woocommerce_shop_loop_category](https://docs.uxthemes.com/article/385-hooks#flatsome-woocommerce-shop-loop-category)
+[flatsome_wpseo_breadcrumb_remove_last](https://docs.uxthemes.com/article/385-hooks#flatsome-wpseo-breadcrumb-remove-last)
+67 filters
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-absolute-footer-primaryflatsome_absolute_footer_primary
+Type: action
+Files:
+- template-parts/footer/footer-absolute.php:49
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-absolute-footer-secondaryflatsome_absolute_footer_secondary
+Type: action
+Files:
+- template-parts/footer/footer-absolute.php:15
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-account-linksflatsome_account_links
+Type: action
+Used: 2 times
+Files:
+- woocommerce/myaccount/account-links.php:40
+- woocommerce/myaccount/dashboard-links.php:31
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-after-404flatsome_after_404
+Type: action
+Files:
+- 404.php:33
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-after-account-userflatsome_after_account_user
+Type: action
+Files:
+- woocommerce/myaccount/account-user.php:25
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-after-blogflatsome_after_blog
+Type: action
+Used: 3 times
+Files:
+- template-parts/posts/layout-left-sidebar.php:37
+- template-parts/posts/layout-right-sidebar.php:37
+- template-parts/posts/layout.php:31
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-after-body-openflatsome_after_body_open
+Type: action
+Used: 5 times
+Files:
+- header.php:22
+- maintenance.php:22
+- page-blank-landingpage.php:22
+- woocommerce/checkout/layouts/checkout-focused.php:23
+- woocommerce/checkout/layouts/checkout-simple.php:23
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-after-breadcrumbflatsome_after_breadcrumb
+Type: action
+Files:
+- woocommerce/global/breadcrumb.php:53
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-after-footerflatsome_after_footer
+Type: action
+Files:
+- template-parts/footer/footer.php:29
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-after-headerflatsome_after_header
+Type: action
+Used: 3 times
+Files:
+- header.php:37
+- page-blank-landingpage.php:26
+- single-blocks.php:22
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-after-header-bottomflatsome_after_header_bottom
+Type: action
+Files:
+- template-parts/header/header-bottom.php:50
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-after-mini-cart-contentsflatsome_after_mini_cart_contents
+Type: action
+Since: 3.18.0
+Files:
+- woocommerce/cart/mini-cart.php:82
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-after-mini-cart-cross-sellsflatsome_after_mini_cart_cross_sells
+Type: action
+Since: 3.18.0
+Files:
+- woocommerce/cart/mini-cart/cross-sells.php:42
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-after-mini-cart-empty-messageflatsome_after_mini_cart_empty_message
+Type: action
+Since: 3.18.0
+Files:
+- woocommerce/cart/mini-cart.php:110
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-after-pageflatsome_after_page
+Type: action
+Used: 15 times
+Files:
+- page-blank-landingpage.php:46
+- page-blank-sub-nav-vertical.php:60
+- page-blank-title-center.php:38
+- page-blank.php:29
+- page-header-on-scroll.php:27
+- page-left-sidebar.php:43
+- page-my-account.php:57
+- page-right-sidebar.php:44
+- page-single-page-nav-transparent-light.php:27
+- page-single-page-nav-transparent.php:27
+- page-single-page-nav.php:27
+- page-transparent-header-light.php:27
+- page-transparent-header.php:27
+- page.php:49
+- single-blocks.php:34
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-after-page-contentflatsome_after_page_content
+Type: action
+Files:
+- page.php:41
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-after-product-imagesflatsome_after_product_images
+Type: action
+Used: 4 times
+Files:
+- woocommerce/single-product/product-image-stacked.php:107
+- woocommerce/single-product/product-image-vertical.php:104
+- woocommerce/single-product/product-image-wide.php:101
+- woocommerce/single-product/product-image.php:137
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-after-product-pageflatsome_after_product_page
+Type: action
+Files:
+- woocommerce/single-product.php:56
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-after-sidebar-menuflatsome_after_sidebar_menu
+Type: action
+Since: 3.15.0
+Files:
+- template-parts/overlays/overlay-menu.php:71
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-after-sidebar-menu-elementsflatsome_after_sidebar_menu_elements
+Type: action
+Since: 3.15.0
+Files:
+- template-parts/overlays/overlay-menu.php:67
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-after-single-product-lightboxflatsome_after_single_product_lightbox
+Type: action
+Since: 3.18.0
+Files:
+- woocommerce/content-single-product-lightbox.php:75
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-before-404flatsome_before_404
+Type: action
+Files:
+- 404.php:10
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-before-blogflatsome_before_blog
+Type: action
+Used: 3 times
+Files:
+- template-parts/posts/layout-left-sidebar.php:9
+- template-parts/posts/layout-right-sidebar.php:9
+- template-parts/posts/layout.php:9
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-before-breadcrumbflatsome_before_breadcrumb
+Type: action
+Files:
+- woocommerce/global/breadcrumb.php:19
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-before-commentsflatsome_before_comments
+Type: action
+Files:
+- comments.php:23
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-before-footerflatsome_before_footer
+Type: action
+Files:
+- template-parts/footer/footer.php:9
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-before-headerflatsome_before_header
+Type: action
+Files:
+- header.php:29
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-before-mini-cart-cross-sellsflatsome_before_mini_cart_cross_sells
+Type: action
+Since: 3.18.0
+Files:
+- woocommerce/cart/mini-cart/cross-sells.php:11
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-before-mini-cart-empty-messageflatsome_before_mini_cart_empty_message
+Type: action
+Since: 3.18.0
+Files:
+- woocommerce/cart/mini-cart.php:108
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-before-mini-cart-totalflatsome_before_mini_cart_total
+Type: action
+Since: 3.18.0
+Files:
+- woocommerce/cart/mini-cart.php:85
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-before-pageflatsome_before_page
+Type: action
+Used: 15 times
+Files:
+- page-blank-landingpage.php:25
+- page-blank-sub-nav-vertical.php:11
+- page-blank-title-center.php:12
+- page-blank.php:11
+- page-header-on-scroll.php:11
+- page-left-sidebar.php:11
+- page-my-account.php:13
+- page-right-sidebar.php:11
+- page-single-page-nav-transparent-light.php:11
+- page-single-page-nav-transparent.php:11
+- page-single-page-nav.php:11
+- page-transparent-header-light.php:11
+- page-transparent-header.php:11
+- page.php:18
+- single-blocks.php:21
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-before-page-contentflatsome_before_page_content
+Type: action
+Files:
+- page.php:31
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-before-product-imagesflatsome_before_product_images
+Type: action
+Used: 4 times
+Files:
+- woocommerce/single-product/product-image-stacked.php:65
+- woocommerce/single-product/product-image-vertical.php:58
+- woocommerce/single-product/product-image-wide.php:47
+- woocommerce/single-product/product-image.php:92
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-before-product-pageflatsome_before_product_page
+Type: action
+Files:
+- woocommerce/single-product.php:19
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-before-product-sidebarflatsome_before_product_sidebar
+Type: action
+Used: 10 times
+Files:
+- woocommerce/content-single-product-custom.php:53
+- woocommerce/single-product/layouts/product-gallery-wide.php:66
+- woocommerce/single-product/layouts/product-left-sidebar-full.php:15
+- woocommerce/single-product/layouts/product-left-sidebar-small.php:16
+- woocommerce/single-product/layouts/product-left-sidebar.php:50
+- woocommerce/single-product/layouts/product-no-sidebar.php:50
+- woocommerce/single-product/layouts/product-right-sidebar-full.php:13
+- woocommerce/single-product/layouts/product-right-sidebar.php:50
+- woocommerce/single-product/layouts/product-stacked-right.php:57
+- woocommerce/single-product/layouts/product.php:48
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-before-sidebar-menuflatsome_before_sidebar_menu
+Type: action
+Since: 3.15.0
+Files:
+- template-parts/overlays/overlay-menu.php:34
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-before-sidebar-menu-elementsflatsome_before_sidebar_menu_elements
+Type: action
+Since: 3.15.0
+Files:
+- template-parts/overlays/overlay-menu.php:38
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-before-single-product-customflatsome_before_single_product_custom
+Type: action
+Since: 3.12.0
+Files:
+- woocommerce/content-single-product-custom.php:37
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-before-single-product-lightboxflatsome_before_single_product_lightbox
+Type: action
+Since: 3.18.0
+Files:
+- woocommerce/content-single-product-lightbox.php:20
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-blog-post-afterflatsome_blog_post_after
+Type: action
+Files:
+- inc/shortcodes/blog_posts.php:330
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-blog-post-beforeflatsome_blog_post_before
+Type: action
+Files:
+- inc/shortcodes/blog_posts.php:292
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-breadcrumbflatsome_breadcrumb
+Type: action
+Files:
+- inc/functions/fl-template-functions.php:24
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-cart-sidebarflatsome_cart_sidebar
+Type: action
+Used: 4 times
+Files:
+- template-parts/header/partials/element-cart-mobile.php:93
+- template-parts/header/partials/element-cart-sidebar.php:55
+- template-parts/header/partials/element-cart.php:115
+- woocommerce/cart/cart.php:259
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-category-titleflatsome_category_title
+Type: action
+Used: 3 times
+Files:
+- woocommerce/layouts/headers/category-title-featured-center.php:22
+- woocommerce/layouts/headers/category-title-featured.php:19
+- woocommerce/layouts/headers/category-title.php:23
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-category-title-altflatsome_category_title_alt
+Type: action
+Documentation: [https://docs.uxthemes.com/article/350-woocommerce-shop-page-result-count-and-ordering-dropdown](https://docs.uxthemes.com/article/350-woocommerce-shop-page-result-count-and-ordering-dropdown)
+Used: 3 times
+Files:
+- woocommerce/layouts/headers/category-title-featured-center.php:25
+- woocommerce/layouts/headers/category-title-featured.php:23
+- woocommerce/layouts/headers/category-title.php:26
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-footerflatsome_footer
+Type: action
+Files:
+- footer.php:16
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-header-backgroundflatsome_header_background
+Type: action
+Files:
+- template-parts/header/header-wrapper.php:21
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-header-elementsflatsome_header_elements
+Type: action
+Files:
+- inc/structure/structure-header.php:104
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-header-wrapperflatsome_header_wrapper
+Type: action
+Files:
+- template-parts/header/header-wrapper.php:24
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-portfolio-title-afterflatsome_portfolio_title_after
+Type: action
+Used: 2 times
+Files:
+- template-parts/portfolio/archive-portfolio-title-featured.php:31
+- template-parts/portfolio/portfolio-title-featured.php:23
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-portfolio-title-leftflatsome_portfolio_title_left
+Type: action
+Files:
+- template-parts/portfolio/archive-portfolio-title-featured.php:21
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-portfolio-title-rightflatsome_portfolio_title_right
+Type: action
+Files:
+- template-parts/portfolio/archive-portfolio-title-featured.php:34
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-product-attribute-term-fieldsflatsome_product_attribute_term_fields
+Type: action
+Since: 3.14.0
+Used: 2 times
+Files:
+- inc/extensions/flatsome-swatches/includes/class-swatches-admin.php:185
+- inc/extensions/flatsome-swatches/includes/class-swatches-admin.php:198
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-actionsflatsome_product_box_actions
+Type: action
+Used: 3 times
+Files:
+- inc/shortcodes/ux_products.php:322
+- inc/shortcodes/ux_products.php:342
+- woocommerce/content-product.php:63
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-afterflatsome_product_box_after
+Type: action
+Used: 2 times
+Files:
+- inc/shortcodes/ux_products.php:346
+- woocommerce/content-product.php:81
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-tools-bottomflatsome_product_box_tools_bottom
+Type: action
+Files:
+- woocommerce/content-product.php:60
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-tools-topflatsome_product_box_tools_top
+Type: action
+Used: 2 times
+Files:
+- inc/shortcodes/ux_products.php:318
+- woocommerce/content-product.php:57
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-product-image-tools-bottomflatsome_product_image_tools_bottom
+Type: action
+Used: 3 times
+Files:
+- woocommerce/single-product/product-image-vertical.php:101
+- woocommerce/single-product/product-image-wide.php:94
+- woocommerce/single-product/product-image.php:134
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-product-image-tools-topflatsome_product_image_tools_top
+Type: action
+Used: 5 times
+Files:
+- woocommerce/single-product/product-image-default.php:47
+- woocommerce/single-product/product-image-stacked.php:72
+- woocommerce/single-product/product-image-vertical.php:65
+- woocommerce/single-product/product-image-wide.php:95
+- woocommerce/single-product/product-image.php:99
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-product-titleflatsome_product_title
+Type: action
+Used: 3 times
+Files:
+- woocommerce/single-product/headers/header-product-featured-center.php:22
+- woocommerce/single-product/headers/header-product-featured.php:19
+- woocommerce/single-product/headers/header-product-top.php:13
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-product-title-toolsflatsome_product_title_tools
+Type: action
+Used: 3 times
+Files:
+- woocommerce/single-product/headers/header-product-featured-center.php:25
+- woocommerce/single-product/headers/header-product-featured.php:23
+- woocommerce/single-product/headers/header-product-top.php:17
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-products-afterflatsome_products_after
+Type: action
+Used: 4 times
+Files:
+- woocommerce/layouts/category-none.php:90
+- woocommerce/layouts/category-off-canvas.php:90
+- woocommerce/layouts/category-right-sidebar.php:90
+- woocommerce/layouts/category.php:101
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-products-beforeflatsome_products_before
+Type: action
+Used: 3 times
+Files:
+- woocommerce/layouts/category-none.php:14
+- woocommerce/layouts/category-off-canvas.php:14
+- woocommerce/layouts/category-right-sidebar.php:14
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-sale-flashflatsome_sale_flash
+Type: action
+Used: 5 times
+Files:
+- woocommerce/single-product/product-image-default.php:44
+- woocommerce/single-product/product-image-stacked.php:69
+- woocommerce/single-product/product-image-vertical.php:62
+- woocommerce/single-product/product-image-wide.php:52
+- woocommerce/single-product/product-image.php:96
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-single-product-lightbox-product-galleryflatsome_single_product_lightbox_product_gallery
+Type: action
+Since: 3.18.0
+Files:
+- woocommerce/content-single-product-lightbox.php:58
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-single-product-lightbox-summaryflatsome_single_product_lightbox_summary
+Type: action
+Since: 3.18.0
+Files:
+- woocommerce/content-single-product-lightbox.php:67
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-woocommerce-shop-loop-imagesflatsome_woocommerce_shop_loop_images
+Type: action
+Files:
+- woocommerce/content-product.php:52
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-admin-menu-items-enabledflatsome_admin_menu_items_enabled
+Type: filter
+Files:
+- inc/admin/backend/menu/class-menu.php:50
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-functionflatsome_ajax_search_function
+Type: filter
+Used: 2 times
+Files:
+- inc/extensions/flatsome-live-search/flatsome-live-search.php:29
+- inc/extensions/flatsome-live-search/flatsome-live-search.php:76
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-post-typeflatsome_ajax_search_post_type
+Type: filter
+Files:
+- inc/extensions/flatsome-live-search/flatsome-live-search.php:26
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-products-by-sku-search-meta-query-argsflatsome_ajax_search_products_by_sku_search_meta_query_args
+Type: filter
+Since: 3.20.0
+Files:
+- inc/extensions/flatsome-live-search/flatsome-live-search.php:68
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-products-by-sku-search-queryflatsome_ajax_search_products_by_sku_search_query
+Type: filter
+Files:
+- inc/extensions/flatsome-live-search/flatsome-live-search.php:65
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-products-by-tag-search-queryflatsome_ajax_search_products_by_tag_search_query
+Type: filter
+Files:
+- inc/extensions/flatsome-live-search/flatsome-live-search.php:62
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-products-search-queryflatsome_ajax_search_products_search_query
+Type: filter
+Files:
+- inc/extensions/flatsome-live-search/flatsome-live-search.php:58
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-ajax-search-queryflatsome_ajax_search_query
+Type: filter
+Used: 2 times
+Files:
+- inc/extensions/flatsome-live-search/flatsome-live-search.php:25
+- inc/extensions/flatsome-live-search/flatsome-live-search.php:142
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-attachment-sizeflatsome_attachment_size
+Type: filter
+Files:
+- image.php:80
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-author-bio-avatar-sizeflatsome_author_bio_avatar_size
+Type: filter
+Since: 3.13.3
+Files:
+- template-parts/posts/content-single.php:57
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-before-body-close-priorityflatsome_before_body_close_priority
+Type: filter
+Files:
+- inc/structure/structure-footer.php:107
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-cache-clear-itemsflatsome_cache_clear_items
+Type: filter
+Files:
+- inc/classes/class-flatsome-cache.php:31
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-custom-product-single-product-hooksflatsome_custom_product_single_product_hooks
+Type: filter
+Used: 2 times
+Files:
+- inc/builder/shortcodes/custom-product.php:238
+- inc/shortcodes/custom-product.php:121
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-disable-mini-cartflatsome_disable_mini_cart
+Type: filter
+Used: 2 times
+Files:
+- template-parts/header/partials/element-cart-mobile.php:21
+- template-parts/header/partials/element-cart.php:20
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-dummy-textflatsome_dummy_text
+Type: filter
+Files:
+- inc/helpers/helpers-frontend.php:151
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-follow-linksflatsome_follow_links
+Type: filter
+Files:
+- inc/shortcodes/follow.php:122
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-header-account-usernameflatsome_header_account_username
+Type: filter
+Since: 3.13.2
+Files:
+- template-parts/header/partials/element-account.php:52
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-header-classflatsome_header_class
+Type: filter
+Files:
+- inc/structure/structure-header.php:943
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-header-elementflatsome_header_element
+Type: filter
+Files:
+- inc/admin/options/helpers/options-helpers.php:48
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-header-title-classflatsome_header_title_class
+Type: filter
+Files:
+- inc/structure/structure-header.php:964
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-html-attsflatsome_html_atts
+Type: filter
+Since: 3.18.0
+Files:
+- inc/helpers/helpers-frontend.php:32
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-iconflatsome_icon
+Type: filter
+Since: 3.16.0
+Files:
+- inc/helpers/helpers-icons.php:37
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-infinite-scroll-paramsflatsome_infinite_scroll_params
+Type: filter
+Since: 3.6.2
+Documentation: [https://docs.uxthemes.com/article/316-infinite-scroll-disable-history](https://docs.uxthemes.com/article/316-infinite-scroll-disable-history)
+Files:
+- inc/extensions/flatsome-infinite-scroll/class-flatsome-infinite-scroll.php:105
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-is-blog-archiveflatsome_is_blog_archive
+Type: filter
+Since: 3.18.2
+Files:
+- inc/functions/function-conditionals.php:118
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-is-shop-archiveflatsome_is_shop_archive
+Type: filter
+Since: 3.18.2
+Files:
+- inc/functions/function-conditionals.php:141
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-lightbox-close-btn-insideflatsome_lightbox_close_btn_inside
+Type: filter
+Since: 3.9.0
+Documentation: [https://docs.uxthemes.com/article/378-lightbox-close-button](https://docs.uxthemes.com/article/378-lightbox-close-button)
+Files:
+- inc/functions/function-setup.php:246
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-lightbox-close-buttonflatsome_lightbox_close_button
+Type: filter
+Since: 3.9.0
+Documentation: [https://docs.uxthemes.com/article/378-lightbox-close-button](https://docs.uxthemes.com/article/378-lightbox-close-button)
+Files:
+- inc/functions/function-setup.php:234
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-loop-review-count-htmlflatsome_loop_review_count_html
+Type: filter
+Since: 3.16.0
+Files:
+- woocommerce/loop/rating.php:47
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-main-classflatsome_main_class
+Type: filter
+Files:
+- inc/structure/structure-header.php:953
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-maintenance-modeflatsome_maintenance_mode
+Type: filter
+Since: 3.18.0
+Used: 2 times
+Files:
+- inc/admin/advanced/functions/functions.options.php:438
+- inc/functions/function-maintenance.php:29
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-mini-cart-cross-sells-orderflatsome_mini_cart_cross_sells_order
+Type: filter
+Since: 3.18.0
+Files:
+- inc/woocommerce/class-mini-cart.php:245
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-mini-cart-cross-sells-orderbyflatsome_mini_cart_cross_sells_orderby
+Type: filter
+Since: 3.18.0
+Files:
+- inc/woocommerce/class-mini-cart.php:243
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-mini-cart-cross-sells-totalflatsome_mini_cart_cross_sells_total
+Type: filter
+Since: 3.18.0
+Files:
+- inc/woocommerce/class-mini-cart.php:248
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-new-flash-htmlflatsome_new_flash_html
+Type: filter
+Since: 3.14.0
+Files:
+- inc/woocommerce/structure-wc-global.php:340
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-payment-iconsflatsome_payment_icons
+Type: filter
+Since: 3.9.0
+Documentation: [https://docs.uxthemes.com/article/351-paymenticons](https://docs.uxthemes.com/article/351-paymenticons)
+Files:
+- inc/functions/function-global.php:434
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-product-blockflatsome_product_block
+Type: filter
+Since: 3.12.0
+Documentation: [https://docs.uxthemes.com/article/389-custom-product-page](https://docs.uxthemes.com/article/389-custom-product-page)
+Files:
+- inc/helpers/helpers-woocommerce.php:99
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-product-block-primary-term-idflatsome_product_block_primary_term_id
+Type: filter
+Since: 3.12.0
+Files:
+- inc/helpers/helpers-woocommerce.php:13
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-product-block-product-terms-argsflatsome_product_block_product_terms_args
+Type: filter
+Since: 3.12.0
+Files:
+- inc/helpers/helpers-woocommerce.php:23
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-actions-classesflatsome_product_box_actions_classes
+Type: filter
+Since: 3.19.0
+Files:
+- inc/woocommerce/structure-wc-product-box.php:316
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-classesflatsome_product_box_classes
+Type: filter
+Since: 3.19.0
+Files:
+- inc/woocommerce/structure-wc-product-box.php:278
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-image-classesflatsome_product_box_image_classes
+Type: filter
+Since: 3.19.0
+Files:
+- inc/woocommerce/structure-wc-product-box.php:299
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-product-box-text-classesflatsome_product_box_text_classes
+Type: filter
+Since: 3.19.0
+Files:
+- inc/woocommerce/structure-wc-product-box.php:352
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-product-labelsflatsome_product_labels
+Type: filter
+Used: 2 times
+Files:
+- woocommerce/loop/sale-flash.php:36
+- woocommerce/single-product/sale-flash.php:36
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-relay-classesflatsome_relay_classes
+Type: filter
+Since: 3.18.0
+Files:
+- inc/classes/class-flatsome-relay.php:145
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-relay-control-classesflatsome_relay_control_classes
+Type: filter
+Since: 3.18.0
+Used: 2 times
+Files:
+- inc/classes/class-flatsome-relay.php:188
+- inc/classes/class-flatsome-relay.php:207
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-relay-pagination-argsflatsome_relay_pagination_args
+Type: filter
+Since: 3.18.0
+Files:
+- inc/classes/class-flatsome-relay.php:281
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-sale-bubble-percentage-cache-enabledflatsome_sale_bubble_percentage_cache_enabled
+Type: filter
+Since: 3.13.2
+Used: 2 times
+Files:
+- inc/woocommerce/structure-wc-global.php:367
+- inc/woocommerce/structure-wc-global.php:391
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-share-linksflatsome_share_links
+Type: filter
+Files:
+- inc/shortcodes/share.php:92
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-shipping-free-shipping-thresholdflatsome_shipping_free_shipping_threshold
+Type: filter
+Since: 3.18.0
+Files:
+- inc/woocommerce/class-shipping.php:145
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-show-block-edit-tooltipflatsome_show_block_edit_tooltip
+Type: filter
+Since: 3.15.0
+Files:
+- inc/post-types/post-type-ux-blocks.php:149
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-show-buy-now-buttonflatsome_show_buy_now_button
+Type: filter
+Since: 3.19.0
+Files:
+- inc/woocommerce/class-buy-now.php:79
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-show-mini-cart-item-quantityflatsome_show_mini_cart_item_quantity
+Type: filter
+Since: 3.18.0
+Files:
+- inc/woocommerce/class-mini-cart.php:188
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-sidebar-classflatsome_sidebar_class
+Type: filter
+Files:
+- inc/structure/structure-sidebars.php:5
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-single-product-thumbnails-classesflatsome_single_product_thumbnails_classes
+Type: filter
+Since: 3.16.0
+Used: 2 times
+Files:
+- woocommerce/single-product/product-gallery-thumbnails.php:49
+- woocommerce/single-product/product-image-vertical.php:130
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-single-product-thumbnails-render-without-attachmentsflatsome_single_product_thumbnails_render_without_attachments
+Type: filter
+Since: 3.16.0
+Used: 2 times
+Files:
+- woocommerce/single-product/product-gallery-thumbnails.php:16
+- woocommerce/single-product/product-image-vertical.php:111
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-sticky-add-to-cart-enabledflatsome_sticky_add_to_cart_enabled
+Type: filter
+Since: 3.13.0
+Files:
+- inc/woocommerce/structure-wc-product-page.php:302
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-swatch-htmlflatsome_swatch_html
+Type: filter
+Since: 3.14.0
+Files:
+- inc/extensions/flatsome-swatches/includes/class-swatches-frontend.php:192
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-swatch-image-sizeflatsome_swatch_image_size
+Type: filter
+Since: 3.14.0
+Used: 3 times
+Files:
+- inc/extensions/flatsome-swatches/includes/class-swatches-frontend.php:226
+- inc/extensions/flatsome-swatches/includes/class-swatches-frontend.php:450
+- inc/extensions/flatsome-swatches/includes/class-swatches-frontend.php:756
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-swatches-box-attributeflatsome_swatches_box_attribute
+Type: filter
+Since: 3.15.0
+Files:
+- inc/extensions/flatsome-swatches/includes/class-swatches-frontend.php:363
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-swatches-box-display-min-countflatsome_swatches_box_display_min_count
+Type: filter
+Since: 3.18.0
+Files:
+- inc/extensions/flatsome-swatches/includes/class-swatches-frontend.php:410
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-swatches-cache-enabledflatsome_swatches_cache_enabled
+Type: filter
+Since: 3.14.0
+Used: 4 times
+Files:
+- inc/extensions/flatsome-swatches/includes/class-swatches-frontend.php:382
+- inc/extensions/flatsome-swatches/includes/class-swatches-frontend.php:805
+- inc/extensions/flatsome-swatches/includes/class-swatches-frontend.php:820
+- inc/extensions/flatsome-swatches/includes/class-swatches.php:180
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-swatches-cache-timeflatsome_swatches_cache_time
+Type: filter
+Since: 3.14.0
+Files:
+- inc/extensions/flatsome-swatches/includes/class-swatches-frontend.php:396
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-text-formatsflatsome_text_formats
+Type: filter
+Files:
+- inc/structure/structure-admin.php:485
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-viewport-metaflatsome_viewport_meta
+Type: filter
+Since: 3.9.0
+Files:
+- inc/structure/structure-header.php:17
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-woocommerce-get-alt-product-thumbnailflatsome_woocommerce_get_alt_product_thumbnail
+Type: filter
+Files:
+- inc/woocommerce/structure-wc-product-box.php:72
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-woocommerce-shop-loop-categoryflatsome_woocommerce_shop_loop_category
+Type: filter
+Files:
+- inc/woocommerce/structure-wc-product-box.php:116
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+
+## https://docs.uxthemes.com/article/385-hooks#flatsome-wpseo-breadcrumb-remove-lastflatsome_wpseo_breadcrumb_remove_last
+Type: filter
+Files:
+- inc/integrations/wp-seo/class-wp-seo.php:56
+[Back to top](https://docs.uxthemes.com/article/385-hooks#table-of-contents)
+Version: 3.20.0
+
+### Related Articles
+- [Where do I add my custom PHP code?](https://docs.uxthemes.com/article/303-where-do-i-add-my-custom-php-code)
+[Where do I add my custom PHP code?](https://docs.uxthemes.com/article/303-where-do-i-add-my-custom-php-code)
+
+### Categories
+- [General](https://docs.uxthemes.com/category/413-general)
+- [Theme Installation](https://docs.uxthemes.com/category/8-theme-installation)
+- [Video Tutorials](https://docs.uxthemes.com/category/9-video-tutorials)
+- [FAQ](https://docs.uxthemes.com/category/299-faq)
+- [Navigation](https://docs.uxthemes.com/category/38-navigation)
+- [Shortcodes](https://docs.uxthemes.com/category/39-shortcodes)
+- [Widgets](https://docs.uxthemes.com/category/40-widgets)
+- [Custom post types](https://docs.uxthemes.com/category/41-custom-post-types)
+- [How-tos / Guides](https://docs.uxthemes.com/category/42-how-tos-guides)
+- [Troubleshooting](https://docs.uxthemes.com/category/97-troubleshooting)
+- [Plugin Compatibility](https://docs.uxthemes.com/category/197-plugin-compatibility)
+- [WordPress](https://docs.uxthemes.com/category/345-wordpress)
+- [WooCommerce](https://docs.uxthemes.com/category/201-woocommerce)
+- [Development](https://docs.uxthemes.com/category/220-development)
+- [Support](https://docs.uxthemes.com/category/292-support)
+- [Snippets](https://docs.uxthemes.com/category/315-snippets)
+[General](https://docs.uxthemes.com/category/413-general)
+[Theme Installation](https://docs.uxthemes.com/category/8-theme-installation)
+[Video Tutorials](https://docs.uxthemes.com/category/9-video-tutorials)
+[FAQ](https://docs.uxthemes.com/category/299-faq)
+[Navigation](https://docs.uxthemes.com/category/38-navigation)
+[Shortcodes](https://docs.uxthemes.com/category/39-shortcodes)
+[Widgets](https://docs.uxthemes.com/category/40-widgets)
+[Custom post types](https://docs.uxthemes.com/category/41-custom-post-types)
+[How-tos / Guides](https://docs.uxthemes.com/category/42-how-tos-guides)
+[Troubleshooting](https://docs.uxthemes.com/category/97-troubleshooting)
+[Plugin Compatibility](https://docs.uxthemes.com/category/197-plugin-compatibility)
+[WordPress](https://docs.uxthemes.com/category/345-wordpress)
+[WooCommerce](https://docs.uxthemes.com/category/201-woocommerce)
+[Development](https://docs.uxthemes.com/category/220-development)
+[Support](https://docs.uxthemes.com/category/292-support)
+[Snippets](https://docs.uxthemes.com/category/315-snippets)
+© UX Themes 2026. Powered by [Help Scout](https://www.helpscout.com/docs-refer/?co=UX+Themes&utm_source=docs&utm_medium=footerlink&utm_campaign=Docs+Branding)

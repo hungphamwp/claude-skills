@@ -1,0 +1,188 @@
+/* HMarketing landing polish */
+.home #top-bar,
+.home .top-divider,
+.home .header-search,
+.home .header-divider,
+.home .element-error {
+  display: none !important;
+}
+
+.home #masthead {
+  border: 0;
+  box-shadow: 0 6px 28px rgba(13, 54, 201, .06);
+}
+
+.home .header-main {
+  height: 84px;
+}
+
+.home .header-inner {
+  max-width: 1280px;
+}
+
+.home #logo {
+  width: 170px !important;
+}
+
+.home #logo img {
+  max-height: 54px;
+  width: auto;
+}
+
+.home .header-nav-main .nav-top-link {
+  color: #0b1736;
+  font-weight: 800;
+  letter-spacing: 0;
+  font-size: 14px;
+}
+
+.home .header-nav-main .nav-top-link:hover {
+  color: #0d36c9;
+}
+
+.home .page-wrapper {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.home .row-main {
+  max-width: none !important;
+}
+
+.home .row-main > .col {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+}
+
+.home .seoc-hero {
+  min-height: calc(100vh - 84px);
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(circle at 8% 18%, rgba(38, 87, 255, .12) 0, transparent 24%),
+    radial-gradient(circle at 88% 18%, rgba(13, 54, 201, .10) 0, transparent 28%),
+    #f4f7ff !important;
+}
+
+.home .seoc-hero .section-content > .row,
+.home .seoc-about .section-content > .row,
+.home .seoc-services .section-content > .row,
+.home .seoc-value .section-content > .row,
+.home .seoc-benefits .section-content > .row,
+.home .seoc-testimonials .section-content > .row,
+.home .seoc-blog .section-content > .row,
+.home .seoc-contact .section-content > .row,
+.home .seoc-final-cta .section-content > .row {
+  max-width: 1280px;
+}
+
+.home .seoc-hero-copy .col-inner {
+  padding: 30px 0;
+}
+
+.home .seoc-hero h1 {
+  color: #0b1736;
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.05;
+  margin-bottom: 22px;
+}
+
+.home .seoc-hero .lead {
+  color: #53627d;
+  max-width: 590px;
+  font-size: 19px;
+  line-height: 1.8;
+}
+
+.home .seoc-eyebrow {
+  background: #e8efff;
+  color: #0d36c9;
+  box-shadow: 0 10px 24px rgba(13, 54, 201, .08);
+}
+
+.home .seoc-hero-media .col-inner {
+  background: #dfe8fb;
+  border-radius: 34px;
+  min-height: 560px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(13, 54, 201, .18);
+}
+
+.home .seoc-hero-banner {
+  width: 100%;
+}
+
+.home .seoc-hero-banner .bg {
+  background-position: 50% 100% !important;
+  background-size: contain !important;
+}
+
+.home .seoc-hero-media .col-inner:before {
+  width: 360px;
+  height: 360px;
+  top: -80px;
+  right: -80px;
+  background: rgba(255, 255, 255, .42);
+}
+
+.home .seoc-hero-media .col-inner:after {
+  width: 170px;
+  height: 170px;
+  left: 30px;
+  bottom: 38px;
+  background: rgba(13, 54, 201, .10);
+}
+
+.home .seoc-btn-primary,
+.home .seoc-btn-outline {
+  font-size: 15px;
+  min-height: 52px;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.home .seoc-btn-primary {
+  box-shadow: 0 12px 24px rgba(13, 54, 201, .22);
+}
+
+.home .seoc-logo-strip {
+  box-shadow: 0 14px 40px rgba(13, 54, 201, .06);
+}
+
+@media (max-width: 849px) {
+  .home .seoc-hero {
+    min-height: auto;
+  }
+
+  .home .seoc-hero h1 {
+    font-size: 44px;
+  }
+
+  .home .seoc-hero-media .col-inner {
+    min-height: 440px;
+  }
+}
+
+@media (max-width: 549px) {
+  .home .header-main {
+    height: 72px;
+  }
+
+  .home .seoc-hero h1 {
+    font-size: 34px;
+  }
+
+  .home .seoc-hero .lead {
+    font-size: 16px;
+  }
+
+  .home .seoc-hero-media .col-inner {
+    min-height: 360px;
+    border-radius: 22px;
+  }
+}

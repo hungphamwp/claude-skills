@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video quảng cáo — HPB Media</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome (local) -->
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css" />
+
+  <!-- GSAP + SplitType (local) -->
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/split-type.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="scale-root">
+    <div class="stage" id="stage" aria-label="Video quảng cáo">
+
+      <!-- ── Top bar ────────────────────────────────────────── -->
+      <header class="top-bar" id="top-bar" role="banner">
+        <div class="top-bar__logo">
+          <img class="top-bar__mark" id="top-mark" src="assets/images/hpb-mark.png" alt="" aria-hidden="true" />
+          <span class="top-bar__name" id="brand-name"></span>
+        </div>
+        <div class="top-bar__status">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span id="brand-status"></span>
+        </div>
+      </header>
+
+      <!-- ── Background ─────────────────────────────────────── -->
+      <div class="bg-layer" id="bg-layer" aria-hidden="true">
+        <div class="bg-glow bg-glow--top"></div>
+        <div class="bg-glow bg-glow--mid"></div>
+        <div class="bg-glow bg-glow--bottom"></div>
+        <div class="glow-tracker" id="glow-tracker"></div>
+      </div>
+      <div class="bg-grid" id="bg-grid" aria-hidden="true"></div>
+      <div class="deco-line deco-line--1" aria-hidden="true"></div>
+      <div class="deco-line deco-line--2" aria-hidden="true"></div>
+
+      <!-- ── Main content ───────────────────────────────────── -->
+      <main class="content-layer" id="content-layer">
+
+        <div class="badge" id="badge" role="note">
+          <i class="badge__icon" id="badge-icon" aria-hidden="true"></i>
+          <span class="badge__text" id="badge-text"></span>
+        </div>
+
+        <h1 class="headline" id="headline">
+          <span class="headline__line1" id="headline-line1"></span>
+          <span class="headline__line2" id="headline-line2"></span>
+        </h1>
+
+        <p class="sub-tagline" id="sub-tagline"></p>
+
+        <div class="hero-mark" id="hero-mark" aria-hidden="true">
+          <img class="hero-mark__img" id="hero-mark-img" src="assets/images/hpb-mark.png" alt="" />
+        </div>
+
+        <ul class="chips" id="chips" aria-label="Dịch vụ"></ul>
+
+      </main>
+
+      <!-- ── Modal ──────────────────────────────────────────── -->
+      <section class="modal" id="quote-modal" role="dialog" aria-label="Form đăng ký">
+        <div class="modal__handle" aria-hidden="true"></div>
+
+        <header class="modal__header">
+          <h2 class="modal__title" id="modal-title"></h2>
+          <span class="modal__badge" id="modal-badge"></span>
+        </header>
+
+        <nav class="tabs" id="tabs" role="tablist" aria-label="Lựa chọn"></nav>
+
+        <form class="form-fields" id="form-fields" novalidate>
+          <!-- .field được sinh từ config.json -->
+          <div class="price-row" id="price-row" aria-live="polite">
+            <span class="price-row__label">
+              <i id="price-icon" aria-hidden="true"></i>
+              <span id="price-label"></span>
+            </span>
+            <span class="price-row__amount" id="price-amount">0đ</span>
+          </div>
+
+          <button class="cta-btn" id="cta-btn" type="button">
+            <i class="cta-btn__icon" id="cta-icon" aria-hidden="true"></i>
+            <span id="cta-text"></span>
+          </button>
+        </form>
+      </section>
+
+      <!-- ── Footer ─────────────────────────────────────────── -->
+      <footer class="bottom-tagline" id="bottom-tagline"></footer>
+
+    </div><!-- /.stage -->
+  </div><!-- /#scale-root -->
+
+  <script src="script.js"></script>
+</body>
+</html>

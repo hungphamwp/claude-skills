@@ -1,0 +1,90 @@
+{
+  "_ghi_chu": "Config mẫu đầy đủ. Chép ra rồi sửa. Mọi khoá đều có mặc định — chỉ khai phần muốn đổi.",
+
+  "brand": {
+    "name_bold": "HPB",
+    "name_light": "MEDIA",
+    "status": "Đang nhận dự án",
+    "contact_name": "Hưng Phạm",
+    "phone": "0913 337 280"
+  },
+
+  "content": {
+    "badge": "Thiết kế Website & Digital Marketing",
+    "badge_icon": "fa-bolt",
+
+    "headline1": "Website đẹp",
+    "headline2": "Chốt đơn nhanh",
+    "subtagline": "Chuẩn SEO · Tối ưu tốc độ · Bàn giao đúng hẹn",
+
+    "chips": [
+      { "icon": "fa-laptop-code", "text": "Thiết kế Website" },
+      { "icon": "fa-magnifying-glass-chart", "text": "SEO tổng thể" },
+      { "icon": "fa-bullhorn", "text": "Google Ads" }
+    ],
+
+    "modal_title": "Nhận báo giá",
+    "modal_badge": "Phản hồi 24h",
+
+    "tabs": [
+      { "icon": "fa-file-lines", "text": "Landing Page" },
+      { "icon": "fa-building", "text": "Web Công ty", "active": true },
+      { "icon": "fa-cart-shopping", "text": "Web Bán hàng" }
+    ],
+
+    "fields": [
+      {
+        "label": "Tên doanh nghiệp",
+        "icon": "fa-briefcase",
+        "placeholder": "Tên công ty của bạn...",
+        "value": "Nội Thất An Phát"
+      },
+      {
+        "label": "Số điện thoại",
+        "icon": "fa-phone",
+        "placeholder": "Nhập số điện thoại...",
+        "value": "0987 654 321"
+      },
+      {
+        "label": "Dịch vụ đi kèm",
+        "icon": "fa-rocket",
+        "placeholder": "SEO, quảng cáo...",
+        "value": "SEO + Google Ads"
+      }
+    ],
+
+    "price_label": "Báo giá từ",
+    "price_icon": "fa-tag",
+    "price_value": 6000000,
+
+    "cta": "Gọi ngay 0913 337 280",
+    "cta_icon": "fa-phone",
+
+    "footer": ["HPB Media", "Hưng Phạm", "0913 337 280"]
+  },
+
+  "theme": {
+    "accent": "#8b5cf6",
+    "accent2": "#e838ff",
+    "accent3": "#3b82f6",
+    "bg": "#05060f",
+    "gradient_text": "linear-gradient(135deg, #60a5fa 0%, #a78bfa 45%, #f0a6ff 100%)"
+  },
+
+  "voiceover": {
+    "enabled": true,
+    "voice": "Linh",
+    "lines": [
+      { "at": 0.9,  "budget": 2.8, "text": "Doanh nghiệp của bạn xứng đáng có một website đẹp." },
+      { "at": 3.9,  "budget": 1.9, "text": "Đẹp thôi chưa đủ — phải ra đơn." },
+      { "at": 6.1,  "budget": 2.9, "text": "H P B Media: web chuẩn SEO, đúng hẹn." },
+      { "at": 9.3,  "budget": 1.4, "text": "Báo giá từ sáu triệu." },
+      { "at": 10.9, "budget": 4.0, "text": "Gọi ngay Hưng Phạm: không chín một ba, ba ba bảy, hai tám không." }
+    ]
+  },
+
+  "music": { "enabled": true, "bpm": 120, "volume": 0.3 },
+  "sfx":   { "enabled": true },
+
+  "output": { "name": "hpb-media-ad", "fps": 30, "duration": 15 }
+}

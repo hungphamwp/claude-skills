@@ -1,0 +1,19 @@
+# ── Thư viện / cache tự cài lại được ──────────────────────
+**/node_modules/
+**/__pycache__/
+*.pyc
+.DS_Store
+**/.DS_Store
+
+# ── DỮ LIỆU NỘI BỘ — repo này public, KHÔNG đẩy các file sau ──
+# Bảng giá gốc: có giá vốn domain/hosting → lộ biên lợi nhuận.
+# Bản .example đi kèm để máy mới vẫn dựng lại được.
+baogia-halomedia/V1.2/bang-gia-chuan.md
+
+# Bộ đếm số báo giá / hợp đồng: là trạng thái chạy, đồng thời
+# để lộ sản lượng kinh doanh. Mỗi máy tự giữ bản riêng.
+**/so-lien-tuc.json
+
+# ── Đầu ra khi chạy skill ─────────────────────────────────
+**/output/
+**/audio/

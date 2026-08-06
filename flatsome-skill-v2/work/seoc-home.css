@@ -1,0 +1,271 @@
+:root {
+  --seoc-blue: #0d36c9;
+  --seoc-blue-2: #2657ff;
+  --seoc-ink: #0b1736;
+  --seoc-muted: #5f6c85;
+  --seoc-soft: #f4f7ff;
+  --seoc-line: #e5eaf7;
+}
+
+.seoc-hero,
+.seoc-about,
+.seoc-services,
+.seoc-value,
+.seoc-benefits,
+.seoc-testimonials,
+.seoc-blog,
+.seoc-contact {
+  overflow: hidden;
+}
+
+.seoc-hero h1 {
+  color: var(--seoc-ink);
+  font-size: 56px;
+  line-height: 1.08;
+  margin-bottom: 22px;
+}
+
+.seoc-hero .lead,
+.seoc-about p,
+.seoc-services p,
+.seoc-value p,
+.seoc-benefits p,
+.seoc-testimonials p,
+.seoc-contact p {
+  color: var(--seoc-muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.seoc-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--seoc-blue);
+  background: #eaf0ff;
+  border-radius: 99px;
+  padding: 9px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.seoc-eyebrow:before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--seoc-blue-2);
+}
+
+.seoc-btn-primary,
+.seoc-btn-outline,
+.seoc-btn-white {
+  min-height: 48px;
+  padding-left: 24px;
+  padding-right: 24px;
+  font-weight: 700;
+}
+
+.seoc-btn-primary {
+  background: var(--seoc-blue) !important;
+}
+
+.seoc-btn-outline {
+  border-color: var(--seoc-blue) !important;
+  color: var(--seoc-blue) !important;
+}
+
+.seoc-hero-media .col-inner {
+  position: relative;
+}
+
+.seoc-hero-media .col-inner:before,
+.seoc-hero-media .col-inner:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(38, 87, 255, 0.12);
+  z-index: 0;
+}
+
+.seoc-hero-media .col-inner:before {
+  width: 280px;
+  height: 280px;
+  top: 10px;
+  right: 18px;
+}
+
+.seoc-hero-media .col-inner:after {
+  width: 120px;
+  height: 120px;
+  left: 10px;
+  bottom: 25px;
+}
+
+.seoc-hero-banner,
+.seoc-image-panel {
+  position: relative;
+  z-index: 1;
+}
+
+.seoc-logo-strip {
+  border-top: 1px solid var(--seoc-line);
+  border-bottom: 1px solid var(--seoc-line);
+  background: #fff;
+}
+
+.seoc-logo-row img {
+  max-height: 44px;
+  width: auto;
+  filter: grayscale(1);
+  opacity: .65;
+  transition: opacity .2s ease, filter .2s ease;
+}
+
+.seoc-logo-row img:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.seoc-about h2,
+.seoc-services h2,
+.seoc-value h2,
+.seoc-benefits h2,
+.seoc-testimonials h2,
+.seoc-blog h2,
+.seoc-contact h2,
+.seoc-final-cta h2 {
+  color: var(--seoc-ink);
+  font-size: 40px;
+  line-height: 1.18;
+  margin-bottom: 16px;
+}
+
+.seoc-stats .col-inner {
+  border: 1px solid var(--seoc-line);
+  border-radius: 12px;
+  padding: 20px;
+  background: #fff;
+}
+
+.seoc-stats h3 {
+  color: var(--seoc-blue);
+  font-size: 34px;
+  margin-bottom: 4px;
+}
+
+.seoc-service-card .col-inner,
+.seoc-value-card .col-inner,
+.seoc-review-card .col-inner,
+.seoc-form-card .col-inner {
+  border: 1px solid var(--seoc-line);
+}
+
+.seoc-service-card h3 {
+  color: rgba(13, 54, 201, .14);
+  font-size: 46px;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.seoc-service-card h4,
+.seoc-value-card h4,
+.seoc-benefits h4,
+.seoc-review-card h4,
+.seoc-contact h4 {
+  color: var(--seoc-ink);
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.seoc-benefits .col-inner {
+  border: 1px solid var(--seoc-line);
+}
+
+.seoc-review-card .stars {
+  color: #ffb703;
+  letter-spacing: 2px;
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+
+.seoc-blog .box {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(13, 54, 201, .08);
+}
+
+.seoc-blog .box-text {
+  padding: 22px;
+}
+
+.seoc-form-card input,
+.seoc-form-card select,
+.seoc-form-card textarea {
+  border-radius: 10px;
+  border-color: var(--seoc-line);
+  min-height: 48px;
+}
+
+.seoc-form-card input[type="submit"] {
+  background: var(--seoc-blue);
+  border-radius: 99px;
+  font-weight: 700;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.seoc-final-cta {
+  background: linear-gradient(135deg, #0d36c9 0%, #2657ff 100%);
+}
+
+.seoc-final-cta h2,
+.seoc-final-cta p {
+  color: #fff;
+}
+
+.seoc-final-cta p {
+  opacity: .84;
+}
+
+@media (max-width: 849px) {
+  .seoc-hero h1 {
+    font-size: 42px;
+  }
+
+  .seoc-about h2,
+  .seoc-services h2,
+  .seoc-value h2,
+  .seoc-benefits h2,
+  .seoc-testimonials h2,
+  .seoc-blog h2,
+  .seoc-contact h2,
+  .seoc-final-cta h2 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 549px) {
+  .seoc-hero h1 {
+    font-size: 34px;
+  }
+
+  .seoc-hero-copy .button {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .seoc-about h2,
+  .seoc-services h2,
+  .seoc-value h2,
+  .seoc-benefits h2,
+  .seoc-testimonials h2,
+  .seoc-blog h2,
+  .seoc-contact h2,
+  .seoc-final-cta h2 {
+    font-size: 28px;
+  }
+}

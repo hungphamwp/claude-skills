@@ -1,0 +1,207 @@
+[section class="seoc-hero" bg_color="#F4F7FF" padding="95px 0 70px 0" padding__md="75px 0 55px 0" padding__sm="55px 0 40px 0"]
+  [row v_align="middle" h_align="center"]
+    [col span="6" span__md="7" span__sm="12" class="seoc-hero-copy"]
+      [ux_text]
+        <p class="seoc-eyebrow">Top #1 SEO & Marketing Agency</p>
+        <h1>Elevate Your Brand With Expert SEO & Digital Marketing</h1>
+        <p class="lead">Welcome to your agency, where we improve online presence through SEO, paid media, content strategy and conversion-focused website growth.</p>
+      [/ux_text]
+      [button text="Start Ranking Now" link="#contact" color="primary" radius="99" class="seoc-btn-primary"]
+      [button text="Contact Now" link="#contact" style="outline" color="primary" radius="99" class="seoc-btn-outline"]
+    [/col]
+    [col span="6" span__md="5" span__sm="12" class="seoc-hero-media"]
+      [ux_banner height="520px" height__md="420px" height__sm="340px" bg="__HERO_IMAGE_ID__" bg_size="contain" bg_pos="50% 50%" class="seoc-hero-banner"]
+      [/ux_banner]
+    [/col]
+  [/row]
+[/section]
+
+[section class="seoc-logo-strip" padding="28px 0"]
+  [row v_align="middle" h_align="center" class="seoc-logo-row"]
+    [col span="2" span__md="4" span__sm="6" align="center"][ux_image id="__LOGO_CLIENT_1__" image_size="medium"][/col]
+    [col span="2" span__md="4" span__sm="6" align="center"][ux_image id="__LOGO_CLIENT_2__" image_size="medium"][/col]
+    [col span="2" span__md="4" span__sm="6" align="center"][ux_image id="__LOGO_CLIENT_3__" image_size="medium"][/col]
+    [col span="2" span__md="4" span__sm="6" align="center"][ux_image id="__LOGO_CLIENT_4__" image_size="medium"][/col]
+    [col span="2" span__md="4" span__sm="6" align="center"][ux_image id="__LOGO_CLIENT_5__" image_size="medium"][/col]
+  [/row]
+[/section]
+
+[section class="seoc-about" padding="90px 0" padding__sm="60px 0"]
+  [row v_align="middle"]
+    [col span="6" span__sm="12"]
+      [ux_banner height="500px" height__sm="340px" bg="__ABOUT_IMAGE_ID__" bg_size="contain" bg_pos="50% 50%" class="seoc-image-panel"]
+      [/ux_banner]
+    [/col]
+    [col span="6" span__sm="12"]
+      [ux_text]
+        <p class="seoc-eyebrow">About Us</p>
+        <h2>Comprehensive SEO & Digital Marketing Solutions.</h2>
+        <p>We help businesses build stronger visibility, attract qualified traffic and convert more visitors into customers with practical growth systems.</p>
+      [/ux_text]
+      [row_inner style="small" class="seoc-stats"]
+        [col_inner span="6" span__sm="6"][ux_text]<h3>98%</h3><p>Client satisfaction</p>[/ux_text][/col_inner]
+        [col_inner span="6" span__sm="6"][ux_text]<h3>240+</h3><p>Campaigns launched</p>[/ux_text][/col_inner]
+      [/row_inner]
+      [button text="Learn More" link="#services" color="primary" radius="99" class="seoc-btn-primary"]
+    [/col]
+  [/row]
+[/section]
+
+[section class="seoc-services" bg_color="#F7F9FF" padding="90px 0" padding__sm="60px 0" id="services"]
+  [row h_align="center"]
+    [col span="8" span__sm="12" align="center"]
+      [ux_text text_align="center"]
+        <p class="seoc-eyebrow">Our Services</p>
+        <h2>Popular Digital Marketing Services To Build Your Business</h2>
+        <p>Choose focused services designed to improve visibility, acquisition and measurable business growth.</p>
+      [/ux_text]
+    [/col]
+  [/row]
+  [gap height="28px"]
+  [row style="small" col_bg="#ffffff" v_align="equal"]
+    [col span="3" span__md="6" span__sm="12" padding="32px 28px" bg_radius="12" depth="1" depth_hover="3" class="seoc-service-card"]
+      [ux_text]
+        <h3>01</h3>
+        <h4>Search Engine Optimization</h4>
+        <p>Improve rankings, technical health and organic visibility with a structured SEO plan.</p>
+      [/ux_text]
+    [/col]
+    [col span="3" span__md="6" span__sm="12" padding="32px 28px" bg_radius="12" depth="1" depth_hover="3" class="seoc-service-card"]
+      [ux_text]
+        <h3>02</h3>
+        <h4>PPC Advertising</h4>
+        <p>Launch search and social ads that target the right audience and control spend.</p>
+      [/ux_text]
+    [/col]
+    [col span="3" span__md="6" span__sm="12" padding="32px 28px" bg_radius="12" depth="1" depth_hover="3" class="seoc-service-card"]
+      [ux_text]
+        <h3>03</h3>
+        <h4>Social Media Marketing</h4>
+        <p>Build a consistent presence with campaigns that drive engagement and trust.</p>
+      [/ux_text]
+    [/col]
+    [col span="3" span__md="6" span__sm="12" padding="32px 28px" bg_radius="12" depth="1" depth_hover="3" class="seoc-service-card"]
+      [ux_text]
+        <h3>04</h3>
+        <h4>Website Design & Development</h4>
+        <p>Create fast, responsive pages that support lead generation and clear conversion paths.</p>
+      [/ux_text]
+    [/col]
+  [/row]
+[/section]
+
+[section class="seoc-value" padding="90px 0" padding__sm="60px 0"]
+  [row h_align="center"]
+    [col span="8" span__sm="12" align="center"]
+      [ux_text text_align="center"]
+        <p class="seoc-eyebrow">Our Value</p>
+        <h2>Tailored Solutions, Proven Results, And Exceptional Service</h2>
+        <p>Our approach starts with your business goals, then turns them into practical campaigns and measurable actions.</p>
+      [/ux_text]
+    [/col]
+  [/row]
+  [gap height="30px"]
+  [row style="small" v_align="equal"]
+    [col span="4" span__sm="12" padding="34px" bg_color="#ffffff" bg_radius="12" depth="1" class="seoc-value-card"]
+      [ux_text]<h4>Our Value</h4><p>We focus on work that creates visible commercial progress, not disconnected marketing activity.</p>[/ux_text]
+    [/col]
+    [col span="4" span__sm="12" padding="34px" bg_color="#ffffff" bg_radius="12" depth="1" class="seoc-value-card"]
+      [ux_text]<h4>Our Mission</h4><p>We aim to be a trusted growth partner for companies that want clearer digital results.</p>[/ux_text]
+    [/col]
+    [col span="4" span__sm="12" padding="34px" bg_color="#ffffff" bg_radius="12" depth="1" class="seoc-value-card"]
+      [ux_text]<h4>Our Vision</h4><p>We help business owners feel confident about SEO, content, advertising and conversion decisions.</p>[/ux_text]
+    [/col]
+  [/row]
+[/section]
+
+[section class="seoc-benefits" bg_color="#F7F9FF" padding="90px 0" padding__sm="60px 0"]
+  [row h_align="center"]
+    [col span="7" span__sm="12" align="center"]
+      [ux_text text_align="center"]
+        <p class="seoc-eyebrow">Benefits</p>
+        <h2>Benefits of SEO & Digital Marketing</h2>
+        <p>Strategic digital marketing gives your website clearer visibility, better traffic quality and stronger conversion opportunities.</p>
+      [/ux_text]
+    [/col]
+  [/row]
+  [gap height="26px"]
+  [row style="small" col_bg="#ffffff" v_align="equal"]
+    [col span="4" span__md="6" span__sm="12" padding="28px" bg_radius="12" depth="1"][ux_text]<h4>Website Design & Development</h4><p>Improve user experience and turn traffic into qualified inquiries.</p>[/ux_text][/col]
+    [col span="4" span__md="6" span__sm="12" padding="28px" bg_radius="12" depth="1"][ux_text]<h4>SEO</h4><p>Build long-term visibility from search intent that matters to your market.</p>[/ux_text][/col]
+    [col span="4" span__md="6" span__sm="12" padding="28px" bg_radius="12" depth="1"][ux_text]<h4>PPC Advertising</h4><p>Reach targeted buyers quickly and test offers with measurable data.</p>[/ux_text][/col]
+    [col span="4" span__md="6" span__sm="12" padding="28px" bg_radius="12" depth="1"][ux_text]<h4>Social Media Marketing</h4><p>Stay visible with your audience and create consistent brand trust.</p>[/ux_text][/col]
+    [col span="4" span__md="6" span__sm="12" padding="28px" bg_radius="12" depth="1"][ux_text]<h4>Content Marketing</h4><p>Publish useful content that supports ranking, authority and sales education.</p>[/ux_text][/col]
+    [col span="4" span__md="6" span__sm="12" padding="28px" bg_radius="12" depth="1"][ux_text]<h4>Analytics & Reporting</h4><p>Know which channels are working and where budget should move next.</p>[/ux_text][/col]
+  [/row]
+[/section]
+
+[section class="seoc-testimonials" padding="90px 0" padding__sm="60px 0"]
+  [row h_align="center"]
+    [col span="7" span__sm="12" align="center"]
+      [ux_text text_align="center"]
+        <p class="seoc-eyebrow">Testimonials</p>
+        <h2>What Our Client Say On Google Reviews</h2>
+        <p>Hear how focused strategy, clear reporting and consistent execution help clients grow.</p>
+      [/ux_text]
+    [/col]
+  [/row]
+  [gap height="28px"]
+  [row style="small" v_align="equal"]
+    [col span="4" span__sm="12" padding="34px" bg_color="#ffffff" bg_radius="12" depth="2" class="seoc-review-card"][ux_text]<p class="stars">★★★★★</p><p>"Their SEO and marketing work helped us increase online visibility and improve lead quality."</p><h4>John Doe</h4><p>Business Owner</p>[/ux_text][/col]
+    [col span="4" span__sm="12" padding="34px" bg_color="#ffffff" bg_radius="12" depth="2" class="seoc-review-card"][ux_text]<p class="stars">★★★★★</p><p>"The team brought structure to our campaigns and made the reporting easy to understand."</p><h4>Sarah Lee</h4><p>Marketing Manager</p>[/ux_text][/col]
+    [col span="4" span__sm="12" padding="34px" bg_color="#ffffff" bg_radius="12" depth="2" class="seoc-review-card"][ux_text]<p class="stars">★★★★★</p><p>"We finally had a website and marketing funnel that worked together instead of separately."</p><h4>Michael Tran</h4><p>Founder</p>[/ux_text][/col]
+  [/row]
+[/section]
+
+[section class="seoc-blog" bg_color="#F7F9FF" padding="90px 0" padding__sm="60px 0"]
+  [row h_align="center"]
+    [col span="8" span__sm="12" align="center"]
+      [ux_text text_align="center"]
+        <p class="seoc-eyebrow">Latest Blog</p>
+        <h2>Insights & Innovations: Our Latest Blog Posts</h2>
+        <p>Publish SEO tips, campaign insights and success stories that help visitors trust your expertise.</p>
+      [/ux_text]
+    [/col]
+  [/row]
+  [gap height="26px"]
+  [blog_posts style="normal" columns="3" columns__md="2" columns__sm="1" posts="3" image_height="58%" show_date="true" excerpt="visible"]
+[/section]
+
+[section class="seoc-contact" padding="90px 0" padding__sm="60px 0" id="contact"]
+  [row v_align="top"]
+    [col span="5" span__sm="12"]
+      [ux_text]
+        <p class="seoc-eyebrow">Contact Us</p>
+        <h2>Get In Touch With Us Today</h2>
+        <p>Send us your goals and we will recommend the next practical step for SEO, ads, content or website growth.</p>
+        <h4>Our Location</h4>
+        <p>8708 Technology Forest Pl Suite 125-G, The Woodlands, TX 773</p>
+        <h4>Phone Number</h4>
+        <p>123-456-7890</p>
+        <h4>Email Address</h4>
+        <p>info@example.com</p>
+      [/ux_text]
+    [/col]
+    [col span="7" span__sm="12" padding="38px" bg_color="#ffffff" bg_radius="14" depth="2" class="seoc-form-card"]
+      [ux_text]
+        <h3>Get In Touch</h3>
+        <p>Tell us what service you need and we will contact you shortly.</p>
+      [/ux_text]
+      [contact-form-7 id="__CONTACT_FORM_ID__" title="Free Consultation"]
+    [/col]
+  [/row]
+[/section]
+
+[section class="seoc-final-cta" bg_color="#0D36C9" dark="true" padding="80px 0" padding__sm="58px 0"]
+  [row v_align="middle"]
+    [col span="8" span__sm="12"]
+      [ux_text]
+        <h2>Ready To Take Your SEO To The Next Level</h2>
+        <p>Effective SEO and digital campaigns improve visibility, qualified traffic and long-term customer acquisition.</p>
+      [/ux_text]
+    [/col]
+    [col span="4" span__sm="12" align="right"]
+      [button text="Free Consultation" link="#contact" color="white" radius="99" class="seoc-btn-white"]
+    [/col]
+  [/row]
+[/section]

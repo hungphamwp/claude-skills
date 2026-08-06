@@ -1,0 +1,162 @@
+[section class="hm-bento-section" padding="0px" bg_color="#ffffff"]
+  [row class="hm-bento-shell" v_align="equal"]
+    
+    <!-- LEFT CARD -->
+    [col span="5" span__md="12" span__sm="12" class="hm-bento-left"]
+      [ux_text]
+        <div class="hm-bento-left-img">
+          <img src="https://hmarketing.vn/wp-content/uploads/2026/05/bento_left_bg_1780126000968.jpg" alt="Bento Left BG">
+        </div>
+        <h2>Next-Gen SEO to Elevate Your Rankings</h2>
+        <p class="hm-bento-left-desc">AI-powered SEO (Search Engine Optimization) offers a bunch of benefits that can save time, boost rankings, and make your digital strategy way more efficient.</p>
+        <a href="#" class="hm-bento-left-btn button">Discover More</a>
+        <div class="hm-bento-arrow-wrap">
+          <a href="#" class="hm-bento-arrow-btn">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      [/ux_text]
+    [/col]
+
+    <!-- MIDDLE CARD STACK -->
+    [col span="4" span__md="7" span__sm="12" class="hm-bento-middle"]
+      [row_inner class="hm-bento-mid-stack" v_align="equal"]
+        
+        <!-- Stats Card 1 -->
+        [col_inner span="12" class="hm-bento-stats1"]
+          [ux_text]
+            <div class="hm-bento-stats1-img">
+              <img src="https://hmarketing.vn/wp-content/uploads/2026/05/bento_crystal_1780126014953.jpg" alt="Bento Crystal">
+            </div>
+            <div class="hm-bento-stats1-text">
+              <p class="hm-bento-stat-num">+150K</p>
+              <p class="hm-bento-stat-label">Happy Clients</p>
+            </div>
+          [/ux_text]
+        [/col_inner]
+
+        <!-- Stats Card 2 -->
+        [col_inner span="12" class="hm-bento-stats2"]
+          [ux_text]
+            <div class="hm-bento-stats2-img">
+              <img src="https://hmarketing.vn/wp-content/uploads/2026/05/bento_spiral_1780126028995.jpg" alt="Bento Spiral">
+            </div>
+            <div class="hm-bento-stats2-text">
+              <p class="hm-bento-stat-num">+70%</p>
+              <p class="hm-bento-stat-label">Organic Traffic Growth</p>
+            </div>
+          [/ux_text]
+        [/col_inner]
+
+      [/row_inner]
+    [/col]
+
+    <!-- RIGHT CARD -->
+    [col span="3" span__md="5" span__sm="12" class="hm-bento-right"]
+      [ux_text]
+        <div class="hm-bento-right-arrow">
+          <a href="#" class="hm-bento-arrow-btn">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="hm-bento-avatars-wrap">
+          <div class="hm-bento-avatars-img">
+            <img src="https://hmarketing.vn/wp-content/uploads/2026/05/bento_avatars_1780126044483.jpg" alt="Bento Avatars">
+          </div>
+        </div>
+        <h3>Grow with Us</h3>
+        <p class="hm-bento-right-desc">Scale your website performance, optimize your page speed, and capture high-intent leads.</p>
+        <a href="#" class="hm-bento-right-btn button">Get Started</a>
+        <div class="hm-bento-scroll-btn">
+          <a href="#">
+            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      [/ux_text]
+    [/col]
+
+  [/row]
+[/section]
+
+[section class="hm-smart-section" padding="0px" bg_color="#ffffff"]
+  [row class="hm-smart-shell" v_align="middle"]
+    [col span="6" span__md="6" span__sm="12" class="hm-smart-left"]
+      [ux_text]
+        <h2>Delivering <span>smart<br>solutions</span> tailored to your unique goals.</h2>
+      [/ux_text]
+    [/col]
+
+    [col span="6" span__md="6" span__sm="12" class="hm-smart-right"]
+      [ux_text]
+        <p class="hm-smart-lead">AI-powered SEO (Search Engine Optimization) offers a bunch of benefits that can save time, boost rankings, and make your digital strategy way more efficient.</p>
+      [/ux_text]
+
+      [ux_text]
+        <p class="hm-smart-copy">Using AI for SEO is super helpful! It can save you time, improve your rankings, and really amp up your online strategy.</p>
+      [/ux_text]
+
+      [row_inner class="hm-smart-list" style="collapse"]
+        [col_inner span="6" span__sm="12"]
+          [ux_text]<p class="hm-smart-item">SEO Services</p>[/ux_text]
+          [ux_text]<p class="hm-smart-item">Content Marketing</p>[/ux_text]
+        [/col_inner]
+        [col_inner span="6" span__sm="12"]
+          [ux_text]<p class="hm-smart-item">Social Media Marketing</p>[/ux_text]
+          [ux_text]<p class="hm-smart-item">Website UI/UX Design</p>[/ux_text]
+        [/col_inner]
+      [/row_inner]
+
+      [button text="Discover More" link="#" style="outline" radius="99" class="hm-smart-btn"]
+    [/col]
+  [/row]
+[/section]
+
+[section class="hm-contact-section" padding="0px" bg_color="#ffffff"]
+  [row class="hm-contact-shell" v_align="middle"]
+    [col span="6" span__md="6" span__sm="12" class="hm-contact-left"]
+      [ux_text class="hm-contact-title"]
+        <h2>We're here to help with your questions.</h2>
+      [/ux_text]
+
+      [row_inner class="hm-contact-info" style="collapse"]
+        [col_inner span="6" span__sm="12"]
+          [ux_text]
+            <p class="hm-contact-label">Email Address</p>
+            <p class="hm-contact-value">hello@mysite.com</p>
+          [/ux_text]
+        [/col_inner]
+
+        [col_inner span="6" span__sm="12"]
+          [ux_text]
+            <p class="hm-contact-label">Social</p>
+            <p class="hm-social-links"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><span>X</span></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-youtube"></i></a></p>
+          [/ux_text]
+        [/col_inner]
+
+        [col_inner span="6" span__sm="12"]
+          [ux_text]
+            <p class="hm-contact-label">Phone Number</p>
+            <p class="hm-contact-value">8 800 2345 234</p>
+          [/ux_text]
+        [/col_inner]
+
+        [col_inner span="6" span__sm="12"]
+          [ux_text]
+            <p class="hm-contact-label">How To Find Us</p>
+            <p class="hm-contact-value hm-contact-address">27 Division St,<br>New York, NY 10002,<br>United States</p>
+          [/ux_text]
+        [/col_inner]
+      [/row_inner]
+    [/col]
+
+    [col span="6" span__md="6" span__sm="12" class="hm-contact-card-col"]
+      [ux_text class="hm-contact-card-title"]
+        <h3>Get In Touch</h3>
+      [/ux_text]
+
+      [ux_text class="hm-contact-form-wrap"]
+        [contact-form-7 id="48" title="Smart Section Contact"]
+      [/ux_text]
+    [/col]
+  [/row]
+[/section]

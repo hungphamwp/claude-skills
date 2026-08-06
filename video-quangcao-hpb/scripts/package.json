@@ -1,0 +1,7 @@
+{
+  "name": "video-quangcao-hpb-runtime",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Runtime render cho skill video-quangcao-hpb",
+  "dependencies": { "puppeteer-core": "^21.0.0" }
+}
