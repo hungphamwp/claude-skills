@@ -1,7 +1,7 @@
 ---
 name: video-quangcao-hpb
 description: "Dựng video quảng cáo dọc 1080×1920 (TikTok/Reels/Shorts) hoàn chỉnh có giọng đọc tiếng Việt, nhạc nền và hiệu ứng — từ vài dòng thông tin cơ bản của HPB Media hoặc khách hàng. Dùng skill này BẤT CỨ KHI NÀO người dùng nhắc tới: làm video quảng cáo, video giới thiệu dịch vụ, clip TikTok/Reels/Shorts, video bán hàng, video 15 giây, animation quảng cáo, hay muốn 'làm video cho khách ngành X' — kể cả khi họ không nói rõ chữ 'skill' hay 'animation'. Cũng dùng khi cần sửa lại, đổi nội dung, đổi màu, đổi giọng đọc của video đã dựng trước đó."
-compatibility: "macOS (lệnh `say`), Google Chrome, ffmpeg, Node.js, Python 3 + numpy. Thư mục skill: ~/.claude/skills/video-quangcao-hpb/"
+compatibility: "Google Chrome, ffmpeg, Node.js, Python 3 + numpy + edge-tts (`pip3 install --user edge-tts`). Giọng macOS `say` chỉ là bản dự phòng. Thư mục skill: ~/.claude/skills/video-quangcao-hpb/"
 ---
 
 # Video Quảng Cáo Dọc — HPB Media
@@ -74,8 +74,9 @@ Copy MP4 ra Desktop rồi gửi cho người dùng bằng công cụ gửi file.
 đường dẫn — thư mục dự án nằm sâu thì họ không tự tìm được.
 
 Báo lại ngắn gọn: đã dùng giá nào, tên khách demo nào, và **nhắc họ nghe
-thử giọng đọc** — giọng `say` của macOS đọc sai một số từ viết tắt
-(SEO, HPB) là chuyện thường, sửa cách viết trong `voiceover.lines` là xong.
+thử giọng đọc**. Mặc định là giọng neural `vi-VN-HoaiMyNeural` (edge-tts) —
+tự nhiên, đọc đúng cả từ tiếng Anh. Nếu vẫn có chỗ chưa ưng thì sửa thẳng
+câu chữ trong `voiceover.lines`.
 
 ---
 
@@ -107,7 +108,7 @@ Chỉ khai phần muốn đổi; phần còn lại lấy mặc định.
     "footer": ["HPB Media", "Hưng Phạm", "0913 337 280"]
   },
   "theme": { "accent": "#8b5cf6", "accent2": "#e838ff", "accent3": "#3b82f6" },
-  "voiceover": { "lines": [{ "at": 0.9, "budget": 2.8, "text": "..." }] },
+  "voiceover": { "edge_voice": "vi-VN-HoaiMyNeural", "lines": [{ "at": 0.9, "budget": 2.8, "text": "..." }] },
   "output": { "name": "ten-file" }
 }
 ```
@@ -146,8 +147,10 @@ Video ra tốt hay không nằm ở đây, nên viết tay:
   **để ý dòng cảnh báo `⚠️` trong output**, nếu có thì rút ngắn câu lại.
 - Giữ 5 khung giờ trên; chúng đã khớp với nhịp hình (modal lên ở 3s,
   giá chạy ở 10s, CTA bật ở 11s).
-- **Số điện thoại luôn viết bằng chữ** ("không chín một ba…"). TTS đọc
-  dãy số liền thường sai nhịp hoặc gộp số nghe không ra.
+- **Số điện thoại luôn viết bằng chữ** ("không chín một ba…"). Mọi TTS
+  đọc dãy số liền đều dễ sai nhịp hoặc gộp số nghe không ra.
+- **Từ tiếng Anh cứ viết bình thường** (`SEO`, `Website`, `Google Ads`).
+  Giọng neural đọc đúng. Chỉ khi rơi về `engine: "say"` mới cần phiên âm.
 - Tổng lời đọc nên ≤ 13 giây để còn chỗ thở.
 
 ---
@@ -208,4 +211,7 @@ rộng ~400px là thu nhỏ 2.7 lần — chữ 32px trong CSS chỉ còn ~12px 
 | Tiêu đề tràn ra ngoài | Rút dòng 2 còn ≤ 14 ký tự |
 | Logo giữa màn biến mất | Đúng như thiết kế: 4 ô form thì không đủ chỗ |
 | Giọng đọc chồng nhau | Xem cảnh báo `⚠️`, rút câu hoặc giãn `at` |
-| Muốn giọng tự nhiên hơn | Thu bằng FPT.AI/ElevenLabs, xem cuối `references/noi-dung.md` |
+| `Thiếu edge-tts` | `pip3 install --user edge-tts` |
+| Muốn giọng nam | `"voiceover": { "edge_voice": "vi-VN-NamMinhNeural" }` |
+| Muốn đọc chậm lại | `"voiceover": { "edge_rate": -6 }` |
+| Muốn giọng người thật | Thu 1 file liền rồi ghép đè, xem cuối `references/noi-dung.md` |

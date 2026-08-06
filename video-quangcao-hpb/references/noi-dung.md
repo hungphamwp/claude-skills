@@ -130,18 +130,25 @@ Sai tên icon thì ô đó hiện ô vuông trống — preview sẽ lộ ra nga
 
 ## 6. Viết lời đọc cho TTS
 
-Giọng `Linh` của macOS đọc tiếng Việt khá tròn vành nhưng có mấy chỗ phải
-né:
+Mặc định dùng **edge-tts** — giọng neural tiếng Việt của Microsoft, miễn
+phí, không cần tài khoản (`pip3 install --user edge-tts`). Giọng này đọc
+đúng cả từ tiếng Anh nên **không cần phiên âm** như giọng `say` cũ.
 
-- **Chữ viết tắt** bị đọc dính liền. `HPB Media` → viết `H P B Media`.
-  `SEO` → viết `Ét Ê Ô` nếu nghe không ổn. Nghe thử rồi sửa.
-- **Ký hiệu** `·` `&` `+` bị đọc thành chữ hoặc bỏ qua lộn xộn. Trong lời
-  đọc thay bằng dấu phẩy hoặc chữ ("và").
-- **Số điện thoại** luôn viết bằng chữ:
+| Giọng | Dùng khi |
+|---|---|
+| `vi-VN-HoaiMyNeural` | Nữ, thân thiện — mặc định, hợp hầu hết ngành |
+| `vi-VN-NamMinhNeural` | Nam — hợp ngành xây dựng, ô tô, công nghiệp |
+
+Vẫn phải né hai thứ:
+
+- **Số điện thoại** viết bằng chữ:
   `0913 337 280` → `không chín một ba, ba ba bảy, hai tám không`
-- **Số tiền** viết bằng chữ: `6.000.000đ` → `sáu triệu`.
-- Câu dài quá `budget` sẽ bị đọc nhanh dồn; script in cảnh báo `⚠️` —
-  thấy cảnh báo thì rút câu, đừng kệ.
+- **Số tiền** viết bằng chữ: `6.000.000đ` → `sáu triệu`
+
+Câu dài quá `budget` sẽ bị đẩy nhanh **tối đa 10%**; quá ngưỡng đó script
+in cảnh báo `⚠️` — thấy cảnh báo thì **rút chữ**, đừng kệ. Giọng neural
+ngắt nghỉ thật ở mỗi dấu chấm (~0.4s/dấu), nên câu 3 mệnh đề tốn nhiều
+thời gian hơn bạn tưởng: gộp lại thành 1–2 mệnh đề là cách rút hiệu quả nhất.
 
 Khung 5 câu chuẩn (đã khớp nhịp hình):
 
@@ -152,6 +159,12 @@ Khung 5 câu chuẩn (đã khớp nhịp hình):
 | 6.1s | 2.9s | Thương hiệu + năng lực |
 | 9.3s | 1.4s | Giá (rơi đúng lúc số tiền chạy) |
 | 10.9s | 4.0s | Kêu gọi + số điện thoại |
+
+### Dự phòng: giọng `say` của macOS
+
+Chỉ dùng khi không cài được edge-tts. Đặt `"voiceover": {"engine": "say"}`.
+Giọng này đọc dính từ viết tắt nên phải phiên âm tay: `HPB Media` →
+`H P B Media`, `SEO` → `Ét Ê Ô`. Nghe thử rồi sửa.
 
 ---
 
@@ -174,16 +187,17 @@ Nền luôn phải tối. Đây là các bộ đã kiểm chứng trên nền t�
 
 ---
 
-## 8. Thay bằng giọng AI xịn hơn
+## 8. Khi cần giọng tốt hơn nữa
 
-Giọng macOS đủ dùng cho video nội bộ và test. Video chạy quảng cáo trả
-tiền thì nên thu giọng thật hoặc AI cao cấp:
+edge-tts đã đủ cho hầu hết video. Chỉ nâng cấp khi khách yêu cầu giọng có
+cảm xúc thật:
 
-- **FPT.AI** https://fpt.ai/vi/tts — giọng `lannhi` (nữ Nam) hoặc
-  `minhquang` (nam). Tự nhiên nhất cho tiếng Việt, 30.000 ký tự/tháng.
-- **ElevenLabs** https://elevenlabs.io — model Multilingual v2, chọn
-  Vietnamese. Tự nhiên nhất toàn cầu, 10.000 ký tự/tháng.
-- **Zalo AI** https://zalo.ai/tools/text-to-speech — không giới hạn trên web.
+- **Thu giọng người thật** — tốt nhất, không tốn phí, chỉ tốn thời gian.
+- **ElevenLabs** https://elevenlabs.io — Multilingual v2, truyền cảm nhất.
+  Free 10.000 ký tự/tháng nhưng **không cho dùng thương mại** — làm cho
+  khách thì phải mua gói.
+- **FPT.AI** https://fpt.ai/vi/tts — giọng `lannhi` / `minhquang`,
+  30.000 ký tự/tháng.
 
 Thu 5 câu thành một file MP3 liền mạch, lưu `<dự-án>/audio/voiceover-pro.mp3`,
 rồi ghép đè lên bản nhạc nền đã dựng:

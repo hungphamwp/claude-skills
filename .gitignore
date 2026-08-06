@@ -17,3 +17,9 @@ baogia-halomedia/V1.2/bang-gia-chuan.md
 # ── Đầu ra khi chạy skill ─────────────────────────────────
 **/output/
 **/audio/
+
+# Khoá API (ElevenLabs, FPT.AI…) — không bao giờ đẩy lên
+**/.env
+
+# Frame PNG trung gian khi render video (hàng nghìn file, tự sinh lại được)
+**/output/frames/

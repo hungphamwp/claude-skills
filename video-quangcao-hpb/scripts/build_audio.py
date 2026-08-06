@@ -90,6 +90,69 @@ def write_wav(path, mono):
 # ============================================================
 # 1. GIỌNG ĐỌC
 # ============================================================
+def _edge_line(text, voice, rate, path):
+    """Sinh 1 câu bằng giọng neural của Microsoft (edge-tts) — miễn phí, không cần key."""
+    import asyncio, edge_tts
+    asyncio.run(edge_tts.Communicate(text, voice, rate=f'{rate:+d}%').save(path))
+
+
+def build_voiceover_edge(cfg, n, audio_dir):
+    """Giọng neural tiếng Việt. Tự nhiên hơn `say` rất nhiều — nên dùng mặc định.
+
+    Không cần bảng phiên âm: giọng neural đọc thẳng "SEO", "Website",
+    "Google Ads" bằng phát âm tiếng Anh, đúng như người Việt nói ngoài đời.
+    """
+    try:
+        import edge_tts  # noqa: F401
+    except ImportError:
+        raise SystemExit('❌ Thiếu edge-tts. Chạy:  pip3 install --user edge-tts')
+
+    vo = cfg.get('voiceover', {})
+    lines = vo.get('lines', [])
+    voice = vo.get('edge_voice', 'vi-VN-HoaiMyNeural')
+    base = int(vo.get('edge_rate', 0))
+    duration = cfg['output']['duration']
+    track = np.zeros(n)
+    tmp = os.path.join(audio_dir, '_tmp.mp3')
+
+    print(f'🎙️  Tạo giọng đọc neural (edge-tts "{voice}")...')
+    prev_end = 0.0
+    for ln in lines:
+        start, budget, text = ln['at'], ln['budget'], ln['text']
+        rate = base
+        _edge_line(text, voice, rate, tmp)
+        sig = decode_mono(tmp)
+        # câu tràn khung thì đẩy nhanh, tối đa +10% (quá ngưỡng này tai nghe ra "đọc gấp")
+        if len(sig) / SR > budget:
+            rate = base + min(int((len(sig) / SR / budget - 1) * 100) + 2, 10)
+            _edge_line(text, voice, rate, tmp)
+            sig = decode_mono(tmp)
+
+        peak = float(np.max(np.abs(sig))) if len(sig) else 0.0
+        if peak > 0:
+            loud = np.abs(sig) > 0.02 * peak
+            i0 = int(np.argmax(loud))
+            i1 = len(sig) - int(np.argmax(loud[::-1]))
+            sig = sig[max(0, i0 - int(0.02 * SR)):min(len(sig), i1 + int(0.05 * SR))]
+            sig = sig * (0.85 / max(float(np.max(np.abs(sig))), 1e-9))
+
+        dur = len(sig) / SR
+        warn = ''
+        if dur > budget + 0.05:
+            warn += f'  ⚠️ tràn {dur - budget:.2f}s — rút chữ'
+        if start < prev_end - 0.05:
+            warn += f'  ⚠️ chồng {prev_end - start:.2f}s lên câu trước'
+        if start + dur > duration:
+            warn += '  ⚠️ tràn quá thời lượng video'
+        prev_end = start + dur
+        print(f'   [{start:>5.1f}s] {dur:4.2f}s @{rate:+d}% — {text[:44]}…{warn}')
+        place(track, sig, start)
+
+    if os.path.exists(tmp):
+        os.remove(tmp)
+    return track
+
+
 def build_voiceover(cfg, n, audio_dir):
     vo = cfg.get('voiceover', {})
     lines = vo.get('lines', [])
@@ -97,6 +160,10 @@ def build_voiceover(cfg, n, audio_dir):
     if not vo.get('enabled', True) or not lines:
         print('🎙️  Bỏ qua giọng đọc (voiceover.enabled = false)')
         return track
+
+    # mặc định dùng giọng neural; đặt "engine": "say" để quay lại giọng macOS
+    if vo.get('engine', 'edge') == 'edge':
+        return build_voiceover_edge(cfg, n, audio_dir)
 
     voice = vo.get('voice', 'Linh')
     rate0 = vo.get('rate', 190)
