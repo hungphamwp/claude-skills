@@ -311,17 +311,23 @@ def sfx_snap():
     return r.standard_normal(n) * np.exp(-t * 120) * 1.4
 
 
-# Mốc chuyển cảnh: (giây bắt đầu cảnh, kiểu chuyển ra của cảnh trước)
-SCENE_T = [0, 3.5, 7, 11, 14.5, 18.5, 22.5, 26.5, 30, 33, 36.5, 40.5, 44.5, 48.5,
-           52, 56, 60, 64, 68, 72, 76, 79, 83, 87, 92, 96, 100, 104, 108, 112,
-           116, 119.5, 122, 125, 128.5, 132, 135, 138, 142, 146, 150, 154, 158.5,
-           163, 167, 170.5, 174, 177.5]
-SCENE_OUT = ['whip', 'glitch', 'sweep', 'cut', 'blur', 'cut', 'flashglitch', 'punch',
-             'morph', 'whip', 'cut', 'sweep', 'cut', 'glitch', 'cut', 'glass',
-             'coderain', 'cut', 'whip', 'punch', 'cut', 'cut', 'cut', 'sweep',
-             'blur', 'cut', 'cut', 'sweep', 'glass', 'cut', 'flash', 'whip',
-             'cut', 'cut', 'cut', 'punch', 'glitch', 'cut', 'cut', 'cut',
-             'sweep', 'cut', 'cut', 'sweep', 'cut', 'glass', 'cut', 'end']
+def load_scenes(project):
+    """Mốc cảnh do record.js xuất ra khi render — luôn khớp với scenes.js.
+
+    Trước đây hai bảng này viết cứng trong file; dự án mới nào cũng phải
+    nhớ sửa tay, quên là tiếng gõ phím và chuyển cảnh rơi sai chỗ mà
+    không có lỗi nào báo. Giờ đọc thẳng từ nguồn.
+    """
+    f = os.path.join(project, 'output', 'scenes.json')
+    if not os.path.exists(f):
+        print('⚠️  Chưa có output/scenes.json — chạy record.js trước để SFX '
+              'bám đúng mốc cảnh. Tạm bỏ qua SFX chuyển cảnh.')
+        return [], []
+    d = json.load(open(f, encoding='utf-8'))
+    return [x['t'] for x in d], [x.get('out', 'cut') for x in d]
+
+
+SCENE_T, SCENE_OUT = [], []
 
 # Điểm nhấn riêng: (giây, loại, âm lượng)
 ACCENTS = [
@@ -404,11 +410,12 @@ def main():
                                      'thay cho macOS `say`')
     a = ap.parse_args()
 
-    global LINES, DUR, N, T
+    global LINES, DUR, N, T, SCENE_T, SCENE_OUT
     DUR = a.duration
     N = int(SR * DUR)
     T = np.arange(N) / SR
     LINES = load_lines(a.project)
+    SCENE_T, SCENE_OUT = load_scenes(a.project)
 
     audio_dir = os.path.join(HERE, 'audio'); os.makedirs(audio_dir, exist_ok=True)
     out_dir = os.path.join(HERE, 'output')

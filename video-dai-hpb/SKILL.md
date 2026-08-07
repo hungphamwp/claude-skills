@@ -160,8 +160,8 @@ cảm xúc) · `end` (fade cuối bài).
   hiệu quả hơn bỏ từ.
 - **Từ tiếng Anh cứ viết bình thường** (`Cursor`, `ChatGPT`, `deploy`) —
   giọng neural đọc đúng, không cần phiên âm.
-- **Số điện thoại và số tiền viết bằng chữ**: `0913 337 280` →
-  `không chín một ba, ba ba bảy, hai tám không`; `6.000.000đ` → `sáu triệu`.
+- **Số điện thoại và số tiền viết bằng chữ**: `0987 654 321` →
+  `không chín tám bảy, sáu năm bốn, ba hai một`; `6.000.000đ` → `sáu triệu`.
 
 Đổi giọng: `python3 build_vo_edge.py --voice vi-VN-NamMinhNeural --rate -6`
 

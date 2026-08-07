@@ -6,7 +6,7 @@
 :root {
   --bg:        #05060F;
   --bg-warn:   #140510;
-  --a1:        #8B5CF6;   /* tím  — chủ đạo */
+  --a1:        #8B5CF6;   /* tím — chủ đạo */
   --a2:        #E838FF;   /* magenta — điểm nhấn */
   --a3:        #22D3EE;   /* cyan — AI / code */
   --blue:      #3B82F6;
@@ -330,3 +330,77 @@ body { font-family:var(--font); color:var(--tx); -webkit-font-smoothing:antialia
 #dim   { position:absolute; inset:0; background:#000; opacity:0; }
 #warmth{ position:absolute; inset:0; background:radial-gradient(ellipse 70% 50% at 50% 45%,
           rgba(255,77,109,.16), transparent 70%); opacity:0; }
+
+/* ==========================================================
+   PLATFORM — cửa sổ trình duyệt mô phỏng nền tảng AI web app
+   Tên và URL thật; giao diện dựng lại, không phải screen record.
+   ========================================================== */
+.pb-url { font-family:var(--mono); font-size:28px; color:var(--tx3);
+          display:flex; align-items:center; gap:12px; }
+.pb-url i { font-size:22px; color:var(--ok); }
+.win-body.pb { padding:26px 28px; font-family:var(--font); }
+
+/* — ô nhập prompt — */
+.pb-lb { font-size:28px; color:var(--tx3); letter-spacing:.10em;
+         text-transform:uppercase; margin-bottom:16px; }
+.pb-input { min-height:120px; padding:22px 24px; border-radius:18px;
+  background:rgba(255,255,255,.05); border:1px solid rgba(139,92,246,.5);
+  box-shadow:0 0 40px rgba(139,92,246,.22) inset;
+  font-size:34px; line-height:1.4; color:#EDE9FF; text-align:left; }
+.pb-gen { margin-top:20px; display:flex; align-items:center; gap:14px;
+  font-size:30px; color:var(--a3); }
+
+/* — trang web sinh ra — */
+.pb-site, .pb-brand { display:flex; flex-direction:column; gap:14px; }
+.pb-nav { height:44px; border-radius:10px; background:rgba(255,255,255,.06);
+  display:flex; align-items:center; gap:14px; padding:0 16px; }
+.pb-nav u { width:70px; height:10px; border-radius:5px; background:rgba(255,255,255,.22); }
+.pb-btn { width:96px; height:26px; border-radius:99px; margin-left:auto;
+  background:linear-gradient(120deg,#8B5CF6,#22D3EE); display:block; }
+.pb-hero { height:190px; border-radius:14px; padding:24px;
+  background:linear-gradient(150deg,rgba(139,92,246,.34),rgba(34,211,238,.16));
+  display:flex; flex-direction:column; gap:12px; }
+.pb-hero b { width:62%; height:26px; border-radius:6px; background:rgba(255,255,255,.82); }
+.pb-hero s { width:82%; height:14px; border-radius:5px; background:rgba(255,255,255,.34); }
+.pb-hero .pb-btn { margin:auto 0 0 0; }
+.pb-row { display:flex; gap:14px; }
+.pb-card { flex:1; height:104px; border-radius:12px; background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.09); }
+.pb-card.wide { height:64px; }
+
+/* — danh sách khối được sinh — */
+.pb-sections { display:flex; flex-direction:column; gap:14px; }
+.pb-sec { display:flex; align-items:center; gap:18px; padding:20px 24px;
+  border-radius:14px; background:rgba(52,211,153,.10);
+  border:1px solid rgba(52,211,153,.34); font-size:34px; color:#CFF6E6; }
+.pb-sec i { color:var(--ok); font-size:30px; }
+
+/* — dashboard app — */
+.pb-app { display:flex; gap:18px; }
+.pb-side { width:88px; display:flex; flex-direction:column; gap:12px; }
+.pb-side u { height:40px; border-radius:10px; background:rgba(255,255,255,.08); }
+.pb-main { flex:1; display:flex; flex-direction:column; gap:14px; }
+.pb-stats { display:flex; gap:12px; }
+.pb-stats b { flex:1; height:66px; border-radius:12px;
+  background:linear-gradient(140deg,rgba(139,92,246,.30),rgba(34,211,238,.14));
+  border:1px solid rgba(255,255,255,.10); }
+.pb-chart { border-radius:12px; background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.09); padding:8px 6px; }
+.pb-rows { display:flex; flex-direction:column; gap:10px; }
+.pb-rows u { height:26px; border-radius:8px; background:rgba(255,255,255,.07); }
+
+/* — dựng site qua tin nhắn — */
+.pb-chat { display:flex; flex-direction:column; gap:16px; }
+.pb-msg { max-width:78%; padding:20px 26px; border-radius:22px;
+  font-size:32px; line-height:1.35; }
+.pb-msg.me { align-self:flex-end; background:rgba(139,92,246,.24);
+  border:1px solid rgba(139,92,246,.44); border-bottom-right-radius:8px; }
+.pb-msg.ai { align-self:flex-start; background:rgba(255,255,255,.06);
+  border:1px solid var(--stroke); color:var(--tx2); border-bottom-left-radius:8px; }
+
+/* — bộ nhận diện thương hiệu — */
+.pb-logo { width:110px; height:110px; border-radius:26px; margin:0 auto;
+  display:grid; place-items:center; font-size:52px; color:#fff;
+  background:linear-gradient(140deg,#6366F1,#22D3EE); }
+.pb-sw { display:flex; gap:12px; justify-content:center; margin:6px 0 4px; }
+.pb-sw u { width:74px; height:44px; border-radius:10px; display:block; }

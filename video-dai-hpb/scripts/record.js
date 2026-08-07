@@ -24,6 +24,7 @@ const DUR    = parseFloat(arg('duration', 180));
 const FROM   = parseFloat(arg('from', 0));
 const TO     = parseFloat(arg('to', DUR));
 const NAME   = arg('name', 'video');
+const SCALE  = parseFloat(arg('scale', 1));   // 2 = xuất 2160×3840 (4K dọc)
 const FONT   = arg('font', null);   // thử font khác mà không phải sửa CSS
 const FRAMES = path.join(DIR, 'output', 'frames');
 const OUT    = path.join(DIR, 'output', `${NAME}.mp4`);
@@ -58,7 +59,7 @@ async function seek(page, t) {
       '--disable-renderer-backgrounding', '--run-all-compositor-stages-before-draw',
       '--font-render-hinting=none',
     ],
-    defaultViewport: { width: W, height: H, deviceScaleFactor: 1 },
+    defaultViewport: { width: W, height: H, deviceScaleFactor: SCALE },
   });
 
   const page = await browser.newPage();
@@ -77,6 +78,13 @@ async function seek(page, t) {
     await new Promise(r => setTimeout(r, 400));
   }
   await page.evaluate(() => { window.__TL.pause(0); });
+
+  // Xuất bảng cảnh để build_audio.py bám đúng mốc — không phải chép tay,
+  // quên chép là SFX rơi sai chỗ mà chẳng có lỗi nào báo.
+  const table = await page.evaluate(() => SCENES.map(s =>
+    ({ t: s.t, d: s.d, out: typeof s.out === 'string' ? s.out : 'cut' })));
+  fs.mkdirSync(path.join(DIR, 'output'), { recursive: true });
+  fs.writeFileSync(path.join(DIR, 'output', 'scenes.json'), JSON.stringify(table, null, 1));
 
   if (errs.length) {
     console.error('❌ Lỗi JS trên trang:\n' + errs.join('\n'));
@@ -101,7 +109,7 @@ async function seek(page, t) {
   clean(FRAMES); fs.mkdirSync(FRAMES, { recursive: true });
   const i0 = Math.round(FROM * FPS), i1 = Math.round(TO * FPS);
   const total = i1 - i0;
-  console.log(`🎬 Render ${W}×${H} · ${FPS}fps · ${FROM}→${TO}s · ${total} frames`);
+  console.log(`🎬 Render ${W*SCALE}×${H*SCALE} · ${FPS}fps · ${FROM}→${TO}s · ${total} frames`);
   const t0 = Date.now();
 
   for (let i = i0; i < i1; i++) {

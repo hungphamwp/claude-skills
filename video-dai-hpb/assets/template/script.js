@@ -605,11 +605,11 @@ L.cta = (sc) => {
   card.innerHTML = `
     <div class="cta-av"><div class="ring"></div>
       <div class="in"><i class="fa-solid fa-code"></i></div></div>
-    <div class="h2">THEO DÕI KÊNH</div>
-    <div class="sub sm">Mình chia từng bước — cơ bản tới nâng cao</div>
+    <div class="h2">${sc.title || 'THEO DÕI KÊNH'}</div>
+    <div class="sub sm">${sc.sub || 'Mình chia từng bước — cơ bản tới nâng cao'}</div>
     <div class="cta-btn"><i class="fa-solid fa-plus"></i> Theo dõi</div>`;
   s.appendChild(card);
-  const tags = E('div', 'tags', '#VibeCoding&nbsp; #ThietKeWebsite&nbsp; #AI&nbsp; #Cursor');
+  const tags = E('div', 'tags', sc.tags || '#VibeCoding&nbsp; #ThietKeWebsite&nbsp; #AI');
   s.appendChild(tags);
   const ring = card.querySelector('.ring'), btn = card.querySelector('.cta-btn');
   return { node: s, anim(tl, t0, d) {
@@ -911,6 +911,114 @@ L.viz = (sc) => {
     });
     vizAnim(tl, t0, d);
   }};
+};
+
+
+/* ---------- platform: cửa sổ trình duyệt mô phỏng một nền tảng ----------
+   Tên và URL là thật; giao diện là dựng lại, không phải quay màn hình. */
+const PBODY = {
+  prompt: (d) => `
+    <div class="pb-prompt">
+      <div class="pb-lb"><i class="fa-solid fa-wand-magic-sparkles"></i> Describe your idea</div>
+      <div class="pb-input"><span class="pb-type"></span><span class="caret"></span></div>
+      <div class="pb-gen"><i class="fa-solid fa-circle-notch"></i> AI đang dựng…</div>
+    </div>`,
+  site: () => `
+    <div class="pb-site">
+      <div class="pb-nav"><u></u><u></u><u></u><i class="pb-btn"></i></div>
+      <div class="pb-hero"><b></b><s></s><i class="pb-btn"></i></div>
+      <div class="pb-row"><div class="pb-card"></div><div class="pb-card"></div><div class="pb-card"></div></div>
+      <div class="pb-row"><div class="pb-card wide"></div></div>
+    </div>`,
+  sections: (d) => `
+    <div class="pb-sections">${d.sections.map(t =>
+      `<div class="pb-sec"><i class="fa-solid fa-circle-check"></i>${t}</div>`).join('')}</div>`,
+  app: () => `
+    <div class="pb-app">
+      <div class="pb-side"><u></u><u></u><u></u><u></u></div>
+      <div class="pb-main">
+        <div class="pb-stats"><b></b><b></b><b></b></div>
+        <div class="pb-chart"><svg viewBox="0 0 300 90" width="100%" height="90">
+          <polyline points="6,80 60,64 114,70 168,38 222,44 282,10" fill="none"
+            stroke="#22D3EE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="pb-rows"><u></u><u></u><u></u></div>
+      </div>
+    </div>`,
+  chat: (d) => `
+    <div class="pb-chat">${d.msgs.map((m, i) =>
+      `<div class="pb-msg ${i % 2 ? 'ai' : 'me'}">${m}</div>`).join('')}</div>`,
+  brand: () => `
+    <div class="pb-brand">
+      <div class="pb-logo"><i class="fa-solid fa-leaf"></i></div>
+      <div class="pb-sw"><u style="background:#6366F1"></u><u style="background:#22D3EE"></u>
+        <u style="background:#A78BFA"></u><u style="background:#F1F5F9"></u></div>
+      <div class="pb-row"><div class="pb-card"></div><div class="pb-card"></div></div>
+    </div>`,
+};
+
+L.platform = (sc) => {
+  const s = E('div', 'safe');
+  const nm = E('div', 'h1', sc.name); s.appendChild(nm);
+  const c = E('div', 'chip ' + (sc.chipCls || 'cy'),
+    `<i class="fa-solid ${sc.icon || 'fa-bolt'}"></i>${sc.chip}`);
+  c.style.marginTop = '20px'; s.appendChild(c);
+
+  const win = E('div', 'win'); win.style.marginTop = '40px';
+  win.innerHTML =
+    `<div class="win-bar"><u class="r"></u><u class="y"></u><u class="g2"></u>
+       <span class="pb-url"><i class="fa-solid fa-lock"></i> ${sc.url}</span></div>
+     <div class="win-body pb">${PBODY[sc.body](sc)}</div>`;
+  s.appendChild(win);
+
+  const typeEl = win.querySelector('.pb-type');
+  const genEl  = win.querySelector('.pb-gen');
+  const site   = win.querySelector('.pb-site, .pb-app, .pb-brand');
+  const secs   = win.querySelectorAll('.pb-sec');
+  const msgs   = win.querySelectorAll('.pb-msg');
+  const cards  = win.querySelectorAll('.pb-card, .pb-hero, .pb-nav, .pb-stats b, .pb-rows u, .pb-sw u');
+
+  return { node: s, anim(tl, t0, d) {
+    tl.fromTo(nm, { y: 46, opacity: 0 },
+      { y: 0, opacity: 1, duration: .42, ease: 'back.out(1.5)' }, t0 + .06);
+    tl.fromTo(c, { scale: .7, opacity: 0 },
+      { scale: 1, opacity: 1, duration: .34, ease: 'back.out(2.2)' }, t0 + .22);
+    tl.fromTo(win, { y: 64, opacity: 0, scale: .95 },
+      { y: 0, opacity: 1, scale: 1, duration: .5, ease: 'power3.out' }, t0 + .32);
+    tl.to(win, { scale: 1.04, duration: d - .3, ease: 'none' }, t0 + .32);
+
+    if (typeEl && sc.type) {
+      typeTween(tl, typeEl, sc.type, sc.speed || 26, t0 + .7);
+      tl.set(genEl, { opacity: 0 }, t0);
+      tl.to(genEl, { opacity: 1, duration: .3 }, t0 + d - 1.1);
+    }
+    if (site) tl.fromTo(cards, { opacity: 0, y: 22 },
+      { opacity: 1, y: 0, duration: .32, stagger: .07, ease: 'power2.out' }, t0 + .8);
+    if (secs.length) secs.forEach((n, i) => tl.fromTo(n,
+      { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: .3, ease: 'power3.out' },
+      t0 + .7 + i * .32));
+    if (msgs.length) msgs.forEach((n, i) => tl.fromTo(n,
+      { opacity: 0, y: 24, scale: .9 },
+      { opacity: 1, y: 0, scale: 1, duration: .34, ease: 'back.out(1.7)' }, t0 + .7 + i * .55));
+  }};
+};
+
+/* ---------- viz: lưới 7 nền tảng ---------- */
+V.grid7 = (s, sc) => {
+  const g = E('div', ''); g.style.cssText =
+    'display:grid;grid-template-columns:repeat(2,1fr);gap:16px;width:920px;margin-top:30px';
+  const cells = sc.items.map((t, i) => {
+    const n = E('div', 'glass sm');
+    n.style.cssText += `padding:24px 20px;text-align:center;font-size:40px;font-weight:700;
+      color:#EDE9FF;${i === sc.items.length - 1 ? 'grid-column:span 2;' : ''}`;
+    n.textContent = t; g.appendChild(n); return n;
+  });
+  s.appendChild(g);
+  return (tl, t0) => cells.forEach((n, i) => {
+    tl.fromTo(n, { opacity: 0, scale: .8, y: 20 },
+      { opacity: 1, scale: 1, y: 0, duration: .34, ease: 'back.out(1.8)' }, t0 + .35 + i * .11);
+    tl.to(n, { borderColor: 'rgba(139,92,246,.55)',
+      boxShadow: '0 0 34px rgba(139,92,246,.30)', duration: .3 }, t0 + 1.5 + i * .08);
+  });
 };
 
 /* ============================================================
