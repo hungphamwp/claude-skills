@@ -1,0 +1,242 @@
+[
+ {
+  "at": 0.2,
+  "budget": 3.3,
+  "text": "Website này mình làm xong trong ba tiếng."
+ },
+ {
+  "at": 3.7,
+  "budget": 3.3,
+  "text": "Và mình không tự gõ một dòng code nào."
+ },
+ {
+  "at": 7.2,
+  "budget": 3.8,
+  "text": "Cách này gọi là Vibe Coding. Xem hết là làm được."
+ },
+ {
+  "at": 11.2,
+  "budget": 3.3,
+  "text": "Vibe Coding là bạn mô tả cái mình muốn bằng tiếng Việt."
+ },
+ {
+  "at": 14.7,
+  "budget": 3.8,
+  "text": "AI viết code. Bạn làm đạo diễn thôi."
+ },
+ {
+  "at": 18.7,
+  "budget": 3.8,
+  "text": "Ngày xưa phải học HTML, CSS, JavaScript."
+ },
+ {
+  "at": 22.7,
+  "budget": 3.8,
+  "text": "Sáu tháng sau vẫn chưa ra nổi một trang tử tế."
+ },
+ {
+  "at": 26.7,
+  "budget": 3.3,
+  "text": "Giờ viết một câu, ba mươi giây sau có trang chạy được."
+ },
+ {
+  "at": 30.2,
+  "budget": 2.8,
+  "text": "Nhưng mô tả càng rõ, kết quả càng chuẩn."
+ },
+ {
+  "at": 33.2,
+  "budget": 3.3,
+  "text": "Vì sao nó bùng nổ đúng lúc này? Ba lý do."
+ },
+ {
+  "at": 36.7,
+  "budget": 3.8,
+  "text": "Một: AI giờ đọc hiểu cả dự án, không chỉ một file."
+ },
+ {
+  "at": 40.7,
+  "budget": 3.8,
+  "text": "Hai: nó tự chạy thử, tự thấy lỗi, rồi tự sửa."
+ },
+ {
+  "at": 44.7,
+  "budget": 3.8,
+  "text": "Ba: một người làm được việc của cả nhóm nhỏ."
+ },
+ {
+  "at": 48.7,
+  "budget": 3.3,
+  "text": "Việc trước mất hai tuần, giờ còn một buổi chiều."
+ },
+ {
+  "at": 52.2,
+  "budget": 3.8,
+  "text": "Nhưng chọn sai công cụ là mất cả tuần loay hoay."
+ },
+ {
+  "at": 56.2,
+  "budget": 3.8,
+  "text": "Cursor: giao diện giống VS Code, dễ nhất cho người mới."
+ },
+ {
+  "at": 60.2,
+  "budget": 3.8,
+  "text": "Claude Code: chạy trong terminal, mạnh khi dự án lớn."
+ },
+ {
+  "at": 64.2,
+  "budget": 3.8,
+  "text": "ChatGPT: hợp để bàn ý tưởng và viết nội dung cho trang."
+ },
+ {
+  "at": 68.2,
+  "budget": 3.8,
+  "text": "Windsurf và GitHub Copilot: gợi ý code ngay khi bạn gõ."
+ },
+ {
+  "at": 72.2,
+  "budget": 3.8,
+  "text": "Người mới chọn Cursor. Dùng một cái cho quen đã."
+ },
+ {
+  "at": 76.2,
+  "budget": 2.8,
+  "text": "Giờ làm thật. Website quán cà phê."
+ },
+ {
+  "at": 79.2,
+  "budget": 3.8,
+  "text": "Bước một: ý tưởng. Menu, ảnh, nút đặt bàn."
+ },
+ {
+  "at": 83.2,
+  "budget": 3.8,
+  "text": "Bước hai: viết prompt. Càng cụ thể càng tốt."
+ },
+ {
+  "at": 87.2,
+  "budget": 4.8,
+  "text": "Tạo landing page cho quán cà phê, nền tối, có menu và nút đặt bàn."
+ },
+ {
+  "at": 92.2,
+  "budget": 3.8,
+  "text": "Bước ba: AI sinh code. Chờ khoảng ba mươi giây."
+ },
+ {
+  "at": 96.2,
+  "budget": 3.8,
+  "text": "Bước bốn: xem thử. Đây là bản đầu tiên."
+ },
+ {
+  "at": 100.2,
+  "budget": 3.8,
+  "text": "Chưa ưng thì sửa bằng câu tiếp theo, không đụng vào code."
+ },
+ {
+  "at": 104.2,
+  "budget": 3.8,
+  "text": "Thêm dark mode. Thêm hiệu ứng khi cuộn trang."
+ },
+ {
+  "at": 108.2,
+  "budget": 3.8,
+  "text": "Cho xem trên điện thoại. Nó tự co giãn lại."
+ },
+ {
+  "at": 112.2,
+  "budget": 3.8,
+  "text": "Bước năm: chạy thử. Bấm từng nút xem có lỗi không."
+ },
+ {
+  "at": 116.2,
+  "budget": 3.3,
+  "text": "Bước sáu: deploy. Có link thật gửi khách."
+ },
+ {
+  "at": 119.7,
+  "budget": 2.3,
+  "text": "Tổng cộng: hai mươi phút."
+ },
+ {
+  "at": 122.2,
+  "budget": 2.8,
+  "text": "Lưu lại mười prompt này để dùng."
+ },
+ {
+  "at": 125.2,
+  "budget": 3.3,
+  "text": "Landing page khóa học. Web công ty, web spa."
+ },
+ {
+  "at": 128.7,
+  "budget": 3.3,
+  "text": "Web nhà hàng. Thêm dark mode, animation."
+ },
+ {
+  "at": 132.2,
+  "budget": 2.8,
+  "text": "Responsive, form liên hệ, và deploy."
+ },
+ {
+  "at": 135.2,
+  "budget": 2.8,
+  "text": "Ba lỗi khiến người mới bỏ cuộc."
+ },
+ {
+  "at": 138.2,
+  "budget": 3.8,
+  "text": "Một: prompt chung chung kiểu làm web đẹp cho tôi."
+ },
+ {
+  "at": 142.2,
+  "budget": 3.8,
+  "text": "Hai: bắt AI làm cả trang một lần. Hãy chia nhỏ."
+ },
+ {
+  "at": 146.2,
+  "budget": 3.8,
+  "text": "Ba: không lưu bản chạy được. Hỏng là mất sạch."
+ },
+ {
+  "at": 150.2,
+  "budget": 3.8,
+  "text": "Sửa dễ thôi: AI làm đúng phát nào, git commit phát đó."
+ },
+ {
+  "at": 154.2,
+  "budget": 4.3,
+  "text": "Vậy còn cần học lập trình không? Vẫn cần."
+ },
+ {
+  "at": 158.7,
+  "budget": 4.3,
+  "text": "Vì khi AI làm sai, bạn phải biết nó sai chỗ nào."
+ },
+ {
+  "at": 163.2,
+  "budget": 3.8,
+  "text": "Đọc hiểu code lúc này quan trọng hơn tự viết code."
+ },
+ {
+  "at": 167.2,
+  "budget": 3.3,
+  "text": "Lời khuyên cuối: đừng học lý thuyết trước."
+ },
+ {
+  "at": 170.7,
+  "budget": 3.3,
+  "text": "Làm luôn một dự án nhỏ. Trang giới thiệu bản thân."
+ },
+ {
+  "at": 174.2,
+  "budget": 3.3,
+  "text": "Muốn dùng AI làm website nhanh hơn thì theo dõi kênh nhé."
+ },
+ {
+  "at": 177.7,
+  "budget": 2.3,
+  "text": "Mình chia từng bước, cơ bản tới nâng cao."
+ }
+]
