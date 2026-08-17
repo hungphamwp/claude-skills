@@ -1,0 +1,40 @@
+[
+  {
+    "note": "Báo giá gốc — xử lý mã độc website",
+    "spec": {
+      "so_bg": "BG-WEB-0322",
+      "ngay": "27/06/2026",
+      "tieu_de": "BÁO GIÁ XỬ LÝ MÃ ĐỘC WEBSITE",
+      "phu_de": "Xử Lý Mã Độc Website — VITOURMIN.COM",
+      "khach_hang": "VITOURMIN",
+      "loai_dich_vu": "Website du lịch — vitourmin.com   |   Nền tảng: WordPress",
+      "tien_do": "Thời gian dự kiến: 3-5 ngày làm việc",
+      "hang_muc": "Xử Lý Mã Độc & Bảo Mật Website",
+      "chi_tiet": "RÀ SOÁT TOÀN BỘ WEBSITE\nKiểm tra toàn bộ mã nguồn, file hệ thống và database tìm mã độc, file lạ, backdoor\n\nXỬ LÝ & KHÔI PHỤC\nXóa mã độc, khôi phục file/database bị nhiễm về trạng thái sạch\n\nVÁ LỖ HỔNG BẢO MẬT\nCập nhật phiên bản, vá các lỗ hổng bị khai thác để chèn mã độc\n\nTHIẾT LẬP BẢO MẬT\nĐổi toàn bộ mật khẩu quản trị, thiết lập bảo mật cơ bản chống tái nhiễm",
+      "gia": 1900000,
+      "ghi_chu": "Thanh toán 1 lần",
+      "thoi_gian_thuc_hien": "Thời gian thực hiện: 3-5 ngày làm việc kể từ khi báo giá và được cấp quyền truy cập hệ thống",
+      "thanh_toan": "Thanh toán: Tạm ứng 50% khi triển khai — 50% còn lại khi bàn giao hoàn chỉnh",
+      "bao_hanh": "Bảo hành: 30 ngày kể từ ngày bàn giao (lỗi phát sinh từ phía HPB Media)",
+      "hieu_luc": "Báo giá có hiệu lực trong 15 ngày kể từ ngày gửi",
+      "phat_sinh": "Yêu cầu phát sinh ngoài phạm vi báo giá sẽ được thống nhất và báo giá bổ sung riêng"
+    }
+  },
+  {
+    "note": "Báo giá thiết kế website mới, khách tham khảo phong cách một site khác",
+    "spec": {
+      "so_bg": "BG-WEB-0817",
+      "ngay": "17/08/2026",
+      "tieu_de": "BÁO GIÁ THIẾT KẾ WEBSITE",
+      "phu_de": "Thiết Kế Website Doanh Nghiệp — TTTHEADWEARMFR.COM",
+      "khach_hang": "MỸ THUẬN",
+      "loai_dich_vu": "Website sản xuất & xuất khẩu mũ nón — tttheadwearmfr.com   |   Nền tảng: WordPress",
+      "tien_do": "Thời gian dự kiến: 7-10 ngày làm việc",
+      "hang_muc": "Thiết Kế & Xây Dựng Website",
+      "chi_tiet": "THIẾT KẾ GIAO DIỆN\nThiết kế giao diện chuyên nghiệp theo phong cách doanh nghiệp sản xuất — xuất khẩu (tham khảo kaixincap.com), tối ưu hiển thị trên điện thoại, máy tính bảng và máy tính\n\nXÂY DỰNG CÁC TRANG CHỨC NĂNG\nTrang chủ, Giới thiệu, Sản phẩm/Catalog, Dịch vụ, Video, Liên hệ (tối đa 6 trang)\n\nTÍCH HỢP CHỨC NĂNG\nForm liên hệ/nhận báo giá, tích hợp Zalo/WhatsApp chat, kết nối mạng xã hội\n\nCÀI ĐẶT & TỐI ƯU\nTrỏ tên miền, cài đặt hosting, chứng chỉ bảo mật SSL, tối ưu SEO cơ bản (tiêu đề, mô tả, tốc độ tải trang)\n\nBÀN GIAO\nHướng dẫn sử dụng, bàn giao tài khoản quản trị website",
+      "gia": 2000000,
+      "ghi_chu": "Thanh toán 1 lần",
+      "thoi_gian_thuc_hien": "Thời gian thực hiện: 7-10 ngày làm việc kể từ khi chốt nội dung và được cung cấp hình ảnh/thông tin"
+    }
+  }
+]

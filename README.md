@@ -9,6 +9,7 @@ là một skill: Claude đọc `SKILL.md` và tự làm theo khi gặp đúng lo
 |---|---|
 | [`video-quangcao-hpb`](video-quangcao-hpb/) | Dựng video quảng cáo dọc 1080×1920 có giọng đọc tiếng Việt, nhạc nền và hiệu ứng — từ một file JSON |
 | [`baogia-halomedia`](baogia-halomedia/) | Xuất báo giá thiết kế website ra file .xlsx, tự đánh số liên tục |
+| [`baogia-hpb`](baogia-hpb/) | Xuất báo giá .xlsx theo đúng mẫu HPB Media (logo, banner xanh, QR chuyển khoản) — hỗ trợ cả báo giá 1 dòng trọn gói lẫn nhiều dòng hạng mục tách giá |
 | [`baocao-quantri`](baocao-quantri/) | Báo cáo quản trị website hàng tháng cho khách, xuất .xlsx |
 | [`flatsome-skill-v2`](flatsome-skill-v2/) | Dựng website WordPress bằng theme Flatsome, clone giao diện từ URL/ảnh/Figma |
 | [`elementor-skill`](elementor-skill/) | Dựng và deploy trang WordPress bằng Elementor |
