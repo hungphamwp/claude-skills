@@ -15,6 +15,7 @@ là một skill: Claude đọc `SKILL.md` và tự làm theo khi gặp đúng lo
 | [`elementor-skill`](elementor-skill/) | Dựng và deploy trang WordPress bằng Elementor |
 | [`devvn-html-to-wp-acf`](devvn-html-to-wp-acf/) | Chuyển landing page HTML tĩnh sang WordPress template + ACF |
 | [`devvn-wp-security-audit`](devvn-wp-security-audit/) | Rà soát bảo mật plugin/theme WordPress theo chuẩn WPCS |
+| [`httrack-to-wordpress`](httrack-to-wordpress/) | Clone website bằng HTTrack rồi chuyển thành WordPress y hệt giao diện (custom theme + ACF/SCF + CPT + form hoạt động thật) |
 
 > Hai skill `devvn-*` do tác giả **devvn** viết, không phải của HPB Media.
 
