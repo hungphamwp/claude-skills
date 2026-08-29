@@ -29,6 +29,7 @@ import argparse
 import copy
 import json
 import os
+import re
 import shutil
 import socket
 import subprocess
@@ -171,6 +172,40 @@ def default_voiceover(cfg):
     return lines
 
 
+IMAGE_EXT = ('.png', '.jpg', '.jpeg', '.webp', '.svg', '.gif')
+
+
+def collect_mascot_images(cfg):
+    """content.mascot_folder (thư mục ảnh gấu của người dùng) hoặc
+    content.mascot_images (danh sách đường dẫn tường minh) → danh sách
+    file ảnh thật đã sắp xếp. Không có gì thì trả về [] (dùng SVG mặc định)."""
+    c = cfg.get('content', {})
+    paths = []
+
+    folder = c.get('mascot_folder')
+    if folder:
+        folder = os.path.abspath(os.path.expanduser(folder))
+        if not os.path.isdir(folder):
+            raise SystemExit(f'❌ Không tìm thấy thư mục ảnh mascot: {folder}')
+        def natural_key(name):
+            return [int(t) if t.isdigit() else t.lower()
+                    for t in re.split(r'(\d+)', name)]
+
+        found = sorted(
+            (f for f in os.listdir(folder)
+             if f.lower().endswith(IMAGE_EXT) and not f.startswith('.')),
+            key=natural_key,
+        )
+        if not found:
+            raise SystemExit(f'❌ Thư mục {folder} không có ảnh nào (.png/.jpg/.webp/.svg/.gif)')
+        paths += [os.path.join(folder, f) for f in found]
+
+    for p in c.get('mascot_images', []) or []:
+        paths.append(os.path.abspath(os.path.expanduser(p)))
+
+    return paths
+
+
 # ============================================================
 # DỰNG DỰ ÁN
 # ============================================================
@@ -184,6 +219,22 @@ def scaffold(cfg, out_dir):
             shutil.rmtree(dst)
         shutil.copytree(os.path.join(TEMPLATE, d), dst)
     os.makedirs(os.path.join(out_dir, 'output'), exist_ok=True)
+
+    # Ảnh mascot của người dùng (thư mục/tự chọn) — copy vào project rồi
+    # ghi lại đường dẫn tương đối vào config để script.js đọc và đổi cảnh.
+    mascot_paths = collect_mascot_images(cfg)
+    if mascot_paths:
+        mascot_dir = os.path.join(out_dir, 'assets', 'images', 'mascot')
+        os.makedirs(mascot_dir, exist_ok=True)
+        scenes = []
+        for i, src in enumerate(mascot_paths):
+            ext = os.path.splitext(src)[1].lower()
+            dst_name = f'mascot-{i+1}{ext}'
+            shutil.copy2(src, os.path.join(mascot_dir, dst_name))
+            scenes.append(f'assets/images/mascot/{dst_name}')
+        cfg['content']['mascot_scenes'] = scenes
+        print(f'🐻 Đã nạp {len(scenes)} ảnh mascot từ: '
+              f'{cfg["content"].get("mascot_folder") or "danh sách mascot_images"}')
 
     with open(os.path.join(out_dir, 'config.json'), 'w', encoding='utf-8') as f:
         json.dump(cfg, f, ensure_ascii=False, indent=2)

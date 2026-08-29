@@ -82,6 +82,28 @@ function applyContent(cfg) {
 
   const b = cfg.brand, c = cfg.content;
 
+  /* Paper theme toggle */
+  const stage = document.getElementById('stage');
+  stage.classList.toggle('stage--paper', c.style === 'paper');
+
+  if (c.style === 'paper') {
+    if (c.funnel) {
+      set('funnel-label-1', c.funnel.label1 || 'LEAD');
+      set('funnel-label-2', c.funnel.label2 || 'QUALIFIED LEAD');
+      icon('funnel-icon-1', c.funnel.icon1);
+      icon('funnel-icon-2', c.funnel.icon2);
+    }
+    if (c.mascot === false) document.getElementById('mascot').style.display = 'none';
+    window.__MASCOT_SCENES = c.mascot_scenes || [
+      'assets/images/mascot-scene1-hello.svg',
+      'assets/images/mascot-scene2-explain.svg',
+      'assets/images/mascot-scene3-cheer.svg',
+    ];
+    set('paper-cta-label', c.paper_cta_label || 'Liên hệ ngay');
+    set('paper-cta-phone', b.phone || '');
+    set('paper-cta-btn-text', c.cta || 'Gọi ngay');
+  }
+
   /* Thanh trên */
   const nameEl = document.getElementById('brand-name');
   nameEl.innerHTML = '';
@@ -252,6 +274,13 @@ function animatePriceCounter(el, target, duration) {
   });
 }
 
+function round3(n) { return Math.round(n * 1000) / 1000; }
+
+function swapMascot(src) {
+  const img = document.getElementById('mascot-img');
+  if (img && src) img.src = src;
+}
+
 /* ============================================================
    6. AMBIENT MOTION
    ============================================================ */
@@ -293,13 +322,31 @@ function buildTimeline(cfg, { split1, split2 }) {
     .to('#sub-tagline', { opacity: 1, y: 0, duration: 0.6 }, 'headline+=0.6')
     .to(split2.chars, { opacity: 1, y: 0, duration: 0.6, stagger: 0.07, ease: 'back.out(1.4)' }, 'headline+=0.9');
 
-  /* Logo giữa màn */
+  /* Logo giữa màn (hoặc đồ họa phễu ở paper theme) */
   tl.addLabel('logo', L.logo)
-    .to('#hero-mark', { opacity: 1, scale: 1, duration: 1.0, ease: 'expo.out' }, 'logo');
+    .to('#hero-mark', { opacity: 1, scale: 1, duration: 1.0, ease: 'expo.out' }, 'logo')
+    .to('.funnel-card', { opacity: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.18, ease: 'back.out(1.5)' }, 'logo');
 
-  /* Modal */
+  /* Modal (hoặc CTA bar giấy ở paper theme) */
   tl.addLabel('modal', L.modal)
-    .to('#quote-modal', { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'expo.out' }, 'modal');
+    .to('#quote-modal', { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'expo.out' }, 'modal')
+    .to('#cta-bar-paper', { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out' }, 'modal+=0.3');
+
+  /* Mascot — xuất hiện sớm cùng tiêu đề rồi đổi cảnh đều theo nhịp video
+     (số lượng ảnh tuỳ folder người dùng đưa vào, không cố định 3 cảnh) */
+  const scenes = window.__MASCOT_SCENES || [];
+  const mascotStart = L.headline + 0.4;
+  const mascotEnd = L.fadeout - 0.3;
+  tl.to('#mascot', { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'back.out(1.5)' }, mascotStart);
+  if (scenes.length > 1 && mascotEnd > mascotStart) {
+    const step = (mascotEnd - mascotStart) / scenes.length;
+    scenes.slice(1).forEach((src, i) => {
+      const t = round3(mascotStart + step * (i + 1));
+      tl.to('#mascot', { scale: 0.9, duration: 0.15, ease: 'power1.in' }, t)
+        .call(swapMascot, [src], round3(t + 0.05))
+        .to('#mascot', { scale: 1, duration: 0.3, ease: 'back.out(2)' }, round3(t + 0.06));
+    });
+  }
 
   /* Chips */
   tl.addLabel('chips', L.chips)
@@ -353,9 +400,11 @@ function buildTimeline(cfg, { split1, split2 }) {
 
   /* Kết */
   tl.addLabel('out', L.fadeout)
-    .to(['#quote-modal', '#badge', '#sub-tagline', '#bottom-tagline', '#hero-mark'], {
+    .to(['#quote-modal', '#badge', '#sub-tagline', '#bottom-tagline', '#hero-mark',
+         '#mascot', '#cta-bar-paper'], {
       opacity: 0, duration: 0.6, ease: 'power2.inOut', stagger: 0.05,
     }, 'out')
+    .to('.funnel-card', { opacity: 0, y: 10, duration: 0.4, stagger: 0.05, ease: 'power2.in' }, 'out')
     .to('.chip', { opacity: 0, y: 10, duration: 0.4, stagger: 0.04, ease: 'power2.in' }, 'out')
     .to('.char', { opacity: 0, y: -20, duration: 0.4, stagger: 0.02, ease: 'power2.in' }, 'out+=0.1')
     .to(['#bg-layer', '#bg-grid', '.bg-glow', '.deco-line', '#top-bar'], {
@@ -388,6 +437,9 @@ function resetForLoop(cfg) {
   gsap.set('#price-row',      { opacity: 0, y: 16 });
   gsap.set('#cta-btn',        { opacity: 0, y: 16 });
   gsap.set('#bottom-tagline', { opacity: 0, y: 30 });
+  gsap.set('.funnel-card',    { opacity: 0, y: 30, scale: 0.92 });
+  gsap.set('#mascot',         { opacity: 0, y: 40, scale: 0.85 });
+  gsap.set('#cta-bar-paper',  { opacity: 0, y: 50 });
   document.getElementById('price-amount').textContent = '0đ';
 }
 
@@ -404,6 +456,9 @@ function setupInitialStates() {
   gsap.set('#price-row',      { opacity: 0, y: 16 });
   gsap.set('#cta-btn',        { opacity: 0, y: 16 });
   gsap.set('#bottom-tagline', { opacity: 0, y: 30 });
+  gsap.set('.funnel-card',    { opacity: 0, y: 30, scale: 0.92 });
+  gsap.set('#mascot',         { opacity: 0, y: 40, scale: 0.85 });
+  gsap.set('#cta-bar-paper',  { opacity: 0, y: 50 });
 }
 
 /* ============================================================
@@ -423,8 +478,10 @@ async function init() {
   fitLayout();
 
   const splits = setupSplitText();
-  paintGradientChars(cfg.theme.gradient_text ||
-    'linear-gradient(135deg, #60a5fa 0%, #a78bfa 45%, #f0a6ff 100%)');
+  if (cfg.content.style !== 'paper') {
+    paintGradientChars(cfg.theme.gradient_text ||
+      'linear-gradient(135deg, #60a5fa 0%, #a78bfa 45%, #f0a6ff 100%)');
+  }
 
   setupInitialStates();
   startAmbientMotion();

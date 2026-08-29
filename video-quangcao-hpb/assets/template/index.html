@@ -47,6 +47,10 @@
       <div class="deco-line deco-line--1" aria-hidden="true"></div>
       <div class="deco-line deco-line--2" aria-hidden="true"></div>
 
+      <!-- Paper theme background (chỉ hiện khi content.style = "paper") -->
+      <div class="paper-bg" aria-hidden="true"></div>
+      <div class="paper-vignette" aria-hidden="true"></div>
+
       <!-- ── Main content ───────────────────────────────────── -->
       <main class="content-layer" id="content-layer">
 
@@ -66,9 +70,54 @@
           <img class="hero-mark__img" id="hero-mark-img" src="assets/images/hpb-mark.png" alt="" />
         </div>
 
+        <!-- Đồ họa phễu Lead → Qualified Lead (paper theme) -->
+        <div class="funnel-graphic" id="funnel-graphic" aria-hidden="true">
+          <div class="funnel-card funnel-card--active" id="funnel-card-1">
+            <div class="funnel-avatars">
+              <span class="avatar-dot"><i class="fa-solid fa-user"></i></span>
+              <span class="avatar-dot"><i class="fa-solid fa-user"></i></span>
+              <span class="avatar-dot"><i class="fa-solid fa-user"></i></span>
+              <span class="avatar-dot"><i class="fa-solid fa-user"></i></span>
+              <span class="avatar-dot"><i class="fa-solid fa-user"></i></span>
+              <span class="avatar-dot"><i class="fa-solid fa-user"></i></span>
+            </div>
+            <div class="funnel-shape"></div>
+            <div class="funnel-badge"><i class="fa-solid fa-user" id="funnel-icon-1"></i></div>
+            <div class="funnel-label" id="funnel-label-1">LEAD</div>
+          </div>
+          <div class="funnel-card funnel-card--faded" id="funnel-card-2">
+            <div class="funnel-avatars">
+              <span class="avatar-dot"><i class="fa-solid fa-user"></i></span>
+              <span class="avatar-dot"><i class="fa-solid fa-user"></i></span>
+              <span class="avatar-dot"><i class="fa-solid fa-user"></i></span>
+              <span class="avatar-dot"><i class="fa-solid fa-user"></i></span>
+            </div>
+            <div class="funnel-shape"></div>
+            <div class="funnel-badge"><i class="fa-solid fa-user-check" id="funnel-icon-2"></i></div>
+            <div class="funnel-label" id="funnel-label-2">QUALIFIED LEAD</div>
+          </div>
+        </div>
+
         <ul class="chips" id="chips" aria-label="Dịch vụ"></ul>
 
       </main>
+
+      <!-- Mascot (paper theme) — đổi ảnh theo từng cảnh cho đa dạng -->
+      <div class="mascot" id="mascot" aria-hidden="true">
+        <img id="mascot-img" src="assets/images/mascot-scene1-hello.svg" alt="" />
+      </div>
+
+      <!-- CTA bar kiểu giấy, thay cho modal form tối màu -->
+      <section class="cta-bar-paper" id="cta-bar-paper" aria-hidden="true">
+        <div class="cta-bar-paper__info">
+          <span class="cta-bar-paper__label" id="paper-cta-label">Liên hệ ngay</span>
+          <span class="cta-bar-paper__phone" id="paper-cta-phone"></span>
+        </div>
+        <div class="cta-bar-paper__btn">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          <span id="paper-cta-btn-text">Gọi ngay</span>
+        </div>
+      </section>
 
       <!-- ── Modal ──────────────────────────────────────────── -->
       <section class="modal" id="quote-modal" role="dialog" aria-label="Form đăng ký">

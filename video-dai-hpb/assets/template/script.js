@@ -4,7 +4,13 @@
    frame — không dùng CSS animation (CSS không seek được).
    ========================================================== */
 
-const FPS = 30, DUR = 180;
+const FPS = 30;
+// Tự tính từ SCENES (mốc cảnh cuối cùng) — không phải sửa tay mỗi khi đổi
+// độ dài video. Khai `const VIDEO_DURATION = ...` trong scenes.js nếu
+// muốn ép cứng một giá trị khác (video-dai-hpb: mỗi cảnh biết t+d của nó).
+const DUR = (typeof VIDEO_DURATION !== 'undefined')
+  ? VIDEO_DURATION
+  : Math.max(...SCENES.map(s => s.t + s.d));
 
 /* Thương hiệu phần kết lấy từ brand.js — file riêng của mỗi người dùng.
    Không có brand.js thì dùng giá trị trung tính. */
@@ -159,6 +165,26 @@ L.title = (sc) => {
       tl.to(h, { opacity: .45, scale: .92, duration: .5, ease: 'power2.out' }, t0 + sc.stage2.at);
     }
     if (sc.punch) tl.fromTo(s, { scale: 1.14 }, { scale: 1, duration: .5, ease: 'power4.out' }, t0);
+  }};
+};
+
+/* ---------- mascot (ảnh nhân vật minh hoạ + chữ) ---------- */
+L.mascot = (sc) => {
+  const s = E('div', 'safe mascot-wrap'), parts = [];
+  const k = kickerEl(sc); if (k) { s.appendChild(k); parts.push([k, 0]); }
+  const imgWrap = E('div', 'mascot-img-wrap');
+  imgWrap.appendChild(E('img', 'mascot-img'));
+  imgWrap.querySelector('img').src = sc.img;
+  s.appendChild(imgWrap); parts.push([imgWrap, .08]);
+  const h = sc.h1 ? E('div', sc.h1cls || 'h2', sc.h1) : null;
+  if (h) { s.appendChild(h); parts.push([h, .28]); }
+  const sub = sc.sub ? E('div', 'sub' + (sc.subSm ? ' sm' : ''), sc.sub) : null;
+  if (sub) { s.appendChild(sub); parts.push([sub, .42]); }
+  return { node: s, anim(tl, t0) {
+    tl.fromTo(imgWrap, { scale: .7, opacity: 0, y: 30 },
+      { scale: 1, opacity: 1, y: 0, duration: .6, ease: 'back.out(1.6)' }, t0 + .1);
+    parts.filter(([n]) => n !== imgWrap).forEach(([n, dl]) => tl.fromTo(n,
+      { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: .5, ease: 'power2.out' }, t0 + .1 + dl));
   }};
 };
 
@@ -356,14 +382,15 @@ L.term = (sc) => {
 L.cards = (sc) => {
   const s = E('div', 'safe');
   const k = kickerEl(sc); if (k) s.appendChild(k);
-  const wrap = E('div', ''); wrap.style.cssText = 'display:flex;flex-direction:column;gap:22px';
+  const wrap = E('div', ''); wrap.style.cssText = 'display:flex;flex-direction:column;gap:32px';
   const nodes = sc.items.map(it => {
     const c = E('div', 'card ' + (it.cls || ''));
     if (sc.sm) { c.style.padding = '24px 30px'; }
     c.innerHTML =
       (it.n ? `<div class="n">${it.n}</div>` : '') +
       `<div class="ic"><i class="fa-solid ${it.ic}"></i></div>` +
-      `<div class="t"${sc.sm ? ' style="font-size:40px"' : ''}>${it.t}</div>`;
+      `<div class="tw"><div class="t"${sc.sm ? ' style="font-size:40px"' : ''}>${it.t}</div>` +
+      (it.sub ? `<div class="t-sub">${it.sub}</div>` : '') + `</div>`;
     if (sc.mood === 'gray') { c.style.filter = 'grayscale(1)'; c.style.borderLeftColor = '#5C6478'; }
     wrap.appendChild(c); return c;
   });
@@ -390,10 +417,11 @@ L.cmp = (sc) => {
   if (sc.h2) s.appendChild(E('div', 'h2', sc.h2));
   const box = E('div', 'cmp');
   if (sc.col) box.style.flexDirection = 'column';
-  box.style.marginTop = '44px';
+  box.style.marginTop = '56px';
   const mk = (o) => {
     const p = E('div', 'p ' + (o.cls || '').replace('strike-vl', '').replace('big', '').replace('faded', ''));
-    p.innerHTML = (o.lb ? `<div class="lb">${o.lb}</div>` : '') +
+    p.innerHTML = (o.ic ? `<div class="p-ic"><i class="fa-solid ${o.ic}"></i></div>` : '') +
+      (o.lb ? `<div class="lb">${o.lb}</div>` : '') +
       `<div class="vl">${o.vl}</div>`;
     if ((o.cls || '').includes('big')) p.querySelector('.vl').style.fontSize = '78px';
     if ((o.cls || '').includes('faded')) { p.style.opacity = '.4'; p.querySelector('.vl').style.fontSize = '46px'; }
@@ -401,6 +429,10 @@ L.cmp = (sc) => {
   };
   const lp = mk(sc.left), rp = mk(sc.right);
   box.appendChild(lp); box.appendChild(rp); s.appendChild(box);
+  let vs = null;
+  if (sc.vs !== false && !sc.col) { vs = E('div', 'cmp-vs', sc.vs || 'VS'); box.appendChild(vs); }
+  const note = sc.note ? E('div', 'cmp-note', sc.note) : null;
+  if (note) s.appendChild(note);
   const strike = (sc.left.cls || '').includes('strike-vl');
   let bar = null;
   if (strike) {
@@ -423,6 +455,10 @@ L.cmp = (sc) => {
       t0 + (sc.col ? 99 : 1.1));
     if (bar) tl.fromTo(bar, { scaleX: 0 }, { scaleX: 1, duration: .35, ease: 'power2.inOut' }, t0 + 1.0);
     tl.to(rp, { boxShadow: '0 0 60px rgba(52,211,153,.34)', duration: .5 }, t0 + 1.2);
+    if (vs) tl.fromTo(vs, { scale: 0, opacity: 0 },
+      { scale: 1, opacity: 1, duration: .4, ease: 'back.out(2.4)' }, t0 + .55);
+    if (note) tl.fromTo(note, { y: 24, opacity: 0 },
+      { y: 0, opacity: 1, duration: .5, ease: 'power2.out' }, t0 + .95);
   }};
 };
 
@@ -614,7 +650,7 @@ L.cta = (sc) => {
     ${(sc.brand || B.name) ? `<div class="cta-brand">${sc.brand || B.name}</div>` : ''}
     <div class="h2">${sc.title || 'THEO DÕI KÊNH'}</div>
     <div class="sub sm">${sc.sub || B.sub || 'Theo dõi để xem thêm'}</div>
-    <div class="cta-btn"><i class="fa-solid fa-plus"></i> Theo dõi</div>`;
+    <div class="cta-btn"><i class="fa-solid ${sc.btnIcon || 'fa-plus'}"></i> ${sc.btnText || 'Theo dõi'}</div>`;
   s.appendChild(card);
   // Hashtag mặc định để chuẩn SEO cho HPB Media — cảnh nào cần khác thì khai `tags`
   const tags = E('div', 'tags', sc.tags || B.tags || '');
@@ -1138,7 +1174,30 @@ function build() {
 
   });
 
+  buildMascotDock(tl);
+
   return tl;
+}
+
+/* ============================================================
+   LINH VẬT CỐ ĐỊNH Ở ĐÁY — đổi ảnh đều theo MASCOT_IMAGES,
+   độc lập với từng cảnh, để nhân vật "đứng dẫn" xuyên suốt video.
+   ============================================================ */
+function buildMascotDock(tl) {
+  const imgs = (typeof MASCOT_IMAGES !== 'undefined') ? MASCOT_IMAGES : [];
+  if (!imgs.length) return;
+  const dock = $('#mascot-dock'), img = $('#mascot-dock-img');
+  if (!dock || !img) return;
+  img.src = imgs[0];
+  gsap.set(dock, { opacity: 0, y: 40, scale: .9 });
+  tl.to(dock, { opacity: 1, y: 0, scale: 1, duration: .6, ease: 'back.out(1.6)' }, .15);
+  const step = DUR / imgs.length;
+  imgs.slice(1).forEach((src, i) => {
+    const t = (i + 1) * step;
+    tl.to(dock, { scale: .88, duration: .14, ease: 'power1.in' }, t - .05)
+      .call(() => { img.src = src; }, null, t)
+      .to(dock, { scale: 1, duration: .3, ease: 'back.out(2)' }, t + .01);
+  });
 }
 
 /* ---- khởi động ---- */

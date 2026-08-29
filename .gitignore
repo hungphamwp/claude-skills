@@ -17,3 +17,8 @@ baogia-halomedia/V1.2/bang-gia-chuan.md
 # ── Đầu ra khi chạy skill ─────────────────────────────────
 **/output/
 **/audio/
+
+# Font Gilroy VH (SVN-Gilroy) — bản Việt hoá không chính chủ, có rủi ro
+# bản quyền nên không đẩy lên repo public. Mỗi máy tự tải về đặt vào
+# video-dai-hpb/assets/template/vendor/fonts/gilroy/ nếu muốn dùng.
+video-dai-hpb/assets/template/vendor/fonts/gilroy/

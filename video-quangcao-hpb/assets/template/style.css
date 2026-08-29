@@ -669,6 +669,235 @@ html, body {
   letter-spacing: 0.03em;
 }
 
+/* ============================================================
+   PAPER THEME — nền giấy trắng nhăn, chữ vàng viền đen, mascot,
+   đồ họa phễu. Bật bằng content.style = "paper" trong config.
+   Không đụng tới theme tối mặc định (mọi rule dưới đây chỉ áp
+   khi .stage có class .stage--paper).
+   ============================================================ */
+.stage--paper {
+  background-color: #efece3;
+}
+
+.stage--paper .bg-layer,
+.stage--paper .bg-grid,
+.stage--paper .bg-glow,
+.stage--paper .deco-line,
+.stage--paper #hero-mark,
+.stage--paper .badge,
+.stage--paper #quote-modal,
+.stage--paper .top-bar__status,
+.stage--paper .cta-bar-paper {
+  display: none !important;
+}
+
+/* Nền giấy nhăn, ngả cam ấm nhẹ: nhiều lớp radial-gradient mô phỏng vân giấy + bóng mờ góc */
+.stage--paper .paper-bg {
+  position: absolute;
+  inset: 0;
+  background-color: #f3e9d8;
+  background-image:
+    radial-gradient(ellipse at 15% 10%, rgba(214,120,40,0.08) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 15%, rgba(214,120,40,0.06) 0%, transparent 42%),
+    radial-gradient(ellipse at 20% 92%, rgba(0,0,0,0.05) 0%, transparent 45%),
+    radial-gradient(ellipse at 90% 88%, rgba(0,0,0,0.04) 0%, transparent 40%),
+    repeating-linear-gradient(115deg, rgba(0,0,0,0.015) 0px, transparent 2px, transparent 6px),
+    repeating-linear-gradient(25deg, rgba(0,0,0,0.012) 0px, transparent 2px, transparent 7px);
+}
+.stage--paper .paper-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 220px rgba(60, 50, 30, 0.16);
+}
+.stage--paper .paper-vignette {
+  position: absolute;
+  inset: 0;
+  border-radius: 44px;
+  border: 10px solid rgba(20, 15, 5, 0.85);
+  box-shadow: 0 30px 90px rgba(0,0,0,0.35);
+  pointer-events: none;
+}
+
+/* Top bar chữ tối trên nền sáng — để chìm, không nổi bật */
+.stage--paper .top-bar { opacity: 0.5 !important; }
+.stage--paper .top-bar__name { background: none; -webkit-text-fill-color: #241c12; color: #241c12; font-weight: 700; }
+.stage--paper .top-bar__mark { filter: grayscale(0.15); }
+
+/* Headline kiểu poster: vàng, viền đen gọn, hơi nghiêng — chuyên nghiệp hơn bản viền dày thô */
+.stage--paper .headline {
+  margin-top: 60px;
+}
+.stage--paper .headline__line1,
+.stage--paper .headline__line2 {
+  color: #ffcc00;
+  -webkit-text-stroke: 4px #1a1108;
+  paint-order: stroke fill;
+  text-shadow: 0 8px 0 rgba(26,17,8,0.12), 0 14px 24px rgba(26,17,8,0.18);
+  transform: rotate(-1.2deg);
+  letter-spacing: -0.01em;
+}
+.stage--paper .headline__line2 { color: #ffcc00; -webkit-text-fill-color: #ffcc00; }
+
+.stage--paper .sub-tagline {
+  color: #3a2c18;
+  font-weight: 700;
+  font-size: 30px;
+  background: #ffffff;
+  padding: 12px 30px;
+  border-radius: var(--radius-full);
+  border: none;
+  box-shadow: 0 8px 20px rgba(180, 110, 40, 0.16);
+  letter-spacing: 0.01em;
+}
+
+/* ── Funnel graphic (Lead → Qualified Lead) ──────────────── */
+.funnel-graphic {
+  display: none;
+  margin-top: 40px;
+  gap: 40px;
+  align-items: flex-end;
+  justify-content: center;
+}
+.stage--paper .funnel-graphic { display: flex; }
+
+.funnel-card {
+  position: relative;
+  width: 320px;
+  padding: 34px 26px 34px;
+  background: #ffffff;
+  border-radius: 22px;
+  border: none;
+  box-shadow: 0 18px 32px rgba(40, 30, 15, 0.14);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px) scale(0.92);
+}
+/* Thẻ mờ nằm chồng phía sau, hở ra một góc — tạo chiều sâu thật như ảnh mẫu */
+.funnel-card::after {
+  content: '';
+  position: absolute;
+  top: -10px; left: -10px; right: 10px; bottom: 10px;
+  background: #eef1f6;
+  border-radius: 20px;
+  z-index: -1;
+}
+.funnel-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 7px;
+  border-radius: 22px 22px 0 0;
+  background: #2e5be0;
+}
+.funnel-card--active { box-shadow: 0 22px 40px rgba(46, 91, 224, 0.20); }
+.funnel-card--faded { opacity: 0.7; }
+.funnel-card--faded::before { background: #b9c0cc; }
+.funnel-card--faded::after { background: #f1f2f4; }
+
+.funnel-avatars { display: flex; gap: 9px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center; width: 210px; }
+.avatar-dot {
+  width: 34px; height: 34px;
+  border-radius: var(--radius-full);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+}
+.avatar-dot i { font-size: 15px; color: #ffffff; }
+.funnel-card--active .avatar-dot:nth-child(6n+1) { background: #2e5be0; }
+.funnel-card--active .avatar-dot:nth-child(6n+2) { background: #22a35c; }
+.funnel-card--active .avatar-dot:nth-child(6n+3) { background: #e8a63b; }
+.funnel-card--active .avatar-dot:nth-child(6n+4) { background: #9aa4b2; }
+.funnel-card--active .avatar-dot:nth-child(6n+5) { background: #2e5be0; }
+.funnel-card--active .avatar-dot:nth-child(6n)   { background: #22a35c; }
+.funnel-card--faded .avatar-dot { background: #c3c9d4; box-shadow: none; }
+
+.funnel-shape {
+  width: 190px;
+  height: 130px;
+  clip-path: polygon(0 0, 100% 0, 62% 100%, 38% 100%);
+  background: #2e5be0;
+  border-radius: 6px 6px 0 0;
+  margin-bottom: 8px;
+  box-shadow: 0 10px 18px rgba(46, 91, 224, 0.22);
+}
+.funnel-card--faded .funnel-shape {
+  background: #c3c9d4;
+  box-shadow: none;
+}
+
+.funnel-badge {
+  margin-top: 14px;
+  width: 54px; height: 54px;
+  border-radius: var(--radius-full);
+  background: #eef2ff;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid #2e5be0;
+}
+.funnel-badge i { font-size: 24px; color: #2e5be0; }
+.funnel-card--faded .funnel-badge { background: #f1f2f4; border-color: #c3c9d4; }
+.funnel-card--faded .funnel-badge i { color: #9aa4b2; }
+
+.funnel-label {
+  margin-top: 14px;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #241c12;
+  text-align: center;
+}
+
+/* ── Mascot ───────────────────────────────────────────────── */
+.mascot {
+  display: none;
+  position: absolute;
+  bottom: 260px;
+  left: 50%;
+  width: 420px;
+  margin-left: -210px;
+  transform: translateY(40px) scale(0.85);
+  opacity: 0;
+}
+.stage--paper .mascot { display: block; }
+.mascot img { width: 100%; height: auto; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.20)); }
+
+/* ── Paper CTA bar (thay cho modal form tối màu) ────────────── */
+.cta-bar-paper {
+  display: none;
+  position: absolute;
+  left: 48px; right: 48px; bottom: 64px;
+  background: #ffffff;
+  border-radius: 30px;
+  border: 3px solid #1c1c1c;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.22);
+  padding: 30px 34px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(50px);
+}
+.stage--paper .cta-bar-paper { display: flex; }
+
+.cta-bar-paper__info { display: flex; flex-direction: column; gap: 6px; }
+.cta-bar-paper__label { font-size: 22px; font-weight: 700; color: #8a8a8a; letter-spacing: 0.06em; text-transform: uppercase; }
+.cta-bar-paper__phone { font-size: 40px; font-weight: 900; color: #1c1c1c; }
+
+.cta-bar-paper__btn {
+  background: #ffe000;
+  border: 3px solid #1c1c1c;
+  border-radius: var(--radius-full);
+  padding: 20px 32px;
+  font-size: 28px;
+  font-weight: 800;
+  color: #1c1c1c;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.85);
+  white-space: nowrap;
+}
+
 /* ── Viewport scaling wrapper ─────────────────────────────── */
 #scale-root {
   width: 100vw;

@@ -138,6 +138,8 @@ def main():
                     help='độ nhấn nhá; cao quá thì cường điệu (0..1)')
     ap.add_argument('--speed', type=float, default=1.0)
     ap.add_argument('--force', action='store_true', help='bỏ cache, sinh lại hết')
+    ap.add_argument('--project', default=HERE)
+    ap.add_argument('--duration', type=float, default=180.0)
     a = ap.parse_args()
 
     global DUR, N

@@ -1,0 +1,46 @@
+<svg viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg">
+  <!-- Scene 2: Bubu chỉ tay sang phễu, Dudu gật gù suy nghĩ -->
+  <!-- Bubu (gấu nâu) bên trái, tay chỉ chéo lên phải -->
+  <g id="bubu">
+    <ellipse cx="150" cy="300" rx="82" ry="68" fill="#b5794c"/>
+    <path d="M205 260 C 260 235 300 200 320 165" stroke="#b5794c" stroke-width="34" stroke-linecap="round" fill="none"/>
+    <circle cx="322" cy="160" r="20" fill="#b5794c"/>
+    <path d="M330 148 L340 132 M320 145 L322 126 M310 150 L306 132" stroke="#b5794c" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="150" cy="190" r="84" fill="#b5794c"/>
+    <circle cx="92" cy="126" r="27" fill="#b5794c"/>
+    <circle cx="208" cy="126" r="27" fill="#b5794c"/>
+    <circle cx="92" cy="128" r="14" fill="#8f5c33"/>
+    <circle cx="208" cy="128" r="14" fill="#8f5c33"/>
+    <ellipse cx="150" cy="212" rx="46" ry="34" fill="#dba871"/>
+    <circle cx="150" cy="206" r="10" fill="#4a2f1a"/>
+    <path d="M150 216 L150 226" stroke="#4a2f1a" stroke-width="3" stroke-linecap="round"/>
+    <path d="M150 226 Q136 236 124 228" stroke="#4a2f1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M150 226 Q164 236 176 228" stroke="#4a2f1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="120" cy="182" r="8" fill="#2c1c10"/>
+    <circle cx="180" cy="182" r="8" fill="#2c1c10"/>
+    <circle cx="123" cy="179" r="2.6" fill="#fff"/>
+    <circle cx="183" cy="179" r="2.6" fill="#fff"/>
+  </g>
+
+  <!-- Dudu (gấu kem) bên phải, tay chống cằm ra vẻ hiểu ra -->
+  <g id="dudu">
+    <ellipse cx="360" cy="300" rx="78" ry="66" fill="#f3e3c8"/>
+    <path d="M320 260 C 330 240 340 230 355 232" stroke="#f3e3c8" stroke-width="26" stroke-linecap="round" fill="none"/>
+    <circle cx="360" cy="180" r="80" fill="#f3e3c8"/>
+    <circle cx="305" cy="120" r="26" fill="#f3e3c8"/>
+    <circle cx="415" cy="120" r="26" fill="#f3e3c8"/>
+    <circle cx="305" cy="122" r="13" fill="#e2c9a0"/>
+    <circle cx="415" cy="122" r="13" fill="#e2c9a0"/>
+    <ellipse cx="360" cy="200" rx="42" ry="32" fill="#fbf4e6"/>
+    <circle cx="360" cy="196" r="9" fill="#7a5b3a"/>
+    <path d="M360 205 L360 214" stroke="#7a5b3a" stroke-width="3" stroke-linecap="round"/>
+    <path d="M360 214 Q372 222 380 216" stroke="#7a5b3a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- mắt sáng "aha" -->
+    <path d="M328 172 L338 168 L332 178 Z" fill="#4a3a28"/>
+    <path d="M392 172 L382 168 L388 178 Z" fill="#4a3a28"/>
+    <path d="M255 100 l14 -18 M270 90 l4 -22 M288 88 l-6 -22" stroke="#e2c9a0" stroke-width="6" stroke-linecap="round" opacity="0.8"/>
+  </g>
+
+  <!-- dấu chấm than nhỏ trên đầu Dudu -->
+  <text x="255" y="70" font-family="Arial, sans-serif" font-size="46" font-weight="900" fill="#ffe000" stroke="#000" stroke-width="2">!</text>
+</svg>
