@@ -25,7 +25,7 @@ RỒI:
   python3 build_audio.py --vo-wav audio/voiceover-pro.wav
 """
 
-import argparse, asyncio, hashlib, os, sys
+import argparse, asyncio, hashlib, json, os, sys
 import numpy as np
 
 try:
@@ -54,6 +54,22 @@ def gen(text, voice, rate, pitch, cache, idx, force):
     if force or not os.path.exists(mp3):
         asyncio.run(synth(text, voice, rate, pitch, mp3))
     return decode_mono(mp3)
+
+
+def word_timings(text, at, dur):
+    """Chia đều `dur` cho từng từ theo tỉ lệ độ dài chữ — dùng để phụ đề
+    "chạy chữ" khớp nhịp giọng đọc (không có timestamp thật từ TTS)."""
+    words = text.split()
+    if not words:
+        return []
+    weights = [max(len(w), 2) for w in words]
+    total_w = sum(weights)
+    out, t = [], at
+    for w, wt in zip(words, weights):
+        d = dur * wt / total_w
+        out.append({'w': w, 'at': round(t, 3), 'd': round(d, 3)})
+        t += d
+    return out
 
 
 def trim(sig):
@@ -91,6 +107,7 @@ def main():
 
     track = np.zeros(N)
     over, sped, prev_end = [], 0, 0.0
+    captions = []
 
     for i, (at, budget, text) in enumerate(LINES):
         rate = a.rate
@@ -116,9 +133,16 @@ def main():
         prev_end = at + dur
         print(f'   [{at:>6.1f}s] {dur:4.2f}s/{budget:4.2f}s  {text[:40]}…{flag}')
         place(track, sig, at)
+        captions.extend(word_timings(text, at, dur))
 
     out = os.path.join(a.project, 'audio', 'voiceover-pro.wav')
     write_wav(out, track)
+
+    caps_path = os.path.join(a.project, 'captions.js')
+    with open(caps_path, 'w', encoding='utf-8') as f:
+        f.write('/* Sinh tự động bởi build_vo_edge.py — phụ đề chạy chữ theo giọng đọc. */\n')
+        f.write('const CAPTIONS = ' + json.dumps(captions, ensure_ascii=False) + ';\n')
+    print(f'📁 {caps_path}  ({len(captions)} từ)')
 
     print(f'\n📁 {out}')
     print(f'   {sped}/{len(LINES)} câu phải đẩy nhanh để vừa khung')

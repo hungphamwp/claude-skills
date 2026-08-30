@@ -597,3 +597,55 @@ body { font-family:var(--font); color:var(--tx); -webkit-font-smoothing:antialia
 .card .t { flex:none; }
 .card .t-sub { font-size:40px; font-weight:500; line-height:1.4; color:var(--tx3); }
 #stage.paper .card .t-sub { font-family:'Gilroy VH'; color:var(--tx3); }
+
+/* ---------- SHOT (ảnh chụp màn hình / minh hoạ thật) ---------- */
+.shot-wrap .h2, .shot-wrap .h1 { margin-bottom: 32px; }
+.shot-card {
+  width: 880px; max-width: 100%;
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(42,32,19,.18);
+  overflow: hidden;
+}
+.shot-bar {
+  height: 40px; display: flex; align-items: center; gap: 8px;
+  padding: 0 16px; background: #f1ede4; border-bottom: 1px solid rgba(42,32,19,.08);
+}
+.shot-bar i { width: 11px; height: 11px; border-radius: 50%; display: block; }
+.shot-bar i:nth-child(1) { background: #ff5f57; }
+.shot-bar i:nth-child(2) { background: #febc2e; }
+.shot-bar i:nth-child(3) { background: #28c840; }
+.shot-img-wrap { position: relative; line-height: 0; }
+.shot-img { width: 100%; height: auto; display: block; object-fit: contain; }
+.shot-tag {
+  position: absolute; left: 20px; bottom: 20px;
+  background: rgba(20,15,8,.82); color: #fff;
+  font-family: var(--font-display); font-weight: 700; font-size: 22px;
+  padding: 8px 18px; border-radius: 999px;
+}
+
+/* ---------- CAPTION BAR (phụ đề chạy chữ theo giọng đọc) ---------- */
+#caption-bar {
+  position: absolute;
+  top: 140px; left: 50%; transform: translateX(-50%);
+  width: 940px; max-width: 92%;
+  z-index: 6; pointer-events: none;
+  text-align: center;
+  opacity: 0;
+}
+#caption-word {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 58px;
+  line-height: 1.2;
+  color: #fff;
+  text-shadow: 0 3px 14px rgba(0,0,0,.55), 0 0 2px rgba(0,0,0,.4);
+}
+/* Trên nền giấy: chữ vàng viền đen — cùng ngôn ngữ thị giác với tiêu đề */
+#stage.paper #caption-word {
+  color: #ffe000;
+  -webkit-text-stroke: 3px #171008;
+  paint-order: stroke fill;
+  text-shadow: 0 4px 0 rgba(23,16,8,.2);
+}

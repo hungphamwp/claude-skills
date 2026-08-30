@@ -200,7 +200,7 @@ CapCut/Premiere rồi còn tô được từ khoá.
 
 ---
 
-## 14 LAYOUT CÓ SẴN
+## 15 LAYOUT CÓ SẴN
 
 Mỗi cảnh trong `scenes.js` khai `l` (layout) + dữ liệu:
 
@@ -208,6 +208,7 @@ Mỗi cảnh trong `scenes.js` khai `l` (layout) + dữ liệu:
 |---|---|---|
 | `title` | Câu tuyên bố, tiêu đề act | `kicker` `h1` `sub` `stage2` `punch` |
 | `mascot` | Câu tuyên bố kèm 1 ảnh nhân vật minh hoạ ngay giữa cảnh | `kicker` `img` `h1` `sub` |
+| `shot` | Ảnh chụp màn hình / minh hoạ THẬT cho 1 cảnh (khung cửa sổ macOS) | `kicker` `img` `h1` `sub` `tag` `chrome:false` (tắt thanh nút) |
 | `bignum` | Con số gây ấn tượng | `num` `sub` `prog` `glow` |
 | `code` | Cửa sổ code gõ ra từng dòng | `lines` `speed` `files` `timer` `errorLine` `overlay` |
 | `chat` | Ô prompt gõ từng ký tự | `label` `type` `speed` `hl` `phone` `enter` |
@@ -234,6 +235,23 @@ nhãn) — dùng khi so sánh 2 khái niệm trừu tượng, tránh cảnh trô
 Thêm `step: 1..6` vào cảnh để hiện **thanh tiến trình 6 bước** ở đáy —
 thứ giữ chân tốt nhất ở đoạn giữa video. `allSteps: true` cho sáng cả 6.
 
+### Ảnh thật cho `shot` — lấy ở đâu
+
+Video giới thiệu sản phẩm/công cụ thật thì **tìm ảnh chính thức** từ
+trang chủ, GitHub README, press kit của họ (WebSearch rồi WebFetch trang
+đó, đọc luôn tính năng thật để viết nội dung — đừng đoán/bịa tính năng
+từ tên sản phẩm). Tải bằng `curl -sL -o ten.jpg <url>` vào
+`assets/<video>-shots/`. Đừng tự vẽ hình hay lấy ảnh ngẫu nhiên không
+liên quan — sai thực tế thì cả video mất giá trị thông tin.
+
+Ảnh tải về thường lệch tỉ lệ và nhiều khoảng trống thừa — chuẩn hoá
+bằng `scripts/crop_shots.py` trước khi đưa vào video để cả loạt ảnh
+đồng bộ khung nhìn:
+
+```bash
+python3 crop_shots.py assets/<video>-shots/*.jpg
+```
+
 ---
 
 ## 11 KIỂU CHUYỂN CẢNH
@@ -247,6 +265,12 @@ Khai bằng `out` trong mỗi cảnh:
 cảm xúc) · `end` (fade cuối bài).
 
 **Không dùng cùng một kiểu 2 lần liên tiếp.**
+
+**Muốn video mượt, cảm giác chuyên nghiệp/cao cấp:** ưu tiên xoay vòng
+`sweep` · `morph` · `glass` · `blur` · `whip` — đây là nhóm chuyển cảnh
+êm, không giật. Để dành `cut` / `glitch` / `flashglitch` / `punch` cho
+đúng lúc cần **nhấn mạnh mạnh** (bẻ lái nội dung, cảnh báo, đỉnh cảm
+xúc) — dùng tràn lan thì video có cảm giác rẻ tiền, giật cục.
 
 ---
 
@@ -274,6 +298,34 @@ thương hiệu khác...) dù tìm thấy dễ dàng trên mạng — kể cả 
 dùng khẳng định "không vi phạm". Ảnh AI tự tạo (Gemini, Midjourney...)
 theo phong cách gợi nhớ thì dùng được, ảnh tải về từ nguồn có sẵn thì
 không. Xin xác nhận nguồn gốc nếu không chắc.
+
+---
+
+## PHỤ ĐỀ CHẠY CHỮ (karaoke, đúng nhịp giọng đọc)
+
+`build_vo_gemini.py` và `build_vo_edge.py` giờ tự sinh thêm
+`captions.js` cùng lúc với giọng đọc — mỗi từ trong `voiceover.json`
+được ước lượng mốc thời gian riêng (chia đều theo độ dài chữ trong thời
+lượng thật của câu audio), rồi hiện từng từ một, to đậm, ngay dưới logo
+góc trên — kiểu phụ đề "chạy chữ" hay thấy trên TikTok/Reels chuyên
+nghiệp, không phải phụ đề tĩnh cả câu.
+
+Không cần làm gì thêm — cứ chạy `build_vo_gemini.py` hoặc
+`build_vo_edge.py` như bình thường là có `captions.js`. Không tạo giọng
+đọc (dùng `--no-voice` ở `build_full.py`) thì `captions.js` giữ mảng
+rỗng từ template, phụ đề tự ẩn, không lỗi gì.
+
+**Đây là ước lượng, không phải timestamp thật** (Gemini TTS/edge-tts
+không trả timestamp từng từ) — với câu ngắn, phát âm đều thì khớp mắt
+thường khá tốt; câu có từ đọc nhanh/chậm bất thường có thể lệch nhẹ.
+Cần chính xác tuyệt đối thì phải chuyển sang một dịch vụ TTS có trả
+word-level timestamp (ví dụ ElevenLabs) và viết script khác đọc dữ liệu
+đó thay vì ước lượng.
+
+Đổi vị trí/màu chữ: sửa `#caption-bar` / `#caption-word` trong
+`style.css`. Mặc định đặt ở khoảng trống dưới logo góc trên (không đụng
+tiêu đề cảnh hay mascot ở đáy) — dời chỗ khác thì tự kiểm tra lại có
+đè lên nội dung cảnh không.
 
 ---
 
@@ -346,6 +398,9 @@ cảm giác "ngột ngạt". Kicker cách tiêu đề ≥44px, 2 thẻ so sánh 
 | `build_vo_gemini.py` báo lỗi 402 "paid_plan_required" | Giọng đó là voice thư viện chia sẻ (cloned/shared), gói Free không gọi được qua API. Dùng voice dựng sẵn (Kore/Puck/Charon/Zephyr/Leda/Orus/Aoede...) |
 | `#mascot-dock` hiện icon ảnh vỡ | Chưa khai `MASCOT_IMAGES` trong `scenes.js` nhưng lại gọi nhầm layout mascot ở đâu đó — kiểm tra lại, hoặc bỏ trống là tự ẩn |
 | DUR/thời lượng video sai (fade cuối bài lệch, mascot dock đổi ảnh sai nhịp) | `script.js` tự tính `DUR` từ mốc cảnh cuối trong `SCENES` — đừng hardcode lại `const DUR = ...` trong bản sao dự án |
+| `build_vo_gemini.py` treo vô thời hạn, không lỗi không kết quả | Đã xảy ra thật trong sandbox: `urllib.request` của Python treo với chính endpoint mà `curl` gọi xong trong vài giây. Script đã chuyển sang gọi qua `curl` (có `--max-time`) nên không tự treo nữa — nếu vẫn treo, nghi lại đúng chỗ này |
+| Cảnh `cta` cuối (`tail:true`) hiện nhầm nội dung mặc định của `brand.js` | Mỗi cảnh `cta` độc lập, **không kế thừa** field từ cảnh `cta` trước — phải lặp lại đủ `brand`/`title`/`sub`/`tags`/`btnText` ở cảnh `tail` nếu muốn giữ đúng nội dung, không chỉ khai `tail:true` suông |
+| Muốn ẩn logo góc trên (video giới thiệu bên thứ ba, không phải thương hiệu mình) | Khai `const HIDE_TOP_BRAND = true;` trong `scenes.js` — không cần sửa CSS/HTML |
 
 ---
 
@@ -363,4 +418,6 @@ cảm giác "ngột ngạt". Kicker cách tiêu đề ≥44px, 2 thẻ so sánh 
   render → trộn nhạc → loudnorm → giao file) bằng 1 lệnh. Xem "QUY TRÌNH
   NHANH" ở đầu file này.
 - `scripts/build_vo_gemini.py` — giọng đọc Gemini TTS, khuyến nghị dùng
-  trước tiên.
+  trước tiên. Tự sinh `captions.js` (phụ đề chạy chữ) cùng lúc.
+- `scripts/crop_shots.py` — chuẩn hoá ảnh chụp màn hình thật (tỉ lệ
+  16:9 + zoom nhẹ) trước khi dùng với layout `shot`.

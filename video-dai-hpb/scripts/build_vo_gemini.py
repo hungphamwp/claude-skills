@@ -57,6 +57,9 @@ def key():
 
 
 def synth(text, voice, out_wav):
+    # Dùng curl thay vì urllib.request — trong một số môi trường (sandbox/proxy
+    # đặc thù) urllib treo vô thời hạn khi gọi endpoint TTS này dù curl chạy
+    # bình thường trong vài giây. curl còn có --max-time để không bao giờ treo.
     body = {
         "contents": [{"parts": [{"text": text}]}],
         "generationConfig": {
@@ -64,26 +67,45 @@ def synth(text, voice, out_wav):
             "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig": {"voiceName": voice}}},
         },
     }
-    req = urllib.request.Request(
-        API, data=json.dumps(body).encode('utf-8'),
-        headers={'Content-Type': 'application/json', 'x-goog-api-key': key()})
+    body_path = out_wav + '.req.json'
+    with open(body_path, 'w', encoding='utf-8') as f:
+        json.dump(body, f)
 
     data = None
     for attempt in range(6):
-        try:
-            with urllib.request.urlopen(req, timeout=90) as r:
-                data = json.loads(r.read())
-            break
-        except urllib.error.HTTPError as e:
-            body_txt = e.read().decode('utf8', 'ignore')
-            if e.code == 429 and attempt < 5:
+        resp_path = out_wav + '.resp.json'
+        r = subprocess.run([
+            'curl', '-s', '--max-time', '90', '-w', '\n%{http_code}',
+            '-X', 'POST', API,
+            '-H', 'Content-Type: application/json',
+            '-H', f'x-goog-api-key: {key()}',
+            '-d', f'@{body_path}',
+            '-o', resp_path,
+        ], capture_output=True, text=True)
+        status = r.stdout.strip().splitlines()[-1] if r.stdout.strip() else ''
+        raw = open(resp_path, encoding='utf-8').read() if os.path.exists(resp_path) else ''
+        if status != '200':
+            if status == '429' and attempt < 5:
                 wait = 20 * (attempt + 1)
                 print(f'   ⏳ Rate limit (429) — chờ {wait}s rồi thử lại ({attempt+1}/5)…')
                 time.sleep(wait)
                 continue
-            sys.exit(f'❌ Gemini trả lỗi {e.code}: {body_txt[:400]}')
+            sys.exit(f'❌ Gemini trả lỗi {status or "(không kết nối được)"}: {raw[:400]}')
+        data = json.loads(raw)
+        cand = (data.get('candidates') or [{}])[0]
+        if 'content' not in cand:
+            # finishReason khác STOP (OTHER/SAFETY/...) mà không có audio — thử lại
+            if attempt < 5:
+                print(f'   ⏳ Gemini không trả audio (finishReason={cand.get("finishReason")}) — thử lại ({attempt+1}/5)…')
+                time.sleep(5)
+                continue
+            sys.exit(f'❌ Gemini không trả audio sau nhiều lần thử: {raw[:400]}')
+        break
+    os.remove(body_path)
+    if os.path.exists(out_wav + '.resp.json'):
+        os.remove(out_wav + '.resp.json')
     if data is None:
-        sys.exit('❌ Hết số lần thử lại vì rate limit.')
+        sys.exit('❌ Hết số lần thử lại.')
 
     part = data['candidates'][0]['content']['parts'][0]
     inline = part['inlineData']
@@ -133,6 +155,23 @@ def atempo_chain(factor):
     return ','.join(steps)
 
 
+def word_timings(text, at, dur):
+    """Chia đều `dur` cho từng từ trong `text`, theo tỉ lệ độ dài chữ (từ dài
+    đọc lâu hơn từ ngắn) — không có timestamp thật từ Gemini TTS nên đây là
+    ước lượng, đủ dùng để phụ đề "chạy chữ" khớp nhịp bằng mắt thường."""
+    words = text.split()
+    if not words:
+        return []
+    weights = [max(len(w), 2) for w in words]
+    total_w = sum(weights)
+    out, t = [], at
+    for w, wt in zip(words, weights):
+        d = dur * wt / total_w
+        out.append({'w': w, 'at': round(t, 3), 'd': round(d, 3)})
+        t += d
+    return out
+
+
 def speed_up(sig, factor):
     """Time-stretch giữ nguyên cao độ bằng ffmpeg atempo — dùng khi câu tràn khung
     (Gemini TTS không có tham số tốc độ trực tiếp như edge-tts/ElevenLabs)."""
@@ -168,6 +207,7 @@ def main():
 
     track = np.zeros(N)
     over, sped, prev_end = [], 0, 0.0
+    captions = []
 
     for i, (at, budget, text) in enumerate(LINES):
         sig = trim(gen(text, a.voice, style, cache, i + 1, a.force, a.sleep))
@@ -193,9 +233,16 @@ def main():
         prev_end = at + dur
         print(f'   [{at:>6.1f}s] {dur:4.2f}s/{budget:4.2f}s  {text[:40]}…{flag}')
         place(track, sig, at)
+        captions.extend(word_timings(text, at, dur))
 
     out = os.path.join(a.project, 'audio', 'voiceover-pro.wav')
     write_wav(out, track)
+
+    caps_path = os.path.join(a.project, 'captions.js')
+    with open(caps_path, 'w', encoding='utf-8') as f:
+        f.write('/* Sinh tự động bởi build_vo_gemini.py — phụ đề chạy chữ theo giọng đọc. */\n')
+        f.write('const CAPTIONS = ' + json.dumps(captions, ensure_ascii=False) + ';\n')
+    print(f'📁 {caps_path}  ({len(captions)} từ)')
 
     print(f'\n📁 {out}')
     print(f'   {sped}/{len(LINES)} câu phải tăng tốc để vừa khung')

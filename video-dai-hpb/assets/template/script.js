@@ -188,6 +188,38 @@ L.mascot = (sc) => {
   }};
 };
 
+/* ---------- shot (ảnh chụp màn hình / minh hoạ thật cho 1 cảnh) ----------
+   Khác `mascot` (ảnh nhân vật nhỏ, luôn kèm chữ lớn): `shot` là ảnh CHÍNH
+   của cảnh — screenshot app thật, sơ đồ, ảnh chụp — để người xem thấy tận
+   mắt tính năng đang nói tới, không chỉ đọc chữ suông. */
+L.shot = (sc) => {
+  const s = E('div', 'safe shot-wrap'), parts = [];
+  const k = kickerEl(sc); if (k) { s.appendChild(k); parts.push([k, 0]); }
+  const h = sc.h1 ? E('div', sc.h1cls || 'h2', sc.h1) : null;
+  if (h) { s.appendChild(h); parts.push([h, .06]); }
+
+  const card = E('div', 'shot-card' + (sc.chrome === false ? '' : ' chrome'));
+  if (sc.chrome !== false) {
+    card.appendChild(E('div', 'shot-bar', '<i></i><i></i><i></i>'));
+  }
+  const imgWrap = E('div', 'shot-img-wrap');
+  const img = E('img', 'shot-img'); img.src = sc.img;
+  imgWrap.appendChild(img);
+  if (sc.tag) imgWrap.appendChild(E('div', 'shot-tag', sc.tag));
+  card.appendChild(imgWrap);
+  s.appendChild(card); parts.push([card, .16]);
+
+  const sub = sc.sub ? E('div', 'sub' + (sc.subSm ? ' sm' : ''), sc.sub) : null;
+  if (sub) { s.appendChild(sub); parts.push([sub, .34]); }
+
+  return { node: s, anim(tl, t0) {
+    tl.fromTo(card, { scale: .92, opacity: 0, y: 26 },
+      { scale: 1, opacity: 1, y: 0, duration: .55, ease: 'back.out(1.4)' }, t0 + .1);
+    parts.filter(([n]) => n !== card).forEach(([n, dl]) => tl.fromTo(n,
+      { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: .45, ease: 'power2.out' }, t0 + .1 + dl));
+  }};
+};
+
 /* ---------- bignum ---------- */
 L.bignum = (sc) => {
   const s = E('div', 'safe');
@@ -1175,8 +1207,30 @@ function build() {
   });
 
   buildMascotDock(tl);
+  buildCaptions(tl);
 
   return tl;
+}
+
+/* ============================================================
+   PHỤ ĐỀ CHẠY CHỮ — hiện từng từ đúng nhịp giọng đọc (CAPTIONS
+   sinh tự động bởi build_vo_gemini.py / build_vo_edge.py). Không có
+   giọng đọc thì CAPTIONS rỗng, khối này không làm gì cả.
+   ============================================================ */
+function buildCaptions(tl) {
+  const caps = (typeof CAPTIONS !== 'undefined') ? CAPTIONS : [];
+  if (!caps.length) return;
+  const bar = $('#caption-bar'), word = $('#caption-word');
+  if (!bar || !word) return;
+
+  tl.set(bar, { opacity: 1 }, caps[0].at);
+  caps.forEach((c) => {
+    tl.call(() => { word.textContent = c.w; }, null, c.at);
+    tl.fromTo(word, { scale: .82, opacity: .65 },
+      { scale: 1, opacity: 1, duration: Math.min(0.18, c.d * 0.6), ease: 'back.out(2)' }, c.at);
+  });
+  const last = caps[caps.length - 1];
+  tl.set(bar, { opacity: 0 }, last.at + last.d + 0.15);
 }
 
 /* ============================================================
@@ -1204,6 +1258,14 @@ function buildMascotDock(tl) {
 (async function boot() {
   try { await document.fonts.ready; } catch (e) {}
   await new Promise(r => setTimeout(r, 60));
+
+  // Ẩn logo góc trên cho video không cần gắn thương hiệu (vd: giới thiệu
+  // sản phẩm bên thứ ba) — khai `const HIDE_TOP_BRAND = true;` trong
+  // scenes.js, không phải sửa CSS/HTML mỗi lần.
+  if (typeof HIDE_TOP_BRAND !== 'undefined' && HIDE_TOP_BRAND) {
+    const tb = document.getElementById('top-brand');
+    if (tb) tb.style.display = 'none';
+  }
   window.__TL = build();          // record.js seek thẳng timeline này
   window.__TL.seek(0);
   if (!location.search.includes('render')) window.__TL.play();  // xem thử trên trình duyệt
