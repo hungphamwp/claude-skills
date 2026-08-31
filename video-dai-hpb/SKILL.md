@@ -198,6 +198,20 @@ Copy MP4 ra Desktop, gửi bằng công cụ gửi file, nói rõ đường dẫ
 Nhắc họ: **phụ đề chưa burn vào video** — để họ import SRT vào
 CapCut/Premiere rồi còn tô được từ khoá.
 
+**Kèm luôn ảnh bìa (thumbnail)** — kiểu "sticker" chữ đậm nền cyan/đỏ hồng
+hay thấy trên các kênh kiến thức kỹ thuật, màu mặc định đúng thương hiệu
+TikTok:
+
+```bash
+node record.js --preview 8            # chọn 1 khung hình đẹp làm nền
+python3 scripts/make_thumbnail.py --bg output/preview/t-8s.png \
+    --scenes scenes.js --scene 0 --out output/thumbnail.png
+```
+
+`--scenes`+`--scene` tự lấy đúng `h1`/`kicker` của cảnh đó làm chữ —
+**luôn khớp nội dung video thật**, không gõ tay lại dễ lệch. Cảnh 0
+(hook mở đầu) thường là lựa chọn tốt nhất cho thumbnail.
+
 ---
 
 ## 15 LAYOUT CÓ SẴN
