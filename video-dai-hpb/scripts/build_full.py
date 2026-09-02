@@ -41,7 +41,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--project', required=True)
     ap.add_argument('--duration', type=float, required=True)
-    ap.add_argument('--voice', default='Charon',
+    ap.add_argument('--voice', default='Orus',
                     help='Giọng Gemini TTS: Kore/Puck/Charon/Zephyr/Leda/Orus/Aoede...')
     ap.add_argument('--style', default=None,
                     help='Ghi đè chỉ dẫn phong cách đọc (mặc định: chuyên gia kỹ thuật AI, giọng miền Nam)')

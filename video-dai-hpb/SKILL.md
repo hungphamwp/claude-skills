@@ -153,15 +153,23 @@ bằng ngôn ngữ tự nhiên ngay trong prompt:
 
 ```bash
 export GEMINI_API_KEY='...'   # aistudio.google.com/apikey, có gói free
-python3 build_vo_gemini.py --voice Charon --duration 90
+python3 build_vo_gemini.py --voice Orus --duration 90
 ```
 
 Mặc định `build_vo_gemini.py` chỉ dẫn model đọc "giọng miền Nam Việt Nam,
 phong cách chuyên gia kỹ thuật AI, tự tin, rõ ràng" — đổi bằng `--style
 "..."`. Danh sách giọng: `Kore` `Puck` `Charon` `Zephyr` `Leda` `Orus`
-`Aoede` (không có giọng tên "Adam" — đó là tên riêng của ElevenLabs).
-Gói free giới hạn khoảng 10 request/phút — script tự chờ và thử lại khi
-bị chặn (429), không cần can thiệp tay.
+`Aoede` (không có giọng tên "Adam" — đó là tên riêng của ElevenLabs;
+**`Orus`** là giọng mặc định hiện tại, gần với cảm giác "Adam" nhất khi
+thêm chỉ dẫn phong cách phù hợp qua `--style`). Nghe thử nhanh trước khi
+tạo cả video — gọi thẳng API với 1 câu ngắn (xem "MẪU GIỌNG NHANH" nếu
+cần) thay vì chạy hết `voiceover.json` rồi mới biết có ưng hay không.
+
+**Nhiều tài khoản Google:** khai cách nhau dấu phẩy —
+`export GEMINI_API_KEY='khoá-1,khoá-2,khoá-3'` — script tự xoay sang
+key kế tiếp ngay khi 1 tài khoản báo 429, không cần đợi hết mới đổi tay.
+Gói free mỗi tài khoản giới hạn khá thấp (vài request/phút), nên 1 video
+8-10 câu thường cần xoay qua 2-3 tài khoản mới chạy trọn không phải chờ.
 
 Script cũng tự tăng tốc (time-stretch, giữ nguyên cao độ) những câu đọc
 tràn `budget`, tối đa 1.25× — vẫn tràn thì in cảnh báo kèm số từ cần bỏ,

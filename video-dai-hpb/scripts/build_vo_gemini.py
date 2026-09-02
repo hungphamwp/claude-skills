@@ -11,6 +11,10 @@ DÙNG:
   python3 build_vo_gemini.py --voice Charon
   python3 build_vo_gemini.py --voice Kore --style "..."
 
+  # Nhiều tài khoản (free tier dễ hết quota) — script tự xoay vòng khi
+  # 1 key bị 429, không cần canh tay:
+  export GEMINI_API_KEY='khoá-1,khoá-2,khoá-3'
+
 KẾT QUẢ:
   audio/vo-gemini/NN-<hash>.wav   — từng câu (có cache, chạy lại không tốn quota)
   audio/voiceover-pro.wav          — track đã canh đúng mốc thời gian
@@ -40,20 +44,45 @@ DEFAULT_STYLE = (
 run = lambda c, **k: subprocess.run(c, check=True, capture_output=True, **k)
 
 
-def key():
-    k = (os.environ.get('GEMINI_API_KEY') or os.environ.get('GOOGLE_API_KEY') or '').strip()
-    if not k:
+_KEYS = None
+_KEY_IDX = 0
+
+
+def keys():
+    """Danh sách API key — hỗ trợ nhiều tài khoản để tự xoay vòng khi 1 cái
+    hết quota free tier. Khai cách nhau bằng dấu phẩy trong GEMINI_API_KEY
+    (hoặc GEMINI_API_KEYS), hoặc mỗi dòng 1 key trong file .env cạnh script."""
+    global _KEYS
+    if _KEYS is not None:
+        return _KEYS
+    raw = (os.environ.get('GEMINI_API_KEYS') or os.environ.get('GEMINI_API_KEY')
+           or os.environ.get('GOOGLE_API_KEY') or '').strip()
+    found = [k.strip() for k in raw.split(',') if k.strip()]
+    if not found:
         env = os.path.join(HERE, '.env')
         if os.path.exists(env):
             for line in open(env, encoding='utf-8'):
                 line = line.strip()
-                if line.startswith(('GEMINI_API_KEY=', 'GOOGLE_API_KEY=')):
-                    k = line.split('=', 1)[1].strip().strip('"\'')
-    if not k:
+                if line.startswith(('GEMINI_API_KEY=', 'GEMINI_API_KEYS=', 'GOOGLE_API_KEY=')):
+                    val = line.split('=', 1)[1].strip().strip('"\'')
+                    found += [k.strip() for k in val.split(',') if k.strip()]
+    if not found:
         sys.exit("❌ Chưa có Gemini API key. Đặt bằng:\n"
-                 "   export GEMINI_API_KEY='khoá-của-bạn'\n"
-                 "   (lấy tại aistudio.google.com/apikey)")
-    return k
+                 "   export GEMINI_API_KEY='khoá-1,khoá-2,khoá-3'\n"
+                 "   (lấy tại aistudio.google.com/apikey — nhiều tài khoản thì cách nhau dấu phẩy)")
+    _KEYS = found
+    return _KEYS
+
+
+def key():
+    return keys()[_KEY_IDX % len(keys())]
+
+
+def rotate_key():
+    """Chuyển sang tài khoản kế tiếp — dùng khi tài khoản hiện tại hết quota."""
+    global _KEY_IDX
+    _KEY_IDX = (_KEY_IDX + 1) % len(keys())
+    print(f'   🔁 Đổi sang API key #{_KEY_IDX + 1}/{len(keys())}')
 
 
 def synth(text, voice, out_wav):
@@ -72,7 +101,9 @@ def synth(text, voice, out_wav):
         json.dump(body, f)
 
     data = None
-    for attempt in range(6):
+    max_attempts = 6 * len(keys())  # đủ chỗ để xoay hết mọi key rồi mới bỏ cuộc
+    tried_keys_this_wait = set()
+    for attempt in range(max_attempts):
         resp_path = out_wav + '.resp.json'
         r = subprocess.run([
             'curl', '-s', '--max-time', '90', '-w', '\n%{http_code}',
@@ -85,9 +116,16 @@ def synth(text, voice, out_wav):
         status = r.stdout.strip().splitlines()[-1] if r.stdout.strip() else ''
         raw = open(resp_path, encoding='utf-8').read() if os.path.exists(resp_path) else ''
         if status != '200':
-            if status == '429' and attempt < 5:
-                wait = 20 * (attempt + 1)
-                print(f'   ⏳ Rate limit (429) — chờ {wait}s rồi thử lại ({attempt+1}/5)…')
+            if status == '429':
+                tried_keys_this_wait.add(_KEY_IDX)
+                if len(tried_keys_this_wait) < len(keys()):
+                    # còn key khác chưa thử — đổi ngay, không cần chờ
+                    rotate_key()
+                    continue
+                # hết key khả dụng — chờ rồi thử lại vòng mới
+                tried_keys_this_wait = set()
+                wait = 20
+                print(f'   ⏳ Cả {len(keys())} key đều đang giới hạn — chờ {wait}s rồi thử lại…')
                 time.sleep(wait)
                 continue
             sys.exit(f'❌ Gemini trả lỗi {status or "(không kết nối được)"}: {raw[:400]}')
@@ -95,8 +133,8 @@ def synth(text, voice, out_wav):
         cand = (data.get('candidates') or [{}])[0]
         if 'content' not in cand:
             # finishReason khác STOP (OTHER/SAFETY/...) mà không có audio — thử lại
-            if attempt < 5:
-                print(f'   ⏳ Gemini không trả audio (finishReason={cand.get("finishReason")}) — thử lại ({attempt+1}/5)…')
+            if attempt < max_attempts - 1:
+                print(f'   ⏳ Gemini không trả audio (finishReason={cand.get("finishReason")}) — thử lại ({attempt+1}/{max_attempts})…')
                 time.sleep(5)
                 continue
             sys.exit(f'❌ Gemini không trả audio sau nhiều lần thử: {raw[:400]}')
@@ -185,7 +223,7 @@ def speed_up(sig, factor):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--voice', default='Charon', help='Kore/Puck/Charon/Zephyr/Leda/Orus/Aoede...')
+    ap.add_argument('--voice', default='Orus', help='Kore/Puck/Charon/Zephyr/Leda/Orus/Aoede...')
     ap.add_argument('--style', default=DEFAULT_STYLE)
     ap.add_argument('--no-style', action='store_true', help='không thêm chỉ dẫn phong cách')
     ap.add_argument('--project', default=HERE)
