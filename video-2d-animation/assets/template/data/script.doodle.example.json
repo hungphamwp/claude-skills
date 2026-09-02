@@ -1,0 +1,48 @@
+{
+  "title": "Demo doodle style",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "scenes": [
+    {
+      "id": "d-scene-1",
+      "type": "title",
+      "heading": "Con người cổ đại",
+      "body": "ngủ khác chúng ta thế nào?",
+      "durationInSeconds": 3,
+      "backgroundColor": "#ffffff",
+      "accentColor": "#e63328"
+    },
+    {
+      "id": "d-scene-2",
+      "type": "bullet",
+      "heading": "3 điều bất ngờ",
+      "bullets": [
+        "Họ ngủ 2 giấc mỗi đêm",
+        "Không có ánh sáng điện",
+        "Thức dậy giữa đêm là bình thường"
+      ],
+      "durationInSeconds": 4,
+      "backgroundColor": "#ffffff",
+      "accentColor": "#3a8fd6"
+    },
+    {
+      "id": "d-scene-3",
+      "type": "text",
+      "heading": "Ngủ 2 giai đoạn",
+      "body": "Giữa hai giấc ngủ, họ thức dậy trò chuyện, làm việc nhẹ rồi ngủ tiếp.",
+      "caption": "nghe lạ nhưng có thật đấy",
+      "durationInSeconds": 4,
+      "backgroundColor": "#ffffff",
+      "accentColor": "#5da130"
+    },
+    {
+      "id": "d-scene-4",
+      "type": "title",
+      "heading": "Cảm ơn đã xem!",
+      "durationInSeconds": 2.5,
+      "backgroundColor": "#ffffff",
+      "accentColor": "#e63328"
+    }
+  ]
+}

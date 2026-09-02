@@ -1,0 +1,48 @@
+{
+  "title": "Con người cổ đại làm gì ban đêm?",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "scenes": [
+    {
+      "id": "s1",
+      "type": "image",
+      "illustration": "campfire-night",
+      "caption": "Ban đêm, tổ tiên chúng ta đã làm gì?",
+      "durationInSeconds": 4,
+      "accentColor": "#e63328"
+    },
+    {
+      "id": "s2",
+      "type": "image",
+      "illustration": "everything-starts-here",
+      "heading": "Mọi thứ bắt đầu từ đây",
+      "durationInSeconds": 4.5,
+      "accentColor": "#d32f2f"
+    },
+    {
+      "id": "s3",
+      "type": "image",
+      "illustration": "evolution-line",
+      "caption": "Khác với loài linh trưởng, con người ngủ ít hơn",
+      "durationInSeconds": 4,
+      "accentColor": "#3a8fd6"
+    },
+    {
+      "id": "s4",
+      "type": "image",
+      "illustration": "fire-radius",
+      "caption": "Ánh lửa soi sáng khoảng 9 mét quanh trại",
+      "durationInSeconds": 4,
+      "accentColor": "#e63328"
+    },
+    {
+      "id": "s5",
+      "type": "image",
+      "illustration": "researcher-hut",
+      "caption": "Các nhà nghiên cứu đã tới tận nơi để tìm hiểu",
+      "durationInSeconds": 4,
+      "accentColor": "#5da130"
+    }
+  ]
+}

@@ -7,6 +7,7 @@ là một skill: Claude đọc `SKILL.md` và tự làm theo khi gặp đúng lo
 
 | Skill | Việc nó làm |
 |---|---|
+| [`video-2d-animation`](video-2d-animation/) | Dựng video 2D animation kể chuyện bằng Remotion — hình minh hoạ vẽ tay animate được, giọng đọc tiếng Việt Gemini TTS, thời lượng cảnh tự khớp giọng đọc |
 | [`video-quangcao-hpb`](video-quangcao-hpb/) | Dựng video quảng cáo dọc 1080×1920 có giọng đọc tiếng Việt, nhạc nền và hiệu ứng — từ một file JSON |
 | [`baogia-halomedia`](baogia-halomedia/) | Xuất báo giá thiết kế website ra file .xlsx, tự đánh số liên tục |
 | [`baogia-hpb`](baogia-hpb/) | Xuất báo giá .xlsx theo đúng mẫu HPB Media (logo, banner xanh, QR chuyển khoản) — hỗ trợ cả báo giá 1 dòng trọn gói lẫn nhiều dòng hạng mục tách giá |

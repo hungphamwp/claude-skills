@@ -1,0 +1,47 @@
+{
+  "title": "Demo video 2D",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "scenes": [
+    {
+      "id": "scene-1",
+      "type": "title",
+      "heading": "Claude + Remotion",
+      "body": "Tạo video 2D tự động từ kịch bản",
+      "durationInSeconds": 3,
+      "backgroundColor": "#0b1220",
+      "accentColor": "#38bdf8"
+    },
+    {
+      "id": "scene-2",
+      "type": "bullet",
+      "heading": "Quy trình hoạt động",
+      "bullets": [
+        "1. Claude viết kịch bản (script.json)",
+        "2. Remotion đọc file và render cảnh",
+        "3. Xuất video MP4 hoàn chỉnh"
+      ],
+      "durationInSeconds": 4,
+      "backgroundColor": "#111827",
+      "accentColor": "#facc15"
+    },
+    {
+      "id": "scene-3",
+      "type": "text",
+      "heading": "Dễ dàng tuỳ biến",
+      "body": "Chỉ cần sửa nội dung trong script.json, không cần đụng vào code.",
+      "durationInSeconds": 3.5,
+      "backgroundColor": "#1e1b4b",
+      "accentColor": "#a78bfa"
+    },
+    {
+      "id": "scene-4",
+      "type": "title",
+      "heading": "Cảm ơn đã theo dõi!",
+      "durationInSeconds": 2.5,
+      "backgroundColor": "#052e16",
+      "accentColor": "#4ade80"
+    }
+  ]
+}
