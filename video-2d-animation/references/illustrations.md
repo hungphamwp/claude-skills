@@ -24,6 +24,17 @@ Khai báo bằng field `illustration` trong mỗi cảnh. Một hình dùng đư
 | `toothbrush-diary` | Trang nhật ký mở với dòng chữ viết tay hiện dần, bàn chải cam có bọt bay, dấu hỏi đỏ to | Chữ hiện dần như đang viết, dấu hỏi nảy, bàn chải lắc | Ví dụ so sánh, điều hiển nhiên, chuyện thường ngày |
 | `wehr-dark-room` | Nhà khoa học áo blouse cầm bảng ghi chép, phòng kín tối đen có người nằm ngủ, biển "14 giờ tối" | Phòng tối dần từ xám sang đen, biển hiện ra, nhà khoa học gật đầu | Thí nghiệm, kiểm chứng khoa học, môi trường kiểm soát |
 | `sleep-compressed` | Hai tầng so sánh: "Ngày xưa" thanh chia hai có khoảng cam / "Bây giờ" thanh liền ngắn hơn bị hai mũi tên ép vào, bóng đèn chiếu xuống | Đèn bật sáng, hai mũi tên trượt ép thanh co lại, khoảng cam mờ dần | Đối chiếu xưa - nay, cái gì đã mất đi, tác động của công nghệ |
+| `nap-desk-tired` | Gục xuống bàn làm việc, nắng chiều qua cửa sổ, laptop, cốc cà phê cạn | Đầu gật gù, chữ Z bay lên | Buồn ngủ, uể oải, mở đầu đồng cảm dân văn phòng |
+| `nap-two-outcomes` | Chia đôi màn hình: bên xanh lá tỉnh táo có tia năng lượng, bên đỏ vật vờ mắt xoáy tóc bù | Hai bên hiện lần lượt, bên trái nhún nảy, bên phải lảo đảo | So sánh hai kết cục, đúng vs sai, trước vs sau |
+| `sleep-cycle-wave` | Đồ thị đường cong chu kỳ ngủ với trục Nông - Sâu, mốc 0/20p/45p/90p | Đường cong vẽ dần, con trỏ đỏ chỉ mốc | Chu kỳ, quá trình lên xuống, sơ đồ theo thời gian |
+| `nap-shallow` | Người nổi gần mặt nước xanh nhạt, bọt khí nổi lên | Người bồng bềnh, bọt nổi lên liên tục | Trạng thái nhẹ, dễ thoát ra, tầng nông |
+| `nap-deep` | Người chìm sâu dưới nước tối, sóng não chậm vẽ dần | Người chìm dần xuống, sóng vẽ ra | Trạng thái sâu, khó thoát, chìm đắm |
+| `sleep-inertia-zombie` | Người đứng lảo đảo mắt xoáy, sao quay quanh đầu, đồng hồ chạy loạn | Người lắc lư, mắt xoáy, sao quay, kim đồng hồ quay nhanh | Choáng váng, hậu quả, trạng thái tệ |
+| `nap-golden-window` | Trục giờ trong ngày với vùng vàng được tô, đồng hồ hẹn giờ, mặt trời chếch | Vùng vàng lan rộng ra, tia nắng xoay | Khung giờ tốt nhất, thời điểm vàng, lời khuyên |
+| `nasa-pilot-nap` | Buồng lái máy bay có mây trôi ngoài cửa sổ, phi công ngủ trên ghế, biểu đồ cột kết quả | Mây trôi ngang, đèn bảng điều khiển nhấp nháy, cột mọc lên | Thí nghiệm thực tế, bằng chứng có số liệu |
+| `nap-full-cycle` | Chu kỳ trọn vẹn được tô xanh lá, biển đỏ cảnh báo vùng cần tránh | Đường cong vẽ dần, biển cảnh báo hiện ra | Làm trọn vẹn, phương án thay thế, cảnh báo |
+| `nap-too-late` | Chia đôi ngày/đêm: bên ngày bị gạch X đỏ, bên đêm người nằm mắt mở thao láo | Dấu X vẽ dần, sao nhấp nháy | Việc không nên làm, hậu quả về sau, nhân quả |
+| `coffee-nap` | Ba bước ngang có mũi tên nối: cốc cà phê bốc khói, người ngủ, người tỉnh táo | Ba bước hiện lần lượt, khói bay lên, tia năng lượng | Quy trình từng bước, mẹo áp dụng, hướng dẫn |
 
 Chọn hình theo **ý nghĩa** chứ không theo chữ nghĩa. Ví dụ cảnh nói "và đây là điều
 bất ngờ" thì `lightbulb-idea` hợp hơn là cố tìm hình đúng nội dung.
@@ -31,7 +42,10 @@ bất ngờ" thì `lightbulb-idea` hợp hơn là cố tìm hình đúng nội d
 ## Cách vẽ hình mới
 
 Hình nằm ở 3 file: `parts.tsx` (bộ phận dùng lại), `index.tsx` (5 hình đầu + registry),
-`more.tsx` (5 hình tiếp), `story3am.tsx` (8 hình về chủ đề giấc ngủ).
+`more.tsx` (5 hình tiếp), `story3am.tsx` (8 hình về ngủ hai giấc), `nap.tsx` (11 hình về ngủ trưa).
+
+Mỗi video mới nên có FILE RIÊNG cho bộ hình của nó — đừng nhét chung vào file cũ.
+Hình dùng lại giữa các video làm series trông nghèo nàn, người xem nhận ra ngay.
 
 Thêm hình mới vào `more.tsx` hoặc tạo file mới nếu là một bộ chủ đề riêng, rồi đăng ký
 vào registry ở `src/illustrations/index.tsx`:

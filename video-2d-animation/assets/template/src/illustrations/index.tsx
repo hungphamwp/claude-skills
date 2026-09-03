@@ -3,6 +3,19 @@ import { INK, drawOn, progress, wobble } from './anim';
 import { Campfire, Hut, Monkey, QuestionMark, SittingFigure, StandingFigure, Stars } from './parts';
 import { BarChart, CityNight, LightbulbIdea, PersonSleeping, Sunrise } from './more';
 import {
+  CoffeeNap,
+  NapDeep,
+  NapDeskTired,
+  NapFullCycle,
+  NapGoldenWindow,
+  NapShallow,
+  NapTooLate,
+  NapTwoOutcomes,
+  NasaPilotNap,
+  SleepCycleWave,
+  SleepInertiaZombie,
+} from './nap';
+import {
   AwakeAt3am,
   MidnightActivities,
   MidnightWakeCottage,
@@ -207,6 +220,17 @@ export const ILLUSTRATIONS: Record<string, React.FC<IllustrationProps>> = {
   'toothbrush-diary': ToothbrushDiary,
   'wehr-dark-room': WehrDarkRoom,
   'sleep-compressed': SleepCompressed,
+  'nap-desk-tired': NapDeskTired,
+  'nap-two-outcomes': NapTwoOutcomes,
+  'sleep-cycle-wave': SleepCycleWave,
+  'nap-shallow': NapShallow,
+  'nap-deep': NapDeep,
+  'sleep-inertia-zombie': SleepInertiaZombie,
+  'nap-golden-window': NapGoldenWindow,
+  'nasa-pilot-nap': NasaPilotNap,
+  'nap-full-cycle': NapFullCycle,
+  'nap-too-late': NapTooLate,
+  'coffee-nap': CoffeeNap,
 };
 
 export const ILLUSTRATION_KEYS = Object.keys(ILLUSTRATIONS);

@@ -24,7 +24,7 @@ cp "<đường-dẫn-skill>/scripts/"*.mjs scripts/
 npm install
 ```
 
-Template đã gồm đủ 18 hình minh hoạ, 3 composition và schema — cài xong render được ngay.
+Template đã gồm đủ 29 hình minh hoạ, 3 composition và schema — cài xong render được ngay.
 Chi tiết kiến trúc và các bẫy thường gặp: đọc `references/bootstrap.md`.
 
 ## Nguyên tắc tiết kiệm token và thời gian
@@ -37,8 +37,11 @@ nguồn nào** trong project. Cụ thể:
 - **Đừng mở Remotion Studio** để xem thử. Studio mất ~30s khởi động và tốn nhiều lượt
   screenshot. Render thẳng ra mp4 rồi gửi file cho người dùng xem — nhanh hơn và
   họ xem được cả âm thanh.
-- **Ưu tiên hình có sẵn.** Vẽ một hình SVG mới tốn vài nghìn token; dùng lại hình cũ
-  ở cảnh khác thì miễn phí. Một hình có thể xuất hiện nhiều lần trong video.
+- **Dùng lại hình TRONG cùng một video, không dùng lại GIỮA các video.** Trong một
+  video, cho một hình xuất hiện ở vài cảnh là bình thường và miễn phí. Nhưng video mới
+  thì phải có bộ hình mới — đây là yêu cầu về chất lượng, không phải chỗ để tiết kiệm.
+  Series mà dùng đi dùng lại hình cũ thì người xem nhận ra ngay và thấy nghèo nàn.
+  Vẽ 9-12 hình mới cho mỗi video, đặt trong một file riêng theo chủ đề.
 - **Chạy nền các lệnh chậm.** Sinh giọng (~4s/cảnh, hay bị rate limit) và render
   (~1-3 phút) nên chạy với `run_in_background: true` rồi làm việc khác trong lúc chờ.
 - **Gộp thao tác.** Viết cả file JSON một lần bằng Write, đừng Edit từng cảnh.
@@ -185,11 +188,25 @@ Danh sách hình có sẵn, mô tả chi tiết và cách vẽ thêm hình mới
 `references/illustrations.md`. **Đọc file đó khi cần chọn hình cho từng cảnh
 hoặc khi phải vẽ hình mới.**
 
-Tóm tắt 18 key có sẵn — `campfire-night`, `everything-starts-here`, `evolution-line`,
-`fire-radius`, `researcher-hut`, `person-sleeping`, `sunrise`, `bar-chart`,
-`city-night`, `lightbulb-idea`, `awake-at-3am`, `two-sleeps-split`,
-`midnight-wake-cottage`, `midnight-activities`, `old-documents-stack`,
-`toothbrush-diary`, `wehr-dark-room`, `sleep-compressed`.
+Tóm tắt 29 key có sẵn, chia theo bộ chủ đề:
+
+- **Nền tảng** — `campfire-night`, `everything-starts-here`, `evolution-line`,
+  `fire-radius`, `researcher-hut`, `person-sleeping`, `sunrise`, `bar-chart`,
+  `city-night`, `lightbulb-idea`
+- **Bộ ngủ hai giấc** — `awake-at-3am`, `two-sleeps-split`, `midnight-wake-cottage`,
+  `midnight-activities`, `old-documents-stack`, `toothbrush-diary`, `wehr-dark-room`,
+  `sleep-compressed`
+- **Bộ ngủ trưa** — `nap-desk-tired`, `nap-two-outcomes`, `sleep-cycle-wave`,
+  `nap-shallow`, `nap-deep`, `sleep-inertia-zombie`, `nap-golden-window`,
+  `nasa-pilot-nap`, `nap-full-cycle`, `nap-too-late`, `coffee-nap`
+
+**Mỗi video mới nên có bộ hình riêng, vẽ mới.** Dùng lại hình giữa các video làm series
+trông nghèo nàn — người xem nhận ra ngay. Chỉ dùng lại các hình mang tính sơ đồ trung
+tính (`bar-chart`, `lightbulb-idea`) khi thật sự hợp, và hỏi người dùng trước.
+
+Vài hình trung tính hơn tên gọi: `two-sleeps-split` và `sleep-compressed` dùng được cho
+mọi sơ đồ so sánh hai giai đoạn; `nap-two-outcomes` cho mọi cặp đối chiếu đúng/sai;
+`old-documents-stack` cho mọi cảnh nói về bằng chứng.
 
 Nhiều hình trong số này trung tính hơn tên gọi: `two-sleeps-split` và `sleep-compressed`
 dùng được cho mọi sơ đồ so sánh hai giai đoạn; `old-documents-stack` hợp mọi cảnh nói
