@@ -24,7 +24,7 @@ cp "<đường-dẫn-skill>/scripts/"*.mjs scripts/
 npm install
 ```
 
-Template đã gồm đủ 84 hình minh hoạ, 3 composition và schema — cài xong render được ngay.
+Template đã gồm đủ 95 hình minh hoạ, 3 composition và schema — cài xong render được ngay.
 Chi tiết kiến trúc và các bẫy thường gặp: đọc `references/bootstrap.md`.
 
 ## Nguyên tắc tiết kiệm token và thời gian
@@ -265,7 +265,7 @@ Danh sách hình có sẵn, mô tả chi tiết và cách vẽ thêm hình mới
 `references/illustrations.md`. **Đọc file đó khi cần chọn hình cho từng cảnh
 hoặc khi phải vẽ hình mới.**
 
-Tóm tắt 84 key có sẵn, chia theo bộ chủ đề:
+Tóm tắt 95 key có sẵn, chia theo bộ chủ đề:
 
 - **Nền tảng** — `campfire-night`, `everything-starts-here`, `evolution-line`,
   `fire-radius`, `researcher-hut`, `person-sleeping`, `sunrise`, `bar-chart`,
@@ -294,6 +294,10 @@ Tóm tắt 84 key có sẵn, chia theo bộ chủ đề:
   `chatbot-strengths`, `image-tools`, `video-tools-price`, `sora-deprecated`,
   `web-builder-lanes`, `ai-agent-new`, `agent-stars`, `agent-security-warning`,
   `decision-table`
+- **Bộ mạng/CDN** (theme riêng "vở nháp kỹ sư" — nền giấy, nét mảnh, màu trầm) —
+  `cdn-question`, `light-speed`, `distance-map`, `buffering-pain`, `cache-idea`,
+  `edge-nodes`, `ggc-inside-isp`, `cable-cut`, `cache-hit-miss`,
+  `cache-invalidation`, `summary-cdn`
 
 **Mỗi video mới nên có bộ hình riêng, vẽ mới.** Dùng lại hình giữa các video làm series
 trông nghèo nàn — người xem nhận ra ngay. Chỉ dùng lại các hình mang tính sơ đồ trung

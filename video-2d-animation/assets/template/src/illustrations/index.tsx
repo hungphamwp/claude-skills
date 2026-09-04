@@ -3,6 +3,19 @@ import { INK, drawOn, progress, wobble } from './anim';
 import { Campfire, Hut, Monkey, QuestionMark, SittingFigure, StandingFigure, Stars } from './parts';
 import { BarChart, CityNight, LightbulbIdea, PersonSleeping, Sunrise } from './more';
 import {
+  BufferingPain,
+  CableCut,
+  CacheHitMiss,
+  CacheIdea,
+  CacheInvalidation,
+  CdnQuestion,
+  DistanceMap,
+  EdgeNodes,
+  GgcInsideIsp,
+  LightSpeed,
+  SummaryCdn,
+} from './tech';
+import {
   AgentSecurityWarning,
   AgentStars,
   AiAgentNew,
@@ -351,6 +364,17 @@ export const ILLUSTRATIONS: Record<string, React.FC<IllustrationProps>> = {
   'agent-stars': AgentStars,
   'agent-security-warning': AgentSecurityWarning,
   'decision-table': DecisionTable,
+  'cdn-question': CdnQuestion,
+  'light-speed': LightSpeed,
+  'distance-map': DistanceMap,
+  'buffering-pain': BufferingPain,
+  'cache-idea': CacheIdea,
+  'edge-nodes': EdgeNodes,
+  'ggc-inside-isp': GgcInsideIsp,
+  'cable-cut': CableCut,
+  'cache-hit-miss': CacheHitMiss,
+  'cache-invalidation': CacheInvalidation,
+  'summary-cdn': SummaryCdn,
 };
 
 export const ILLUSTRATION_KEYS = Object.keys(ILLUSTRATIONS);

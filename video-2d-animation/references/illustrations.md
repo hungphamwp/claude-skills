@@ -94,6 +94,18 @@ Khai báo bằng field `illustration` trong mỗi cảnh. Một hình dùng đư
 Chọn hình theo **ý nghĩa** chứ không theo chữ nghĩa. Ví dụ cảnh nói "và đây là điều
 bất ngờ" thì `lightbulb-idea` hợp hơn là cố tìm hình đúng nội dung.
 
+| `cdn-question` | Nhân vật cười cầm nút play, mũi tên cong nối tới ô "US SERVER" gạch chéo mảnh | Đường nối vẽ dần | Câu hỏi mồi, nghịch lý khoảng cách |
+| `light-speed` | Đường ngang có hạt sáng chạy dọc, đồng hồ đo độ trễ ở khung giới thiệu | Hạt sáng chạy liên tục, kim đồng hồ quay | Tốc độ vật lý, giới hạn kỹ thuật |
+| `distance-map` | 5 điểm nối bằng đường cong: Việt Nam - Hồng Kông - Nhật Bản - Guam - Mỹ | Đường vẽ dần, từng điểm hiện ra | Khoảng cách địa lý, trạm trung chuyển |
+| `buffering-pain` | Nhân vật ngạc nhiên bên trái, vòng xoay loading tách riêng bên phải | Vòng xoay quay liên tục | Chờ đợi, trải nghiệm tệ, vấn đề cần giải quyết |
+| `cache-idea` | Ô "GỐC" trên cao, bản sao "BẢN SAO" bay xuống gần nhân vật | Bản sao trượt xuống và thu nhỏ | Ý tưởng giải pháp, nhân bản gần người dùng |
+| `edge-nodes` | Máy chủ gốc giữa, 6 thành phố toả quanh nối bằng nét đứt (đã dừng trước tên) | Từng thành phố hiện lần lượt | Phân phối theo địa lý, mạng lưới điểm biên |
+| `ggc-inside-isp` | Hộp "Google Global Cache" trên cao nối xuống 3 khung Viettel/VNPT/FPT | Vòng sáng loé phía sau khung (không đè chữ) | Hạ tầng bên trong, tích hợp sâu |
+| `cable-cut` | Bờ biển hai bên, nhiều đường cong nối giữa — đa số gạch X đỏ, một đường xanh còn nguyên | Đường vẽ dần, dấu X nhấp nháy | Sự cố hạ tầng, một điểm vẫn hoạt động |
+| `cache-hit-miss` | Người - ô "BIÊN" - ô "GỐC", đường nối đổi từ đỏ đứt nét (trượt) sang xanh liền (trúng) | Đường vẽ dần theo từng bước | Hai kết quả đối lập, tiến trình cải thiện |
+| `cache-invalidation` | Hai ô "MÁY GỐC"/"MÁY BIÊN" với khối màu đổi trạng thái theo bước | Khối màu chuyển từ cũ sang "đang xoá" | Vấn đề đồng bộ, ba giai đoạn hỏi-vấn đề-giải pháp |
+| `summary-cdn` | Trục ngang "xa"→"gần" với chấm di chuyển, nhãn đổi theo bước | Chấm trượt ngang, nhãn thay đổi | Tổng kết, rút gọn khoảng cách |
+
 ## Bộ hiệu ứng giải thích (`fx.tsx`)
 
 Video **không có khung phụ đề** ở đáy khung — mọi thông tin phải do chính hình truyền
@@ -171,13 +183,33 @@ khung 1920 mới đọc được trên điện thoại. Ô 112px cho chữ cao ~
 
 Xếp 4 cột thay vì 5 để mỗi ô đủ to. Trong bảng thì thu hẹp ô chữ để lấy chỗ cho logo.
 
+
+## Theme riêng cho một chủ đề (đổi hẳn bảng màu và nét vẽ)
+
+Mặc định mọi hình dùng một bộ màu tươi thống nhất (xem "Bảng màu chuẩn" dưới đây).
+Nhưng khi nội dung khác hẳn về tinh thần — ví dụ mảng kỹ thuật/nguyên lý so với mảng
+giải trí/kể chuyện — nên đổi hẳn theme cho khớp, không cố nhồi vào bảng màu cũ.
+
+`tech.tsx` là ví dụ: nền giấy kem có ô lưới mờ (`PaperFrame`), nét mảnh hơn
+(`strokeWidth` 5-7 thay vì 9-13), bảng màu trầm (xanh cổ vịt, đỏ gạch, vàng đất, xanh
+rêu) thay cho màu tươi. Vẫn giữ nguyên nhân vật que nét đen dày để không lạ mắt so
+với các video khác trong series.
+
+Khi cần một theme mới:
+1. Tạo file riêng (không nhét vào file cũ), định nghĩa hằng màu ở đầu file.
+2. Viết một `Frame` riêng cho theme đó (đổi nền, có thể thêm lưới/vân giấy/texture).
+3. Có thể copy các hàm phụ trợ (đầu nhân vật, khối server...) sang bản riêng của theme
+   nếu chúng cần khác biệt rõ (nét mảnh hơn, tỉ lệ khác) — đừng cố dùng chung với bản
+   nét dày nếu hai theme sẽ đứng cạnh nhau trong series.
+
 ## Cách vẽ hình mới
 
 Hình nằm ở 3 file: `parts.tsx` (bộ phận dùng lại), `index.tsx` (5 hình đầu + registry),
 `more.tsx` (5 hình tiếp), `story3am.tsx` (8 hình ngủ hai giấc), `nap.tsx` (11 hình ngủ trưa),
 `memory.tsx` (13 hình ký ức tuổi thơ), `tickle.tsx` (10 hình về cù và dự đoán của não),
 `domain.tsx` (10 hình tên miền/hosting/DNS), `speed.tsx` (10 hình tốc độ website),
-`aitools.tsx` (12 hình công cụ AI), `fx.tsx` (bộ hiệu ứng giải thích dùng chung), `logo.tsx` (logo thương hiệu thật).
+`aitools.tsx` (12 hình công cụ AI), `tech.tsx` (11 hình chủ đề CDN/mạng, theme
+riêng "vở nháp kỹ sư" — xem mục theme bên dưới), `fx.tsx` (bộ hiệu ứng giải thích dùng chung), `logo.tsx` (logo thương hiệu thật).
 
 Mỗi video mới nên có FILE RIÊNG cho bộ hình của nó — đừng nhét chung vào file cũ.
 Hình dùng lại giữa các video làm series trông nghèo nàn, người xem nhận ra ngay.
@@ -249,6 +281,24 @@ const p = filled ? easeOut(progress(frame, 4, 16)) : 0;
 Cảnh cuối video hay dùng lại hình của cảnh mở đầu. Khi đó chuỗi bị đứt nên `step`
 đếm lại từ 0 và caption của cảnh mở đầu hiện lại — sai hẳn ý. Khắc phục bằng cách
 đặt `"step"` thủ công trong JSON cho các cảnh đó.
+
+### Lỗi lệch nhịp trong hình nhiều bước — dạng lỗi nguy hiểm nhất
+
+Khi một hình có 3 cảnh (step 0/1/2) mà mỗi bước đại diện một Ý trong lời đọc, rất dễ
+gán sai bước nào ứng với ý nào — nhất là khi 2 trạng thái đối lập nhau (chậm/nhanh,
+vấn đề/giải pháp, câu hỏi/đáp án). Đã gặp thực tế 3 lần trong cùng một video:
+
+- Cảnh nói "trượt cache, chậm" nhưng hình đã chuyển sang "trúng cache, nhanh" —
+  vì code chỉ có 2 trạng thái (`step === 0`) trong khi cảnh có 3 bước, bước giữa
+  bị đẩy nhầm sang trạng thái của bước cuối.
+- Cảnh mới đặt câu hỏi mở nhưng hình đã hiện luôn câu trả lời của bước sau.
+- Cảnh có 2 ý trong cùng một câu, hình chỉ vẽ ý đầu, ý thứ hai bị đẩy sang cảnh kế —
+  cảnh kế đó lại lặp nguyên hình cũ vì không có nội dung mới để hiện.
+
+**Cách phòng tránh:** khi hình có N bước, liệt kê rõ N cảnh tương ứng nói gì, rồi map
+1-1 rành mạch — đừng suy luận ngầm `step === 0 ? A : B` cho hình có từ 3 bước trở lên.
+Test bằng cách đọc lại từng cặp (lời đọc cảnh i, nhãn hiện ra ở bước i) và tự hỏi:
+"câu này mà nghe cùng lúc với hình này thì có mâu thuẫn không?"
 
 ### Kiểm tra khung hình trước khi render bản cuối
 
