@@ -20,6 +20,10 @@ export const sceneSchema = z.object({
   voiceFile: z.string().optional(),
   // Chuyển động máy quay của cảnh. Bỏ trống thì tự luân phiên theo thứ tự cảnh.
   motion: z.enum(['zoom-in', 'zoom-out', 'pan-left', 'pan-right']).optional(),
+  // Bước hiện tại trong một hình nhiều bước. Các cảnh liên tiếp dùng CHUNG một
+  // illustration sẽ được ghép thành một chuỗi liền mạch: hình không fade lại từ
+  // đầu mà chạy tiếp, và nhận step tăng dần để lộ thêm nội dung đúng lời đọc.
+  step: z.number().int().min(0).optional(),
   // Thời lượng cảnh tính bằng giây
   durationInSeconds: z.number().min(0.5).default(3),
   // Màu nền cảnh

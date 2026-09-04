@@ -1,12 +1,13 @@
 import React from 'react';
 import { INK, drawOn, easeOut, progress, seeded, wobble } from './anim';
 import { CheckMark, CrossOut, HighlightRing, PointerArrow, PopLabel, PulseRing } from './fx';
+import { LogoBox } from './logo';
 
 const W = 1920;
 const H = 1080;
 const FONT = '"Comic Sans MS", Inter, sans-serif';
 
-export type AiProps = { frame: number; accent: string };
+export type AiProps = { frame: number; accent: string; step?: number };
 
 const Frame: React.FC<{ children: React.ReactNode; bg?: string }> = ({ children, bg = '#ffffff' }) => (
   <svg
@@ -68,44 +69,39 @@ const ToolChip: React.FC<{
 };
 
 // 1) Rừng công cụ — người choáng ngợp
-export const AiToolJungle: React.FC<AiProps> = ({ frame }) => {
-  const tools = ['ChatGPT', 'Gemini', 'Claude', 'DeepSeek', 'Grok', 'Canva', 'Kling', 'Veo', 'Lovable', 'Framer', 'Runway', 'Magnific', 'Kimi', 'OpenClaw'];
+export const AiToolJungle: React.FC<AiProps> = ({ frame, step = 0 }) => {
+  // 12 công cụ xếp 4 cột cho logo đủ to để đọc. Nhồi 5 cột thì logo dạng chữ
+  // (Anthropic, DeepSeek, Perplexity) bé tới mức không nhận ra được.
+  const tools = [
+    'chatgpt', 'gemini', 'claude', 'deepseek',
+    'grok', 'canva', 'perplexity', 'runway',
+    'webflow', 'wix', 'Kling', 'OpenClaw',
+  ];
   return (
     <Frame bg="#f3edfd">
       {tools.map((t, i) => {
-        const col = i % 5;
-        const row = Math.floor(i / 5);
-        const x = 320 + col * 340 + (row % 2) * 60;
-        const y = 240 + row * 220 + wobble(frame, 0.08 + i * 0.006, 14, i);
+        const col = i % 4;
+        const row = Math.floor(i / 4);
+        const x = 400 + col * 373;
+        const y = 250 + row * 250 + wobble(frame, 0.07 + i * 0.005, 10, i);
         const p = easeOut(progress(frame, 2 + i * 2, 12));
         if (p <= 0) return null;
         return (
-          <g key={t} opacity={p} transform={`rotate(${(seeded(i) - 0.5) * 10} ${x} ${y})`}>
-            <ToolChip
-              x={x}
-              y={y}
-              label={t}
-              color={['#8ec7e8', '#8fd694', '#ffd23f', '#f0a3c0', '#c9b6f7'][i % 5]}
-              size={36}
-            />
+          <g key={t} opacity={p} transform={`rotate(${(seeded(i) - 0.5) * 7} ${x} ${y})`}>
+            <LogoBox x={x} y={y} name={t} size={218} showLabel={false} />
           </g>
         );
       })}
-      {/* người choáng ngợp ở dưới */}
-      <g transform="translate(960 880)">
-        <AHead cx={0} cy={0} r={82} face="lost" />
-        <g stroke={INK} strokeWidth={12} strokeLinecap="round" fill="none">
-          <line x1={0} y1={82} x2={0} y2={200} />
-          <path d="M 0 120 L -150 40 M 0 120 L 150 40" />
-        </g>
-      </g>
-      <PopLabel frame={frame} at={44} x={960} y={1030} text="Chọn cái nào bây giờ?" bg="#e63328" size={50} />
+      {step === 0 ? <PopLabel frame={frame} at={44} x={960} y={946} text="Chọn cái nào bây giờ?" bg="#e63328" size={54} /> : null}
+      {step === 1 ? <PopLabel frame={frame} at={6} x={960} y={946} text="Thử hết thì không có thời gian" bg="#f5a623" color={INK} size={52} /> : null}
+      {step === 2 ? <PopLabel frame={frame} at={6} x={960} y={946} text="Bảng xếp hạng đổi mỗi tháng" bg="#3a8fd6" size={52} /> : null}
+      {step === 3 ? <PopLabel frame={frame} at={6} x={960} y={946} text="Việc mình cần làm là gì?" bg="#22a04a" size={54} /> : null}
     </Frame>
   );
 };
 
 // 2) Chọn theo việc, không theo tên
-export const PickByJob: React.FC<AiProps> = ({ frame }) => {
+export const PickByJob: React.FC<AiProps> = ({ frame, step = 0 }) => {
   const jobs: [string, string][] = [
     ['Hỏi đáp, viết', '#3a8fd6'],
     ['Làm ảnh', '#f0a3c0'],
@@ -137,22 +133,31 @@ export const PickByJob: React.FC<AiProps> = ({ frame }) => {
 };
 
 // 3) Biểu đồ lượt truy cập chatbot
-export const ChatbotLineup: React.FC<AiProps> = ({ frame }) => {
+export const ChatbotLineup: React.FC<AiProps> = ({ frame, step = 0 }) => {
   const data: [string, number, string][] = [
     ['ChatGPT', 5.3, '#22a04a'],
     ['Gemini', 1.1, '#3a8fd6'],
-    ['Claude', 0.97, '#f5a623'],
-    ['DeepSeek', 0.32, '#8b5cf6'],
+    ['Claude', 0.968, '#f5a623'],
+    ['DeepSeek', 0.319, '#8b5cf6'],
   ];
   const maxV = 5.3;
-  const baseY = 830;
-  const maxH = 520;
+  const baseY = 700;
+  const maxH = 440;
   return (
     <Frame bg="#eef6fb">
-      <PopLabel frame={frame} at={2} x={960} y={140} text="Lượt truy cập mỗi tháng" bg="#3a8fd6" size={50} />
+      {step === 0 ? (
+        <PopLabel frame={frame} at={2} x={960} y={140} text="Nhóm 1 — Chatbot đa năng" bg="#3a8fd6" size={50} />
+      ) : (
+        <PopLabel frame={frame} at={2} x={960} y={140} text="Lượt truy cập mỗi tháng" bg="#3a8fd6" size={50} />
+      )}
+      {step === 0 ? (
+        <PopLabel frame={frame} at={14} x={960} y={330} text="Hỏi đáp · viết lách · phân tích tài liệu" bg="#ffffff" color={INK} size={44} />
+      ) : null}
       <line x1={220} y1={baseY} x2={1700} y2={baseY} stroke={INK} strokeWidth={12} strokeLinecap="round" />
       {data.map(([name, v, color], i) => {
-        const p = easeOut(progress(frame, 8 + i * 10, 22));
+        // step 0: chưa cột nào. step 1: chỉ ChatGPT. step 2+: lộ nốt phần còn lại.
+        const visibleAt = i === 0 ? 1 : 2;
+        const p = step < visibleAt ? 0 : easeOut(progress(frame, 8 + i * 10, 22));
         const h = (v / maxV) * maxH * p;
         const x = 380 + i * 330;
         return (
@@ -163,20 +168,22 @@ export const ChatbotLineup: React.FC<AiProps> = ({ frame }) => {
                 {v >= 1 ? `${v} tỷ` : `${Math.round(v * 1000)} tr`}
               </text>
             ) : null}
-            <text x={x} y={baseY + 62} fontSize={38} fontWeight={800} fill={INK} textAnchor="middle" fontFamily={FONT}>
+            {/* logo hiện ngay từ bước 0 để cảnh giới thiệu nhóm không bị trống */}
+            <LogoBox x={x} y={baseY + 124} name={name} size={128} showLabel={false} />
+            <text x={x} y={baseY + 224} fontSize={36} fontWeight={800} fill={INK} textAnchor="middle" fontFamily={FONT}>
               {name}
             </text>
           </g>
         );
       })}
-      <PopLabel frame={frame} at={50} x={1300} y={330} text="Nhiều hơn 14 công cụ sau cộng lại" bg="#e63328" size={40} />
-      <PopLabel frame={frame} at={62} x={960} y={990} text="Số liệu tháng 6/2026 — chỉ tính truy cập web" bg="#8a97a8" size={34} />
+      {step >= 1 ? <PopLabel frame={frame} at={50} x={1300} y={330} text="Nhiều hơn 14 công cụ sau cộng lại" bg="#e63328" size={40} /> : null}
+      <PopLabel frame={frame} at={62} x={960} y={975} text="Số liệu tháng 6/2026 — chỉ tính truy cập web" bg="#8a97a8" size={32} />
     </Frame>
   );
 };
 
 // 4) Ai giỏi việc gì
-export const ChatbotStrengths: React.FC<AiProps> = ({ frame }) => {
+export const ChatbotStrengths: React.FC<AiProps> = ({ frame, step = 0 }) => {
   const rows: [string, string, string][] = [
     ['Viết dài, phân tích', 'Claude', '#f5a623'],
     ['Tin mới thời gian thực', 'Grok', '#8b5cf6'],
@@ -188,10 +195,16 @@ export const ChatbotStrengths: React.FC<AiProps> = ({ frame }) => {
     <Frame bg="#fdf3e0">
       <PopLabel frame={frame} at={2} x={960} y={130} text="Mỗi cái mạnh một kiểu" bg="#f5a623" color={INK} size={50} />
       {rows.map(([job, tool, color], i) => {
-        const p = easeOut(progress(frame, 8 + i * 9, 14));
+        // Lời đọc lần lượt nhắc Claude+Grok (step 1), Gemini+DeepSeek (step 2),
+        // rồi Kimi (step 3). Mỗi cảnh chỉ lộ đúng dòng đang được nói tới.
+        const visibleAt = [1, 1, 2, 2, 3][i];
+        // Bước 0 hiện toàn bộ khung ở dạng mờ để thấy sẽ có 5 dòng, chưa nhấn dòng nào
+        const active = step >= visibleAt;
+        const p = step === 0 ? 0.4 : active ? easeOut(progress(frame, 4, 14)) : 0.35;
+        const dim = active && step === visibleAt ? 1 : 0.75;
         const y = 300 + i * 150;
         return (
-          <g key={job} opacity={p}>
+          <g key={job} opacity={p * dim}>
             <rect x={200} y={y - 54} width={620} height={108} rx={14} fill="#ffffff" stroke={INK} strokeWidth={11} />
             <text x={510} y={y + 14} fontSize={40} fontWeight={800} fill={INK} textAnchor="middle" fontFamily={FONT}>
               {job}
@@ -200,10 +213,11 @@ export const ChatbotStrengths: React.FC<AiProps> = ({ frame }) => {
               <line x1={840} y1={y} x2={980} y2={y} />
               <path d={`M 980 ${y} l -40 -24 M 980 ${y} l -40 24`} />
             </g>
-            <rect x={1010} y={y - 54} width={700} height={108} rx={14} fill={color} stroke={INK} strokeWidth={11} />
-            <text x={1360} y={y + 14} fontSize={40} fontWeight={800} fill="#ffffff" textAnchor="middle" fontFamily={FONT}>
+            <rect x={1010} y={y - 54} width={540} height={108} rx={14} fill={color} stroke={INK} strokeWidth={11} />
+            <text x={1280} y={y + 14} fontSize={34} fontWeight={800} fill="#ffffff" textAnchor="middle" fontFamily={FONT}>
               {tool}
             </text>
+            <LogoBox x={1670} y={y} name={tool.split(' ')[0].split('/')[0]} size={132} showLabel={false} />
           </g>
         );
       })}
@@ -212,7 +226,7 @@ export const ChatbotStrengths: React.FC<AiProps> = ({ frame }) => {
 };
 
 // 5) Công cụ ảnh — Canva và nâng nét
-export const ImageTools: React.FC<AiProps> = ({ frame }) => {
+export const ImageTools: React.FC<AiProps> = ({ frame, step = 0 }) => {
   const sharp = easeOut(progress(frame, 26, 30));
   return (
     <Frame bg="#fdeef3">
@@ -238,9 +252,12 @@ export const ImageTools: React.FC<AiProps> = ({ frame }) => {
         </text>
       </g>
 
-      {/* Magnific: ảnh mờ thành nét */}
-      <g transform="translate(1420 520)">
-        <ToolChip x={0} y={-330} label="Nâng nét ảnh" color="#e63328" size={48} textColor="#ffffff" />
+      {/* Magnific: chỉ hiện rõ từ bước 2, khi lời đọc nhắc tới */}
+      <g transform="translate(1420 520)" opacity={step >= 2 ? 1 : 0.12}>
+        <ToolChip x={0} y={-330} label="Magnific" color="#e63328" size={48} textColor="#ffffff" />
+        <text x={0} y={-258} fontSize={34} fontWeight={700} fill={INK} textAnchor="middle" fontFamily={FONT}>
+          nâng nét ảnh
+        </text>
         {/* ảnh mờ bên trái */}
         <g transform="translate(-150 0)">
           <rect x={-130} y={-130} width={260} height={260} rx={12} fill="#c9d3e2" stroke={INK} strokeWidth={11} />
@@ -258,13 +275,13 @@ export const ImageTools: React.FC<AiProps> = ({ frame }) => {
           117 triệu lượt / tháng
         </text>
       </g>
-      <PopLabel frame={frame} at={56} x={1420} y={950} text="Chỉ làm mỗi một việc!" bg="#e63328" size={44} />
+      {step >= 2 ? <PopLabel frame={frame} at={10} x={1420} y={950} text="Chỉ làm mỗi một việc!" bg="#e63328" size={44} /> : null}
     </Frame>
   );
 };
 
 // 6) Bảng giá công cụ video
-export const VideoToolsPrice: React.FC<AiProps> = ({ frame }) => {
+export const VideoToolsPrice: React.FC<AiProps> = ({ frame, step = 0 }) => {
   const rows: [string, string, string][] = [
     ['Kling 3.0', '~0,10 $/giây', '#22a04a'],
     ['Veo 3.1 (fast)', 'từ 0,15 $/giây', '#3a8fd6'],
@@ -274,28 +291,33 @@ export const VideoToolsPrice: React.FC<AiProps> = ({ frame }) => {
     <Frame bg="#eafbef">
       <PopLabel frame={frame} at={2} x={960} y={150} text="Giá thật cho mỗi giây video" bg="#22a04a" size={52} />
       {rows.map(([name, price, color], i) => {
-        const p = easeOut(progress(frame, 10 + i * 11, 16));
+        // Bước 0 dựng sẵn khung tên công cụ (mờ), từ bước 1 mới điền giá vào
+        const visibleAt = i === 0 ? 1 : 2;
+        const filled = step >= visibleAt;
+        const p = filled ? easeOut(progress(frame, 4, 16)) : 0;
         const y = 360 + i * 170;
         return (
-          <g key={name} opacity={p} transform={`translate(${(1 - p) * -80} 0)`}>
-            <rect x={340} y={y - 62} width={560} height={124} rx={14} fill={color} stroke={INK} strokeWidth={12} />
-            <text x={620} y={y + 16} fontSize={46} fontWeight={800} fill="#ffffff" textAnchor="middle" fontFamily={FONT}>
+          <g key={name}>
+            <rect x={340} y={y - 62} width={560} height={124} rx={14} fill={color} stroke={INK} strokeWidth={12} opacity={filled ? 1 : 0.4} />
+            <text x={620} y={y + 16} fontSize={46} fontWeight={800} fill="#ffffff" textAnchor="middle" fontFamily={FONT} opacity={filled ? 1 : 0.45}>
               {name}
             </text>
-            <rect x={940} y={y - 62} width={640} height={124} rx={14} fill="#ffffff" stroke={INK} strokeWidth={12} />
-            <text x={1260} y={y + 16} fontSize={44} fontWeight={800} fill={INK} textAnchor="middle" fontFamily={FONT}>
-              {price}
-            </text>
+            <rect x={940} y={y - 62} width={640} height={124} rx={14} fill="#ffffff" stroke={INK} strokeWidth={12} opacity={filled ? 1 : 0.3} />
+            {filled ? (
+              <text x={1260} y={y + 16} fontSize={44} fontWeight={800} fill={INK} textAnchor="middle" fontFamily={FONT} opacity={p}>
+                {price}
+              </text>
+            ) : null}
           </g>
         );
       })}
-      <PopLabel frame={frame} at={52} x={960} y={930} text="Miễn phí không logo chìm: Runway · InVideo · Kling cơ bản" bg="#f5a623" color={INK} size={38} />
+      {step >= 3 ? <PopLabel frame={frame} at={4} x={960} y={930} text="Miễn phí không logo chìm: Runway · InVideo · Kling cơ bản" bg="#f5a623" color={INK} size={38} /> : null}
     </Frame>
   );
 };
 
 // 7) Sora bị khai tử
-export const SoraDeprecated: React.FC<AiProps> = ({ frame }) => {
+export const SoraDeprecated: React.FC<AiProps> = ({ frame, step = 0 }) => {
   const fade = 1 - easeOut(progress(frame, 20, 26));
   return (
     <Frame bg="#fdeeea">
@@ -328,13 +350,12 @@ export const SoraDeprecated: React.FC<AiProps> = ({ frame }) => {
           một công cụ
         </text>
       </g>
-      <PulseRing frame={frame} at={44} cx={1450} cy={480} r={380} color="#e63328" count={2} />
     </Frame>
   );
 };
 
 // 8) Ba làn công cụ làm web
-export const WebBuilderLanes: React.FC<AiProps> = ({ frame }) => {
+export const WebBuilderLanes: React.FC<AiProps> = ({ frame, step = 0 }) => {
   const lanes: [string, string[], string][] = [
     ['Thiên thiết kế', ['Framer', 'Webflow'], '#8b5cf6'],
     ['Trọn gói doanh nghiệp', ['Wix', 'Hostinger', 'Durable', '10Web'], '#f5a623'],
@@ -344,31 +365,37 @@ export const WebBuilderLanes: React.FC<AiProps> = ({ frame }) => {
     <Frame bg="#eef6fb">
       <PopLabel frame={frame} at={2} x={960} y={130} text="Công cụ làm web: 3 làn" bg="#3a8fd6" size={52} />
       {lanes.map(([title, tools, color], i) => {
-        const p = easeOut(progress(frame, 8 + i * 12, 16));
+        // Bước 0 dựng sẵn 3 làn rỗng cho thấy cấu trúc, từ bước 1 mới điền công cụ
+        const filled = step >= i + 1;
+        const p = filled ? easeOut(progress(frame, 4, 16)) : 0;
         const y = 320 + i * 240;
         return (
-          <g key={title} opacity={p}>
-            {/* làn đường */}
+          <g key={title} opacity={filled ? 1 : 0.5}>
+            {/* làn đường — hiện ngay từ bước 0 để thấy cấu trúc ba làn */}
             <rect x={160} y={y - 90} width={1600} height={180} rx={20} fill="#ffffff" stroke={INK} strokeWidth={12} />
             <rect x={160} y={y - 90} width={430} height={180} rx={20} fill={color} stroke={INK} strokeWidth={12} />
             <text x={375} y={y + 14} fontSize={38} fontWeight={800} fill="#ffffff" textAnchor="middle" fontFamily={FONT}>
               {title}
             </text>
-            {tools.map((t, k) => (
-              <ToolChip key={t} x={720 + k * 260} y={y} label={t} color="#eef2f6" size={34} />
-            ))}
+            {filled
+              ? tools.map((t, k) => (
+                  <g key={t} opacity={p}>
+                    <ToolChip x={720 + k * 260} y={y} label={t} color="#eef2f6" size={34} />
+                  </g>
+                ))
+              : null}
           </g>
         );
       })}
-      <PopLabel frame={frame} at={54} x={960} y={1010} text="v0 xuất Next.js render sẵn — tốt cho SEO" bg="#22a04a" size={40} />
+      {step >= 3 ? <PopLabel frame={frame} at={20} x={960} y={966} text="v0 dựng sẵn phía máy chủ — tốt cho SEO" bg="#22a04a" size={40} /> : null}
     </Frame>
   );
 };
 
 // 9) Chatbot khác agent
-export const AiAgentNew: React.FC<AiProps> = ({ frame }) => {
+export const AiAgentNew: React.FC<AiProps> = ({ frame, step = 0 }) => {
   const a = easeOut(progress(frame, 4, 16));
-  const b = easeOut(progress(frame, 24, 16));
+  const b = step >= 1 ? easeOut(progress(frame, 24, 16)) : 0;
   return (
     <Frame bg="#f3edfd">
       <line x1={960} y1={140} x2={960} y2={960} stroke={INK} strokeWidth={10} strokeDasharray="26 20" />
@@ -387,11 +414,16 @@ export const AiAgentNew: React.FC<AiProps> = ({ frame }) => {
       {/* agent: tự làm */}
       <g opacity={b}>
         <PopLabel frame={frame} at={26} x={1440} y={220} text="AGENT" bg="#8b5cf6" size={54} />
+      </g>
+      {step === 0 ? (
+        <PopLabel frame={frame} at={6} x={1440} y={520} text="Nhóm 5 — AI agent" bg="#8b5cf6" size={50} />
+      ) : null}
+      <g opacity={b}>
         <AHead cx={1440} cy={440} r={90} face="happy" />
         {/* các việc agent tự làm */}
         {['mở file', 'chạy lệnh', 'gửi tin', 'nhớ việc cũ'].map((t, i) => {
           const p = easeOut(progress(frame, 30 + i * 7, 12));
-          const x = 1180 + (i % 2) * 520;
+          const x = 1200 + (i % 2) * 440;
           const y = 680 + Math.floor(i / 2) * 130;
           return <g key={t} opacity={p}><ToolChip x={x} y={y} label={t} color="#c9b6f7" size={36} /></g>;
         })}
@@ -406,7 +438,7 @@ export const AiAgentNew: React.FC<AiProps> = ({ frame }) => {
 };
 
 // 10) Số sao GitHub của agent mã nguồn mở
-export const AgentStars: React.FC<AiProps> = ({ frame }) => {
+export const AgentStars: React.FC<AiProps> = ({ frame, step = 0 }) => {
   const grow1 = easeOut(progress(frame, 8, 26));
   const grow2 = easeOut(progress(frame, 26, 26));
   const Star: React.FC<{ x: number; y: number; s?: number; delay: number }> = ({ x, y, s = 1, delay }) => {
@@ -453,7 +485,7 @@ export const AgentStars: React.FC<AiProps> = ({ frame }) => {
 };
 
 // 11) Cảnh báo bảo mật khi dùng agent
-export const AgentSecurityWarning: React.FC<AiProps> = ({ frame }) => {
+export const AgentSecurityWarning: React.FC<AiProps> = ({ frame, step = 0 }) => {
   const shake = wobble(frame, 0.7, 6);
   const items = ['đọc file', 'chạy lệnh', 'vào tin nhắn', 'mở trình duyệt'];
   return (
@@ -474,13 +506,13 @@ export const AgentSecurityWarning: React.FC<AiProps> = ({ frame }) => {
         );
       })}
       <PopLabel frame={frame} at={4} x={560} y={840} text="Agent chạy trên máy bạn" bg="#e63328" size={48} />
-      <PopLabel frame={frame} at={52} x={1420} y={880} text="Đừng cài bừa lên máy chứa dữ liệu công việc" bg="#e63328" size={40} />
+      <PopLabel frame={frame} at={52} x={1100} y={960} text="Đừng cài bừa lên máy chứa dữ liệu công việc" bg="#e63328" size={34} />
     </Frame>
   );
 };
 
 // 12) Bảng chọn nhanh
-export const DecisionTable: React.FC<AiProps> = ({ frame }) => {
+export const DecisionTable: React.FC<AiProps> = ({ frame, step = 0 }) => {
   const rows: [string, string, string][] = [
     ['Viết · phân tích', 'Claude', '#f5a623'],
     ['Tin mới', 'Grok', '#8b5cf6'],
@@ -491,6 +523,8 @@ export const DecisionTable: React.FC<AiProps> = ({ frame }) => {
     ['Làm web', 'Framer · Lovable', '#5fc9e8'],
     ['Tự động hoá', 'OpenClaw', '#8b5cf6'],
   ];
+  // Nền sáng thì phải dùng chữ đen, chữ trắng trên các màu này chỉ đạt ~1,9:1
+  const LIGHT_BG = ['#f0a3c0', '#5fc9e8', '#f5a623'];
   return (
     <Frame bg="#eef6fb">
       <PopLabel frame={frame} at={2} x={960} y={110} text="Bảng chọn nhanh" bg="#3a8fd6" size={52} />
@@ -507,13 +541,13 @@ export const DecisionTable: React.FC<AiProps> = ({ frame }) => {
               {job}
             </text>
             <rect x={x + 400} y={y - 58} width={360} height={116} rx={14} fill={color} stroke={INK} strokeWidth={11} />
-            <text x={x + 580} y={y + 14} fontSize={32} fontWeight={800} fill="#ffffff" textAnchor="middle" fontFamily={FONT}>
+            <text x={x + 580} y={y + 14} fontSize={32} fontWeight={800} fill={LIGHT_BG.includes(color) ? INK : "#ffffff"} textAnchor="middle" fontFamily={FONT}>
               {tool}
             </text>
           </g>
         );
       })}
-      <PopLabel frame={frame} at={60} x={960} y={1020} text="Ảnh chụp tháng 9/2026 — xếp hạng đổi liên tục" bg="#8a97a8" size={36} />
+      <PopLabel frame={frame} at={60} x={960} y={958} text="Ảnh chụp tháng 9/2026 — xếp hạng đổi liên tục" bg="#8a97a8" size={36} />
     </Frame>
   );
 };

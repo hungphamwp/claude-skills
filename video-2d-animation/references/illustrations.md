@@ -123,13 +123,61 @@ bằng cách đặt `at` cách nhau — cho người xem kịp đọc từng th�
 Mỗi hình nên có 2-3 nhãn, xuất hiện giãn ra trong khoảng 5-8 giây của cảnh. Nhồi
 nhiều hơn thì người xem đọc không kịp.
 
+## Logo thương hiệu thật (`logo.tsx`)
+
+Khi video nói về sản phẩm có thật, người xem nhận ra logo nhanh hơn nhiều so với đọc
+tên. Dùng component `LogoBox`:
+
+```tsx
+<LogoBox x={400} y={270} name="chatgpt" size={218} showLabel={false} />
+```
+
+Nó vẽ một ô trắng viền đen dày (khớp phong cách vẽ tay) rồi đặt logo thật vào trong.
+Tên nào chưa có file logo thì **tự động rơi về thẻ chữ** — không có logo giả.
+
+### Ba nguyên tắc bắt buộc
+
+**1. Tuyệt đối không sinh logo bằng AI.** Model tạo ảnh sẽ ra thứ *trông giống* logo
+mà không phải logo thật — vừa là hàng nhái, vừa làm người xem mất tin tưởng khi nhận
+ra sai lệch. Không có logo thì dùng thẻ chữ, không bịa.
+
+**2. Tải từ nguồn rõ giấy phép, không lấy bừa từ Google Images.** Wikimedia Commons
+có API tra đúng tên file:
+
+```bash
+# tìm đúng tên file
+curl -s -G "https://commons.wikimedia.org/w/api.php" \
+  --data-urlencode "action=query" --data-urlencode "format=json" \
+  --data-urlencode "list=search" --data-urlencode "srsearch=Canva logo" \
+  --data-urlencode "srnamespace=6" --data-urlencode "srlimit=4"
+
+# lấy URL thật rồi tải
+curl -s -G "https://commons.wikimedia.org/w/api.php" \
+  --data-urlencode "action=query" --data-urlencode "format=json" \
+  --data-urlencode "prop=imageinfo" --data-urlencode "iiprop=url" \
+  --data-urlencode "titles=File:Wix logo svg.svg"
+```
+
+Đoán tên file kiểu `File:Canva_logo.svg` hay trả 404 — cứ tra bằng `list=search` trước.
+
+**3. Kiểm tra biến thể ngôn ngữ.** Đã dính một lần: tải nhầm `Grok logo 2025 ja.svg`
+là bản tiếng Nhật, trên video hiện chữ グロック. Xem trước file bằng cách render một
+khung hình rồi nhìn, đừng tin mỗi tên file.
+
+### Kích thước logo
+
+Logo dạng chữ (Anthropic, DeepSeek, Perplexity, Webflow) cần ô **ít nhất 200px** trên
+khung 1920 mới đọc được trên điện thoại. Ô 112px cho chữ cao ~14px — thành vệt mờ.
+
+Xếp 4 cột thay vì 5 để mỗi ô đủ to. Trong bảng thì thu hẹp ô chữ để lấy chỗ cho logo.
+
 ## Cách vẽ hình mới
 
 Hình nằm ở 3 file: `parts.tsx` (bộ phận dùng lại), `index.tsx` (5 hình đầu + registry),
 `more.tsx` (5 hình tiếp), `story3am.tsx` (8 hình ngủ hai giấc), `nap.tsx` (11 hình ngủ trưa),
 `memory.tsx` (13 hình ký ức tuổi thơ), `tickle.tsx` (10 hình về cù và dự đoán của não),
 `domain.tsx` (10 hình tên miền/hosting/DNS), `speed.tsx` (10 hình tốc độ website),
-`aitools.tsx` (12 hình công cụ AI), `fx.tsx` (bộ hiệu ứng giải thích dùng chung).
+`aitools.tsx` (12 hình công cụ AI), `fx.tsx` (bộ hiệu ứng giải thích dùng chung), `logo.tsx` (logo thương hiệu thật).
 
 Mỗi video mới nên có FILE RIÊNG cho bộ hình của nó — đừng nhét chung vào file cũ.
 Hình dùng lại giữa các video làm series trông nghèo nàn, người xem nhận ra ngay.
@@ -173,6 +221,55 @@ phải nằm trong vùng an toàn.
 
 Với bảng hai cột, tính ngược từ mép phải: cột phải kết thúc ở đâu, cộng lại xem có
 vượt 1850 không, rồi mới chọn toạ độ cột trái.
+
+### Hình nhiều bước: dựng sân khấu trước, điền dữ liệu sau
+
+Nhiều cảnh liên tiếp thường dùng chung một hình. `StoryVideoComposition` tự gom
+chúng thành một **chuỗi**: hình nhận `frame` cộng dồn nên animation chạy tiếp thay
+vì giật lại, chỉ fade ở đầu và cuối chuỗi, và nhận `step` tăng dần (0, 1, 2...).
+
+Component nhận `step` qua props: `({ frame, accent, step = 0 })`.
+
+**Sai lầm dễ mắc:** ẩn hết mọi thứ ở `step === 0`. Cảnh đầu chuỗi thường là cảnh
+giới thiệu nhóm, ẩn hết thì khung trống trơn suốt 5 giây.
+
+Đúng: **bước 0 dựng sẵn khung xương** — trục toạ độ, khung bảng, các làn, logo —
+ở dạng mờ (opacity 0.35-0.5), rồi các bước sau mới điền dữ liệu và làm rõ dần.
+
+```tsx
+const filled = step >= i + 1;
+const p = filled ? easeOut(progress(frame, 4, 16)) : 0;
+// khung luôn hiện, chỉ nội dung mới gate theo step
+<g opacity={filled ? 1 : 0.45}>
+  <rect ... />           {/* khung: hiện từ bước 0 */}
+  {filled ? <ToolChip ... /> : null}   {/* nội dung: theo bước */}
+</g>
+```
+
+Cảnh cuối video hay dùng lại hình của cảnh mở đầu. Khi đó chuỗi bị đứt nên `step`
+đếm lại từ 0 và caption của cảnh mở đầu hiện lại — sai hẳn ý. Khắc phục bằng cách
+đặt `"step"` thủ công trong JSON cho các cảnh đó.
+
+### Kiểm tra khung hình trước khi render bản cuối
+
+Render một file kiểm tra mô phỏng ĐÚNG chuỗi cảnh của kịch bản thật (cùng thứ tự
+`illustration`, có cả trường `step`), trích từng khung hình rồi soi. Nếu file kiểm
+tra thiếu `step` thì các hình nhiều bước sẽ hiện sai trạng thái và bạn kiểm nhầm.
+
+```bash
+node scripts/render-from-script.mjs data/check-qa.json out/check-qa.mp4 StoryVideo
+ffmpeg -y -ss <giây> -i out/check-qa.mp4 -frames:v 1 -vf scale=880:-1 out/qa/01.png
+```
+
+Bốn lỗi hay gặp nhất, đã đo thực tế:
+1. **Nhãn tràn mép** — tính bề rộng `PopLabel` bằng `số ký tự × size × 0,62 + 46`,
+   cộng vào toạ độ tâm rồi so với vùng an toàn.
+2. **Nhãn xén đáy** — bất cứ nhãn nào đặt dưới y=970 đều có nguy cơ, vì zoom 1,07
+   đẩy đáy hộp xuống thêm ~40px.
+3. **Số trên hình lệch số trong lời đọc** — đọc "chín trăm sáu mươi tám triệu" mà
+   hình ghi "970 tr" thì người xem nghĩ là bịa số.
+4. **Chữ trắng trên nền sáng** — hồng `#f0a3c0`, xanh lơ `#5fc9e8`, cam `#f5a623`
+   chỉ đạt ~1,9:1 với chữ trắng. Nền sáng thì dùng chữ đen.
 
 ### Quy tắc bắt buộc: không dùng Math.random()
 

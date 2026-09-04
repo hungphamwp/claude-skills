@@ -46,6 +46,43 @@ nguồn nào** trong project. Cụ thể:
   (~1-3 phút) nên chạy với `run_in_background: true` rồi làm việc khác trong lúc chờ.
 - **Gộp thao tác.** Viết cả file JSON một lần bằng Write, đừng Edit từng cảnh.
 
+## Quy trình đầy đủ cho một video mới
+
+Bốn bước ở dưới là phần kỹ thuật. Nhưng làm một video tử tế thì có 6 khâu, và hai
+khâu quan trọng nhất lại nằm ngoài phần kỹ thuật đó.
+
+### Khâu 0 — Tra dữ liệu thật trước khi viết
+
+Video kiến thức mà bịa số là hỏng cả kênh. Dùng WebSearch kiểm tra **mọi con số, mọi
+tên nghiên cứu, mọi mốc thời gian** trước khi đưa vào lời đọc.
+
+Ba lỗi số liệu hay gặp nhất, đều đã dính trong thực tế:
+- **Số cũ dùng như số mới.** Thống kê "53% bỏ đi sau 3 giây" là thật nhưng từ nghiên
+  cứu 2016. Phải nói rõ mốc năm trong lời đọc và ghi lên hình.
+- **Làm tròn đẹp số liệu.** Nguồn ghi 63-72% mà viết thành 65-70% là kiểu sai người
+  kiểm chứng bắt ngay. Giữ nguyên con số gốc.
+- **Nghiên cứu trên chuột nói thành kết luận về người.** Phải nói rõ "đó là chuột".
+
+Chỗ nào khoa học còn tranh luận thì nói thẳng là còn tranh luận. Nội dung thừa nhận
+giới hạn đáng tin hơn nội dung khẳng định chắc nịch.
+
+**Đóng dấu thời gian lên hình** với mọi số liệu dễ cũ: "Số liệu tháng 6/2026", "Ảnh
+chụp tháng 9/2026 — xếp hạng đổi liên tục". Sáu tháng sau người xem vẫn thấy video
+trung thực thay vì sai.
+
+### Khâu 5 — Soi lại từng khung hình trước khi giao
+
+Đây là khâu hay bị bỏ, mà lỗi nặng gần như luôn nằm ở đây. Quy trình ở
+`references/illustrations.md`, mục "Kiểm tra khung hình trước khi render bản cuối".
+
+Với video dài, cách hiệu quả nhất là **trích từng khung hình ra ảnh rồi cho nhiều
+agent soi song song**, mỗi agent một nhóm cảnh, kèm lời đọc tương ứng. Cách này bắt
+được lớp lỗi mà đọc code không thấy: nhãn tràn mép sau khi zoom, hình chạy trước lời
+đọc, số trên hình lệch số trong giọng đọc.
+
+Một lần chạy thực tế: 6 agent soi 33 cảnh, báo 41 lỗi, gộp còn 16 lỗi thật — trong
+đó 3 lỗi nặng là chữ bị cắt mất hẳn khỏi khung.
+
 ## Quy trình 4 bước
 
 ### Bước 1 — Viết kịch bản JSON
@@ -117,8 +154,15 @@ model chính cạn quota:
 
     gemini-3.1-flash-tts-preview -> gemini-2.5-flash-preview-tts -> gemini-2.5-pro-preview-tts
 
-Ba key × ba model = 90 lượt/ngày. Tốc độ đọc giữa các model chênh nhau không đáng kể
-(đo thực tế: 7.50 so với 7.26 giây trên 100 ký tự), nên video trộn model vẫn đều nhịp.
+Số key nhân số model ra tổng lượt mỗi ngày — sáu key nhân ba model là 180 lượt, đủ
+cho 5-6 video. Tốc độ đọc giữa các model chênh nhau không đáng kể (đo thực tế: 7,50
+so với 7,26 giây trên 100 ký tự), nên video trộn model vẫn đều nhịp.
+
+Thêm key mới thì đặt lên **đầu** danh sách để dùng phần quota còn nguyên trước.
+
+**Model tạo ảnh** (`gemini-3.1-flash-image`, `nano-banana-pro-preview`) cũng nằm trong
+cùng cơ chế quota này và cạn rất nhanh. Đừng trông vào nó để sinh hình minh hoạ hàng
+loạt — vẽ SVG vẫn là cách chủ lực.
 
 Khi thấy lỗi 429, đừng đoán là nghẽn tạm thời — kiểm tra xem là hạn mức ngày hay
 giới hạn tần suất, bằng cách đọc `quotaId` trong phản hồi lỗi:
@@ -295,6 +339,33 @@ Library hoặc Pixabay Music (miễn phí bản quyền) và hỏi họ muốn d
   (cảnh cũ giữ nguyên, chỉ sinh cảnh mới), render lại.
 - **Đổi màu/hình** → sửa `illustration` hoặc `accentColor`, render lại luôn, không
   cần sinh lại giọng.
+
+## Đặt tiêu đề và mô tả khi đăng
+
+Video xong rồi thì phần quyết định lượt xem là tiêu đề. Mẫu đang hiệu quả ở thị
+trường Việt cho nội dung kiến thức:
+
+    [Từ khoá chính] + [năm] + : + [câu hỏi hoặc lợi ích] + (ngoặc đơn hứa nội dung)
+
+Ví dụ: `Công Cụ AI 2026: Dùng Cái Nào Cho Việc Gì? (Đủ 5 Nhóm)`
+
+Nguyên tắc:
+- **Từ khoá chính đứng đầu**, đừng để sau dấu gạch.
+- **Dưới 60 ký tự** để không bị cắt trên kết quả tìm kiếm.
+- **Có năm** để báo nội dung tươi mới — quan trọng với chủ đề công nghệ.
+- Câu hỏi ở tiêu đề tạo tò mò tốt hơn câu khẳng định.
+
+**Hai dòng đầu của mô tả** là phần duy nhất hiện trước nút "xem thêm" — viết cho ra
+hồn, đừng nhét tag vào đó.
+
+**Mốc thời gian chương** đẩy SEO mạnh nhất trong các phần phụ: YouTube dùng nó để
+hiểu nội dung và tạo đoạn tìm kiếm riêng cho từng chương. Lấy trực tiếp từ cấu trúc
+kịch bản — mỗi nhóm nội dung một mốc.
+
+**Chữ trên ảnh bìa** tối đa 4-5 chữ, và đừng lặp lại tiêu đề — phí diện tích.
+
+Không có công cụ đo lượng tìm kiếm tiếng Việt thì nói rõ điều đó với người dùng thay
+vì đoán bừa lượng tìm, và gợi ý họ tự kiểm bằng Ahrefs hoặc Keyword Planner.
 
 ## Lỗi hay gặp
 

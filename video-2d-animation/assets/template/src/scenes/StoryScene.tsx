@@ -12,28 +12,53 @@ type Motion = (typeof MOTIONS)[number];
 // Cảnh kể chuyện: minh họa SVG động chiếm trọn khung hình.
 // Không có khung phụ đề — mọi thông tin phải do chính hình minh hoạ truyền tải,
 // bằng nhãn đặt trong cảnh, mũi tên chỉ dẫn và hiệu ứng nhấn (xem src/illustrations/fx.tsx).
+//
+// Khi nhiều cảnh liên tiếp dùng chung một hình, chúng tạo thành một "chuỗi":
+// - hình nhận frame cộng dồn (chainOffset) nên animation chạy tiếp, không giật lại
+// - chỉ fade ở đầu và cuối chuỗi, giữa các cảnh trong chuỗi thì liền mạch
+// - hình nhận step tăng dần để lộ thêm nội dung khớp với lời đọc từng cảnh
 export const StoryScene: React.FC<{
   scene: SceneData;
   durationInFrames: number;
   sceneIndex?: number;
-}> = ({ scene, durationInFrames, sceneIndex = 0 }) => {
+  step?: number;
+  chainOffset?: number;
+  continuesPrev?: boolean;
+  continuesNext?: boolean;
+}> = ({
+  scene,
+  durationInFrames,
+  sceneIndex = 0,
+  step = 0,
+  chainOffset = 0,
+  continuesPrev = false,
+  continuesNext = false,
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  const opacity = interpolate(
-    frame,
-    [0, FADE, durationInFrames - FADE, durationInFrames],
-    [0, 1, 1, 0],
-    { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
-  );
+  // Chỉ fade vào ở đầu chuỗi và fade ra ở cuối chuỗi
+  const fadeIn = continuesPrev
+    ? 1
+    : interpolate(frame, [0, FADE], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const fadeOut = continuesNext
+    ? 1
+    : interpolate(frame, [durationInFrames - FADE, durationInFrames], [1, 0], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp',
+      });
+  const opacity = Math.min(fadeIn, fadeOut);
 
-  // Chuyển động máy quay: lấy theo scene.motion nếu có, không thì luân phiên theo thứ tự cảnh
+  // Chuyển động máy quay tính trên cả chuỗi, không reset giữa chừng
+  const chainFrame = frame + chainOffset;
   const motion: Motion =
     (MOTIONS as readonly string[]).indexOf(scene.motion ?? '') >= 0
       ? (scene.motion as Motion)
-      : MOTIONS[sceneIndex % MOTIONS.length];
+      : MOTIONS[(sceneIndex - step) % MOTIONS.length];
 
-  const t = interpolate(frame, [0, durationInFrames], [0, 1], { extrapolateRight: 'clamp' });
+  // Khi là chuỗi nhiều cảnh, kéo giãn chuyển động máy quay ra cả chuỗi cho êm
+  const chainTotal = durationInFrames + chainOffset;
+  const t = Math.min(1, chainFrame / Math.max(1, chainTotal));
   const zoom =
     motion === 'zoom-in' ? 1 + t * 0.07 : motion === 'zoom-out' ? 1.07 - t * 0.07 : 1.05;
   const panX = motion === 'pan-left' ? -t * 34 : motion === 'pan-right' ? t * 34 : 0;
@@ -44,11 +69,10 @@ export const StoryScene: React.FC<{
   const headingSpring = spring({ frame: frame - 4, fps, config: { damping: 14, stiffness: 130 } });
   const headingScale = interpolate(headingSpring, [0, 1], [0.7, 1]);
 
-
   return (
     <AbsoluteFill style={{ backgroundColor: '#ffffff', opacity }}>
       <AbsoluteFill style={{ transform: `scale(${zoom}) translateX(${panX}px)` }}>
-        {Illustration ? <Illustration frame={frame} accent={accent} /> : null}
+        {Illustration ? <Illustration frame={chainFrame} accent={accent} step={step} /> : null}
       </AbsoluteFill>
 
       {scene.heading ? (

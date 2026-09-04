@@ -94,7 +94,7 @@ import {
 const W = 1920;
 const H = 1080;
 
-export type IllustrationProps = { frame: number; accent: string };
+export type IllustrationProps = { frame: number; accent: string; step?: number };
 
 const Frame: React.FC<{ children: React.ReactNode; bg?: string }> = ({ children, bg = '#ffffff' }) => (
   <svg
