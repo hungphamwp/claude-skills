@@ -24,7 +24,7 @@ cp "<đường-dẫn-skill>/scripts/"*.mjs scripts/
 npm install
 ```
 
-Template đã gồm đủ 62 hình minh hoạ, 3 composition và schema — cài xong render được ngay.
+Template đã gồm đủ 84 hình minh hoạ, 3 composition và schema — cài xong render được ngay.
 Chi tiết kiến trúc và các bẫy thường gặp: đọc `references/bootstrap.md`.
 
 ## Nguyên tắc tiết kiệm token và thời gian
@@ -221,7 +221,7 @@ Danh sách hình có sẵn, mô tả chi tiết và cách vẽ thêm hình mới
 `references/illustrations.md`. **Đọc file đó khi cần chọn hình cho từng cảnh
 hoặc khi phải vẽ hình mới.**
 
-Tóm tắt 62 key có sẵn, chia theo bộ chủ đề:
+Tóm tắt 84 key có sẵn, chia theo bộ chủ đề:
 
 - **Nền tảng** — `campfire-night`, `everything-starts-here`, `evolution-line`,
   `fire-radius`, `researcher-hut`, `person-sleeping`, `sunrise`, `bar-chart`,
@@ -243,6 +243,13 @@ Tóm tắt 62 key có sẵn, chia theo bộ chủ đề:
 - **Bộ website / hosting / domain** — `address-vs-house`, `buy-domain-only`,
   `hosting-house`, `dns-directory`, `nameserver-signpost`, `move-house-same-address`,
   `separate-bills`, `rent-calendar`, `domain-wrong-owner`, `full-picture`
+- **Bộ tốc độ website** — `slow-site-waiting`, `three-second-rule`, `heavy-image-anvil`,
+  `shared-hosting-crowd`, `no-cache-kitchen`, `plugin-pile`, `distance-cdn`,
+  `core-web-vitals`, `layout-shift`, `speed-checklist`
+- **Bộ công cụ AI** — `ai-tool-jungle`, `pick-by-job`, `chatbot-lineup`,
+  `chatbot-strengths`, `image-tools`, `video-tools-price`, `sora-deprecated`,
+  `web-builder-lanes`, `ai-agent-new`, `agent-stars`, `agent-security-warning`,
+  `decision-table`
 
 **Mỗi video mới nên có bộ hình riêng, vẽ mới.** Dùng lại hình giữa các video làm series
 trông nghèo nàn — người xem nhận ra ngay. Chỉ dùng lại các hình mang tính sơ đồ trung
@@ -299,5 +306,5 @@ Library hoặc Pixabay Music (miễn phí bản quyền) và hỏi họ muốn d
 | Cảnh ra nền trắng trơn | Sai key `illustration` (không có trong registry). Kiểm tra chính tả. |
 | Studio báo lỗi MetaMask | Extension Chrome chèn vào localhost, không phải lỗi code. Bấm ✕ bỏ qua. |
 | Giọng nghe buồn | Lời đọc đang là văn viết. Viết lại theo văn nói, xem lại phần "Viết lời đọc". |
-| `PROHIBITED_CONTENT` ở một cảnh | Bộ lọc nội dung của Gemini chặn câu đó. Không phải lỗi kỹ thuật — viết lại câu trung tính hơn rồi chạy `--skip-existing`. Hay dính nhất là câu mô tả động chạm cơ thể, bạo lực nhẹ, hoặc y tế. Ví dụ thật: "chọc vào sườn vào nách" bị chặn, đổi thành "nhằm đúng mấy chỗ buồn nhất" là qua. |
+| `PROHIBITED_CONTENT` ở một cảnh | Bộ lọc nội dung của Gemini chặn câu đó. Không phải lỗi kỹ thuật — viết lại câu trung tính hơn rồi chạy `--skip-existing`. Gặp thực tế hai lần, và lần nào cũng ở câu trông rất vô hại: "chọc vào sườn vào nách" (đổi thành "nhằm đúng mấy chỗ buồn nhất" là qua), và "Làn thiên về code: v0, Lovable, Bolt — xuất ra mã thật" (đổi thành câu đầy đủ chủ ngữ vị ngữ là qua). Kinh nghiệm: câu cụt, liệt kê tên riêng ngăn bằng dấu phẩy và gạch ngang dễ bị chặn hơn câu văn hoàn chỉnh. |
 | Nhãn `PopLabel` bị cắt mất chữ ở mép khung | Chiều rộng nhãn ≈ `số ký tự × size × 0.62 + 46`. Với `anchor="start"` thì nhãn chạy sang phải từ `x`, rất dễ vượt quá 1920. Dùng anchor giữa (mặc định) và đặt `x` cách mép ít nhất nửa chiều rộng nhãn. |

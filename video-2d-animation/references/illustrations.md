@@ -68,6 +68,28 @@ Khai báo bằng field `illustration` trong mỗi cảnh. Một hình dùng đư
 | `rent-calendar` | Tờ lịch có ô đỏ đánh dấu ngày hết hạn, chuông báo rung bên cạnh | Chuông rung liên tục, nhãn cảnh báo hiện dần | Hạn chót, gia hạn, nhắc nhở |
 | `domain-wrong-owner` | Chủ doanh nghiệp tay không bên trái, hợp đồng trượt sang bên thứ ba cầm chìa khoá | Hợp đồng trượt và nghiêng dần, chìa khoá hiện ra | Mất quyền kiểm soát, bẫy hợp đồng |
 | `full-picture` | Sơ đồ ngang: khách → tên miền → DNS → ngôi nhà, nối bằng mũi tên | Từng mắt xích hiện lần lượt, vòng sáng bao trọn | Tóm tắt quy trình, sơ đồ tổng kết |
+| `slow-site-waiting` | Người sốt ruột gõ tay, trình duyệt quay vòng loading | Vòng xoay quay, ngón tay gõ | Chờ đợi, sốt ruột, hiệu năng kém |
+| `three-second-rule` | Đồng hồ bấm giờ đếm tới 3, đám người bỏ đi bên phải | Số đếm tăng, kim quay, người trượt ra khỏi khung | Ngưỡng chịu đựng, mất khách |
+| `heavy-image-anvil` | Ảnh 5MB đè lên trang web bẹp dí, bên phải bản nén 300KB | Ảnh đè xuống, bản nén thu nhỏ kèm dấu tích | Gánh nặng, tối ưu, trước và sau |
+| `shared-hosting-crowd` | Tủ máy chủ trái, hàng chục website chen chúc quanh, một cái phình to | Website phình lên chiếm chỗ, đèn máy chủ nhấp nháy | Chia sẻ tài nguyên, tranh giành |
+| `no-cache-kitchen` | Chia đôi: bếp nấu lại từ đầu / khay dọn sẵn, hai thanh tiến trình | Hơi bốc, thanh tiến trình chạy nhanh chậm khác nhau | Có chuẩn bị trước vs làm lại từ đầu |
+| `plugin-pile` | Bảy thẻ plugin màu rơi chồng lên website ở đáy | Từng thẻ rơi xuống nghiêng ngả | Chồng chất, quá tải, tích tụ |
+| `distance-cdn` | Quả địa cầu, máy chủ góc xa, khách góc gần, gói dữ liệu bay vòng | Gói dữ liệu bay theo cung, CDN hiện gần khách | Khoảng cách địa lý, độ trễ |
+| `core-web-vitals` | Ba vòng tròn chỉ số kèm ngưỡng và mô tả | Vòng tròn vẽ dần theo màu riêng | Bộ tiêu chí đo lường, ba chỉ số |
+| `layout-shift` | Trình duyệt: quảng cáo chèn vào đẩy nút xuống, con trỏ đứng yên bấm nhầm | Quảng cáo bật ra, nút nhảy xuống, vòng nhấn đỏ | Bố cục nhảy, bấm nhầm, trải nghiệm tệ |
+| `speed-checklist` | Năm ô tick kèm việc cần làm | Tick xanh vẽ dần từng dòng | Danh sách hành động, tổng kết |
+| `ai-tool-jungle` | Mười bốn thẻ tên công cụ AI trôi lơ lửng, người choáng ngợp ở dưới | Thẻ hiện dần và bồng bềnh | Quá nhiều lựa chọn, choáng ngợp |
+| `pick-by-job` | Năm vòng tròn đánh số kèm tên nhóm việc | Từng vòng bung ra theo thứ tự | Phân nhóm, khung tư duy |
+| `chatbot-lineup` | Biểu đồ cột lượt truy cập bốn chatbot kèm chú thích nguồn | Cột mọc dần, số hiện ra | So sánh quy mô, số liệu thị phần |
+| `chatbot-strengths` | Năm dòng: việc bên trái, công cụ bên phải, mũi tên nối | Từng dòng hiện dần | Bảng đối chiếu việc - công cụ |
+| `image-tools` | Trái: lưới mẫu thiết kế. Phải: ảnh mờ thành ảnh nét | Mẫu hiện dần, ảnh nét sáng lên | Công cụ ảnh, cải thiện chất lượng |
+| `video-tools-price` | Ba dòng tên công cụ kèm giá mỗi giây | Từng dòng trượt vào từ trái | Bảng giá, so sánh chi phí |
+| `sora-deprecated` | Thẻ công cụ bị gạch chéo đỏ, khung bài học bên phải | Dấu X vẽ dần, thẻ mờ đi, vòng sáng lan | Ngừng hoạt động, rủi ro phụ thuộc |
+| `web-builder-lanes` | Ba làn ngang, mỗi làn một nhóm công cụ | Từng làn hiện dần | Phân loại ba nhóm song song |
+| `ai-agent-new` | Chia đôi: chatbot chỉ trả lời / agent tự làm nhiều việc | Các thẻ việc bung ra quanh agent | Phân biệt hai thế hệ công cụ |
+| `agent-stars` | Hai công cụ kèm số sao GitHub đếm tăng và dãy sao vàng | Số đếm tăng dần, sao hiện lần lượt | Độ phổ biến, tăng trưởng nhanh |
+| `agent-security-warning` | Tam giác cảnh báo rung, danh sách quyền truy cập bên phải | Tam giác rung, từng quyền hiện ra | Rủi ro bảo mật, quyền truy cập |
+| `decision-table` | Bảng hai cột tám dòng: việc và công cụ tương ứng | Từng dòng hiện dần | Bảng tra nhanh, tổng kết |
 
 Chọn hình theo **ý nghĩa** chứ không theo chữ nghĩa. Ví dụ cảnh nói "và đây là điều
 bất ngờ" thì `lightbulb-idea` hợp hơn là cố tìm hình đúng nội dung.
@@ -106,7 +128,8 @@ nhiều hơn thì người xem đọc không kịp.
 Hình nằm ở 3 file: `parts.tsx` (bộ phận dùng lại), `index.tsx` (5 hình đầu + registry),
 `more.tsx` (5 hình tiếp), `story3am.tsx` (8 hình ngủ hai giấc), `nap.tsx` (11 hình ngủ trưa),
 `memory.tsx` (13 hình ký ức tuổi thơ), `tickle.tsx` (10 hình về cù và dự đoán của não),
-`domain.tsx` (10 hình về tên miền, hosting, DNS), `fx.tsx` (bộ hiệu ứng giải thích dùng chung).
+`domain.tsx` (10 hình tên miền/hosting/DNS), `speed.tsx` (10 hình tốc độ website),
+`aitools.tsx` (12 hình công cụ AI), `fx.tsx` (bộ hiệu ứng giải thích dùng chung).
 
 Mỗi video mới nên có FILE RIÊNG cho bộ hình của nó — đừng nhét chung vào file cũ.
 Hình dùng lại giữa các video làm series trông nghèo nàn, người xem nhận ra ngay.
@@ -138,6 +161,18 @@ export const TenComponent: React.FC<MoreProps> = ({ frame, accent }) => {
 
 `MoreProps` là `{ frame: number; accent: string }`. `Frame` đã có sẵn trong file,
 nó bọc `<svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">` và vẽ nền.
+
+### Vùng an toàn: giữ nội dung trong x 70–1850
+
+`StoryScene` áp hiệu ứng Ken Burns phóng to 1,05–1,07 lần, nên **mép khung bị cắt
+khoảng 63px mỗi bên**. Toạ độ nhìn thì nằm gọn trong 1920 mà lên video vẫn mất chữ.
+
+Quy tắc: mọi thứ quan trọng đặt trong khoảng **x từ 70 tới 1850**, **y từ 60 tới 1020**.
+Nền và mảng màu lớn thì cứ tràn ra ngoài thoải mái — chỉ chữ và chi tiết cần đọc mới
+phải nằm trong vùng an toàn.
+
+Với bảng hai cột, tính ngược từ mép phải: cột phải kết thúc ở đâu, cộng lại xem có
+vượt 1850 không, rồi mới chọn toạ độ cột trái.
 
 ### Quy tắc bắt buộc: không dùng Math.random()
 

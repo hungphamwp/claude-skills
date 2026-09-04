@@ -3,6 +3,32 @@ import { INK, drawOn, progress, wobble } from './anim';
 import { Campfire, Hut, Monkey, QuestionMark, SittingFigure, StandingFigure, Stars } from './parts';
 import { BarChart, CityNight, LightbulbIdea, PersonSleeping, Sunrise } from './more';
 import {
+  AgentSecurityWarning,
+  AgentStars,
+  AiAgentNew,
+  AiToolJungle,
+  ChatbotLineup,
+  ChatbotStrengths,
+  DecisionTable,
+  ImageTools,
+  PickByJob,
+  SoraDeprecated,
+  VideoToolsPrice,
+  WebBuilderLanes,
+} from './aitools';
+import {
+  CoreWebVitals,
+  DistanceCdn,
+  HeavyImageAnvil,
+  LayoutShift,
+  NoCacheKitchen,
+  PluginPile,
+  SharedHostingCrowd,
+  SlowSiteWaiting,
+  SpeedChecklist,
+  ThreeSecondRule,
+} from './speed';
+import {
   AddressVsHouse,
   BuyDomainOnly,
   DnsDirectory,
@@ -303,6 +329,28 @@ export const ILLUSTRATIONS: Record<string, React.FC<IllustrationProps>> = {
   'rent-calendar': RentCalendar,
   'domain-wrong-owner': DomainWrongOwner,
   'full-picture': FullPicture,
+  'slow-site-waiting': SlowSiteWaiting,
+  'three-second-rule': ThreeSecondRule,
+  'heavy-image-anvil': HeavyImageAnvil,
+  'shared-hosting-crowd': SharedHostingCrowd,
+  'no-cache-kitchen': NoCacheKitchen,
+  'plugin-pile': PluginPile,
+  'distance-cdn': DistanceCdn,
+  'core-web-vitals': CoreWebVitals,
+  'layout-shift': LayoutShift,
+  'speed-checklist': SpeedChecklist,
+  'ai-tool-jungle': AiToolJungle,
+  'pick-by-job': PickByJob,
+  'chatbot-lineup': ChatbotLineup,
+  'chatbot-strengths': ChatbotStrengths,
+  'image-tools': ImageTools,
+  'video-tools-price': VideoToolsPrice,
+  'sora-deprecated': SoraDeprecated,
+  'web-builder-lanes': WebBuilderLanes,
+  'ai-agent-new': AiAgentNew,
+  'agent-stars': AgentStars,
+  'agent-security-warning': AgentSecurityWarning,
+  'decision-table': DecisionTable,
 };
 
 export const ILLUSTRATION_KEYS = Object.keys(ILLUSTRATIONS);
