@@ -24,7 +24,7 @@ cp "<đường-dẫn-skill>/scripts/"*.mjs scripts/
 npm install
 ```
 
-Template đã gồm đủ 29 hình minh hoạ, 3 composition và schema — cài xong render được ngay.
+Template đã gồm đủ 42 hình minh hoạ, 3 composition và schema — cài xong render được ngay.
 Chi tiết kiến trúc và các bẫy thường gặp: đọc `references/bootstrap.md`.
 
 ## Nguyên tắc tiết kiệm token và thời gian
@@ -67,7 +67,6 @@ Tạo `data/<ten-video>.json`. Chỉ cần các trường sau, phần còn lại
       "type": "image",
       "illustration": "campfire-night",
       "voice": "Lời đọc của cảnh này.",
-      "caption": "Phụ đề ngắn hiện dưới màn hình",
       "durationInSeconds": 5,
       "accentColor": "#e63328"
     }
@@ -81,6 +80,14 @@ Bỏ `music` nếu chưa có file nhạc. `id` phải là duy nhất (dùng làm
 Trường tuỳ chọn: `heading` (chữ lớn ở đầu khung), `motion` (`zoom-in` | `zoom-out` |
 `pan-left` | `pan-right` — bỏ trống thì tự luân phiên, nên cứ bỏ trống),
 `voiceName` riêng cho từng cảnh nếu muốn đổi người kể.
+
+**Không dùng phụ đề.** Trước đây mỗi cảnh có một khung chữ trắng ở đáy khung, nhưng
+nó tách rời khỏi hình nên người xem phải liếc xuống đọc thay vì nhìn vào thứ đang được
+nói tới. Giờ khung đó đã bỏ hẳn — field `caption` còn trong schema nhưng không render.
+
+Thay vào đó, **mỗi hình tự mang thông tin của nó**: nhãn `PopLabel` đặt ngay cạnh vật
+được nói tới, `PointerArrow` chỉ vào đúng chi tiết, `HighlightRing` khoanh vùng quan
+trọng. Xem `references/illustrations.md`, mục "Bộ hiệu ứng giải thích".
 
 ### Bước 2 — Sinh giọng đọc
 
@@ -99,9 +106,35 @@ Cần API key trong `.env`, lấy ở https://aistudio.google.com/apikey:
 GEMINI_API_KEYS=key1,key2,key3
 ```
 
-Khai báo nhiều key phân tách bằng dấu phẩy — Gemini TTS giới hạn tần suất khá gắt,
-script sẽ tự chuyển sang key kế tiếp ngay khi một key báo 429/503 thay vì ngồi chờ.
-Một key cũng chạy được, chỉ chậm hơn nhiều.
+Khai báo nhiều key phân tách bằng dấu phẩy. Script tự chuyển key khi gặp 429/503.
+
+**Hạn mức quan trọng cần biết trước khi lên kế hoạch:** gói miễn phí giới hạn
+**10 request mỗi ngày, cho mỗi model, mỗi key**. Một video 25 cảnh cần 25 request —
+tức một key không đủ cho nổi một video.
+
+Hạn mức tính RIÊNG cho từng model, nên script còn tự rơi xuống model dự phòng khi
+model chính cạn quota:
+
+    gemini-3.1-flash-tts-preview -> gemini-2.5-flash-preview-tts -> gemini-2.5-pro-preview-tts
+
+Ba key × ba model = 90 lượt/ngày. Tốc độ đọc giữa các model chênh nhau không đáng kể
+(đo thực tế: 7.50 so với 7.26 giây trên 100 ký tự), nên video trộn model vẫn đều nhịp.
+
+Khi thấy lỗi 429, đừng đoán là nghẽn tạm thời — kiểm tra xem là hạn mức ngày hay
+giới hạn tần suất, bằng cách đọc `quotaId` trong phản hồi lỗi:
+
+```bash
+curl -s "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-tts-preview:generateContent" \
+  -H "x-goog-api-key: $KEY" -H "Content-Type: application/json" \
+  -d '{"contents":[{"parts":[{"text":"Đọc: xin chào"}]}],"generationConfig":{"responseModalities":["AUDIO"],"speechConfig":{"voiceConfig":{"prebuiltVoiceConfig":{"voiceName":"Laomedeia"}}}}}' \
+  | python3 -m json.tool | grep -A2 quotaId
+```
+
+`GenerateRequestsPerDayPerProjectPerModel-FreeTier` nghĩa là cạn quota ngày — chờ tới
+hôm sau, thêm key, hoặc bật thanh toán. Chờ thêm mấy phút cũng vô ích.
+
+Làm video thường xuyên thì nên bật thanh toán cho một key: gói trả phí bỏ hẳn giới
+hạn 10/ngày, chi phí mỗi video chỉ vài nghìn đồng.
 
 Không có key thì dùng `node scripts/generate-voice.mjs` (giọng Linh macOS, miễn phí,
 offline, chất lượng thấp hơn nhiều).
@@ -188,7 +221,7 @@ Danh sách hình có sẵn, mô tả chi tiết và cách vẽ thêm hình mới
 `references/illustrations.md`. **Đọc file đó khi cần chọn hình cho từng cảnh
 hoặc khi phải vẽ hình mới.**
 
-Tóm tắt 29 key có sẵn, chia theo bộ chủ đề:
+Tóm tắt 42 key có sẵn, chia theo bộ chủ đề:
 
 - **Nền tảng** — `campfire-night`, `everything-starts-here`, `evolution-line`,
   `fire-radius`, `researcher-hut`, `person-sleeping`, `sunrise`, `bar-chart`,
@@ -199,6 +232,11 @@ Tóm tắt 29 key có sẵn, chia theo bộ chủ đề:
 - **Bộ ngủ trưa** — `nap-desk-tired`, `nap-two-outcomes`, `sleep-cycle-wave`,
   `nap-shallow`, `nap-deep`, `sleep-inertia-zombie`, `nap-golden-window`,
   `nasa-pilot-nap`, `nap-full-cycle`, `nap-too-late`, `coffee-nap`
+- **Bộ ký ức tuổi thơ** — `first-memory-question`, `photo-story-implant`,
+  `memory-timeline-fade`, `baby-learning-montage`, `freud-notebook-couch`,
+  `hippocampus-under-scaffold`, `neuron-overwrite-scribble`, `lab-mouse-hypothesis`,
+  `baby-wordless-bubble`, `mirror-red-dot`, `fake-balloon-photo`, `baby-scanner-glow`,
+  `locked-box-no-key`
 
 **Mỗi video mới nên có bộ hình riêng, vẽ mới.** Dùng lại hình giữa các video làm series
 trông nghèo nàn — người xem nhận ra ngay. Chỉ dùng lại các hình mang tính sơ đồ trung

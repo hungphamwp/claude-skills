@@ -35,14 +35,57 @@ Khai báo bằng field `illustration` trong mỗi cảnh. Một hình dùng đư
 | `nap-full-cycle` | Chu kỳ trọn vẹn được tô xanh lá, biển đỏ cảnh báo vùng cần tránh | Đường cong vẽ dần, biển cảnh báo hiện ra | Làm trọn vẹn, phương án thay thế, cảnh báo |
 | `nap-too-late` | Chia đôi ngày/đêm: bên ngày bị gạch X đỏ, bên đêm người nằm mắt mở thao láo | Dấu X vẽ dần, sao nhấp nháy | Việc không nên làm, hậu quả về sau, nhân quả |
 | `coffee-nap` | Ba bước ngang có mũi tên nối: cốc cà phê bốc khói, người ngủ, người tỉnh táo | Ba bước hiện lần lượt, khói bay lên, tia năng lượng | Quy trình từng bước, mẹo áp dụng, hướng dẫn |
+| `first-memory-question` | Người ngồi nhắm mắt, bong bóng suy nghĩ to rỗng chỉ có dấu hỏi cam | Bong bóng phồng dần, dấu hỏi nhún | Mời người xem tự nghĩ, đặt câu hỏi mở đầu |
+| `photo-story-implant` | Album ảnh trái, người kể chuyện phải, ảnh bay vào khung trống trong đầu đứa trẻ giữa | Hai tấm ảnh bay theo đường cong rồi loé sáng khi dán vào | Cấy ghép, ảnh hưởng từ bên ngoài, thông tin sai |
+| `memory-timeline-fade` | Trục tuổi 0-3-7-lớn, hàng khung ký ức từ nhạt tới rõ, dải sương phủ vùng 0-3 | Khung ký ức rơi rụng khi sương trườn qua | Mốc thời gian, cái gì mất cái gì còn |
+| `baby-learning-montage` | Ba ô: tập đi / tập nói / nhận mặt mẹ, hạt xanh bay lên | Ba ô hiện lần lượt, hạt kết nối bay liên tục | Học hỏi, phát triển, giai đoạn đầu đời |
+| `freud-notebook-couch` | Freud râu quai nón cầm sổ bên trái, đi văng có người nằm bên phải, biển tên bệnh ở giữa | Bút gạch trên sổ, dấu X đỏ vẽ đè lên biển tên | Nhân vật lịch sử, giả thuyết cũ bị bác bỏ |
+| `hippocampus-under-scaffold` | Đầu cắt nghiêng, não hồng, hồi hải mã tím sau giàn giáo cam, biển "đang thi công" | Giàn giáo lắp thêm dần, dây nối chớp tắt | Bộ phận chưa hoàn thiện, đang phát triển |
+| `neuron-overwrite-scribble` | Bảng đen với hình vẽ phấn, neuron vàng nảy lên kéo vệt đè lên | Neuron nảy liên tục, hình phấn cũ mờ dần | Ghi đè, xoá dấu vết, cái mới lấn cái cũ |
+| `lab-mouse-hypothesis` | Chuột trong mê cung trái, hai kết cục đối lập phải, nhãn cảnh báo | Chuột chạy tại chỗ, ký ức tan thành hạt, vòng nhấn đỏ | Thí nghiệm động vật, kết quả hai chiều, cảnh báo suy diễn |
+| `baby-wordless-bubble` | Máy thu nhỏ đồ vật trái, bé giữa, bong bóng thoại rỗng phải, chữ cái bật ra ngoài | Tay quay xoay, đồ chơi thu nhỏ rơi, chữ nảy khỏi bong bóng | Rào cản ngôn ngữ, không diễn đạt được |
+| `mirror-red-dot` | Bé đứng trước gương, chấm đỏ trên mũi, tay đưa lên chạm mũi mình | Tay di chuyển từ gương về mũi, chấm đỏ nháy, vòng sáng loé | Nhận thức bản thân, khoảnh khắc "à ra thế" |
+| `fake-balloon-photo` | Ảnh cũ ghép cảnh khinh khí cầu, đường cắt dán lởm chởm, cây kéo | Khinh khí cầu nhích lên xuống, đường cắt nhấp nháy | Bằng chứng giả, ký ức sai, thao túng |
+| `baby-scanner-glow` | Bé nằm trên khay trượt vào máy quét, hồi hải mã tím sáng, màn hình sóng | Khay trượt vào, cá ngựa loé sáng, sóng chạy | Nghiên cứu hiện đại, đo đạc, phát hiện mới |
+| `locked-box-no-key` | Rương gỗ khoá kín, ký ức còn nguyên bên trong lộ qua nét đứt, người xoè tay trống | Rương rung nhẹ, ánh sáng rò qua khe, vòng nhấn | Còn đó nhưng không lấy được, kết mở ấm áp |
 
 Chọn hình theo **ý nghĩa** chứ không theo chữ nghĩa. Ví dụ cảnh nói "và đây là điều
 bất ngờ" thì `lightbulb-idea` hợp hơn là cố tìm hình đúng nội dung.
 
+## Bộ hiệu ứng giải thích (`fx.tsx`)
+
+Video **không có khung phụ đề** ở đáy khung — mọi thông tin phải do chính hình truyền
+tải. Đây là lý do bộ hiệu ứng này tồn tại: đặt nhãn ngay cạnh thứ nó nói tới, chỉ mũi
+tên vào đúng chỗ cần nhìn, thay vì bắt người xem đọc một dòng chữ tách rời ở dưới.
+
+| Component | Dùng để |
+|---|---|
+| `PopLabel` | Nhãn chữ bật ra tại chỗ — thay hẳn vai trò của phụ đề |
+| `PointerArrow` | Mũi tên cong vẽ dần, dẫn mắt tới chi tiết |
+| `HighlightRing` | Vòng nét đứt xoay khoanh vùng quan trọng |
+| `PulseRing` | Vòng sáng lan toả rồi tan, nhấn khoảnh khắc |
+| `CountUp` | Số đếm tăng dần, dễ nhớ hơn số đứng yên |
+| `CrossOut` / `CheckMark` | Dấu X đỏ / tích xanh cho đúng-sai |
+| `ProgressBar` | Thanh chạy diễn tả thời gian trôi |
+| `shakeTransform` | Rung lắc diễn tả hoảng hốt, cảnh báo |
+
+Mọi component đều nhận `frame` và `at` (frame bắt đầu hiện), nên xếp thứ tự xuất hiện
+bằng cách đặt `at` cách nhau — cho người xem kịp đọc từng thứ một.
+
+```tsx
+<PopLabel frame={frame} at={6} x={300} y={520} text="3 giờ chiều" bg="#f5a623" color={INK} size={52} />
+<PointerArrow frame={frame} at={30} from={[760, 470]} to={[600, 620]} color="#e63328" curve={-0.3} />
+<HighlightRing frame={frame} at={44} cx={860} cy={480} r={230} color="#22a04a" />
+```
+
+Mỗi hình nên có 2-3 nhãn, xuất hiện giãn ra trong khoảng 5-8 giây của cảnh. Nhồi
+nhiều hơn thì người xem đọc không kịp.
+
 ## Cách vẽ hình mới
 
 Hình nằm ở 3 file: `parts.tsx` (bộ phận dùng lại), `index.tsx` (5 hình đầu + registry),
-`more.tsx` (5 hình tiếp), `story3am.tsx` (8 hình về ngủ hai giấc), `nap.tsx` (11 hình về ngủ trưa).
+`more.tsx` (5 hình tiếp), `story3am.tsx` (8 hình ngủ hai giấc), `nap.tsx` (11 hình ngủ trưa),
+`memory.tsx` (13 hình ký ức tuổi thơ), `fx.tsx` (bộ hiệu ứng giải thích dùng chung).
 
 Mỗi video mới nên có FILE RIÊNG cho bộ hình của nó — đừng nhét chung vào file cũ.
 Hình dùng lại giữa các video làm series trông nghèo nàn, người xem nhận ra ngay.

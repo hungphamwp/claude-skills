@@ -3,6 +3,21 @@ import { INK, drawOn, progress, wobble } from './anim';
 import { Campfire, Hut, Monkey, QuestionMark, SittingFigure, StandingFigure, Stars } from './parts';
 import { BarChart, CityNight, LightbulbIdea, PersonSleeping, Sunrise } from './more';
 import {
+  BabyLearningMontage,
+  BabyScannerGlow,
+  BabyWordlessBubble,
+  FakeBalloonPhoto,
+  FirstMemoryQuestion,
+  FreudNotebookCouch,
+  HippocampusUnderScaffold,
+  LabMouseHypothesis,
+  LockedBoxNoKey,
+  MemoryTimelineFade,
+  MirrorRedDot,
+  NeuronOverwriteScribble,
+  PhotoStoryImplant,
+} from './memory';
+import {
   CoffeeNap,
   NapDeep,
   NapDeskTired,
@@ -231,6 +246,19 @@ export const ILLUSTRATIONS: Record<string, React.FC<IllustrationProps>> = {
   'nap-full-cycle': NapFullCycle,
   'nap-too-late': NapTooLate,
   'coffee-nap': CoffeeNap,
+  'first-memory-question': FirstMemoryQuestion,
+  'photo-story-implant': PhotoStoryImplant,
+  'memory-timeline-fade': MemoryTimelineFade,
+  'baby-learning-montage': BabyLearningMontage,
+  'freud-notebook-couch': FreudNotebookCouch,
+  'hippocampus-under-scaffold': HippocampusUnderScaffold,
+  'neuron-overwrite-scribble': NeuronOverwriteScribble,
+  'lab-mouse-hypothesis': LabMouseHypothesis,
+  'baby-wordless-bubble': BabyWordlessBubble,
+  'mirror-red-dot': MirrorRedDot,
+  'fake-balloon-photo': FakeBalloonPhoto,
+  'baby-scanner-glow': BabyScannerGlow,
+  'locked-box-no-key': LockedBoxNoKey,
 };
 
 export const ILLUSTRATION_KEYS = Object.keys(ILLUSTRATIONS);

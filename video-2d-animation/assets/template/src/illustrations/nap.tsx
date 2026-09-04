@@ -1,5 +1,6 @@
 import React from 'react';
 import { INK, drawOn, easeOut, progress, seeded, wobble } from './anim';
+import { HighlightRing, PointerArrow, PopLabel, PulseRing } from './fx';
 
 const W = 1920;
 const H = 1080;
@@ -153,6 +154,10 @@ export const NapDeskTired: React.FC<NapProps> = ({ frame }) => {
         <path d="M 760 700 Q 700 700 690 716" fill="none" stroke={INK} strokeWidth={9} strokeLinecap="round" />
       </g>
       <Zzz x={930} y={560} frame={frame} />
+
+      <PopLabel frame={frame} at={6} x={300} y={520} text="3 giờ chiều" bg="#f5a623" color={INK} size={52} />
+      <PointerArrow frame={frame} at={30} from={[760, 470]} to={[600, 620]} color="#e63328" curve={-0.3} />
+      <PopLabel frame={frame} at={44} x={790} y={430} text="cà phê hết rồi" bg="#ffffff" color={INK} size={40} />
     </Frame>
   );
 };
@@ -299,7 +304,7 @@ export const NapShallow: React.FC<NapProps> = ({ frame }) => {
     <Frame bg="#d6f2fb">
       {/* mặt nước */}
       <path
-        d={`M 0 320 ${new Array(9)
+        d={`M 0 320 ${new Array(16)
           .fill(0)
           .map((_, i) => `q 60 ${i % 2 === 0 ? -22 : 22} 120 0`)
           .join(' ')} L ${W} ${H} L 0 ${H} Z`}
@@ -309,21 +314,26 @@ export const NapShallow: React.FC<NapProps> = ({ frame }) => {
         strokeLinejoin="round"
       />
       <rect x={0} y={640} width={W} height={H - 640} fill="#2f7fa8" opacity={0.55} />
-      <text x={200} y={250} fontSize={54} fontWeight={800} fill={INK} fontFamily={FONT}>
-        Tầng nông
-      </text>
+      <PopLabel frame={frame} at={4} x={430} y={190} text="20 phút đầu" bg="#22a04a" size={54} />
+      <PopLabel frame={frame} at={16} x={430} y={278} text="còn ở tầng nông" bg="#ffffff" color={INK} size={44} />
 
       {/* người nổi gần mặt nước */}
       <g transform={`translate(0 ${bob})`}>
         <NapHead cx={860} cy={470} r={84} face="asleep" />
-        <g stroke={INK} strokeWidth={10} strokeLinecap="round">
-          <line x1={944} y1={500} x2={1210} y2={492} />
-          <line x1={1210} y1={492} x2={1310} y2={432} />
-          <line x1={1210} y1={492} x2={1320} y2={548} />
-          <line x1={776} y1={498} x2={660} y2={470} />
+        <g stroke={INK} strokeWidth={10} strokeLinecap="round" strokeLinejoin="round" fill="none">
+          {/* thân nằm ngang */}
+          <line x1={944} y1={500} x2={1180} y2={506} />
+          {/* hai chân co nhẹ, thả lỏng trong nước */}
+          <path d="M 1180 506 L 1292 468 L 1372 502" />
+          <path d="M 1180 506 L 1276 556 L 1368 576" />
+          {/* tay thả nổi lên trên */}
+          <path d="M 1010 504 L 1084 428 L 1156 452" />
         </g>
         <Zzz x={880} y={370} frame={frame} count={2} />
       </g>
+
+      <HighlightRing frame={frame} at={30} cx={860} cy={480} r={230} color="#22a04a" />
+      <PopLabel frame={frame} at={46} x={1450} y={840} text="Gọi một tiếng là dậy" bg="#22a04a" size={42} />
 
       {/* bọt nổi lên dễ dàng */}
       {[0, 1, 2, 3].map((i) => {
@@ -343,7 +353,7 @@ export const NapDeep: React.FC<NapProps> = ({ frame }) => {
   return (
     <Frame bg="#0d1b3e">
       <path
-        d={`M 0 180 ${new Array(9)
+        d={`M 0 180 ${new Array(16)
           .fill(0)
           .map((_, i) => `q 60 ${i % 2 === 0 ? -16 : 16} 120 0`)
           .join(' ')} L ${W} 0 L 0 0 Z`}
@@ -353,9 +363,9 @@ export const NapDeep: React.FC<NapProps> = ({ frame }) => {
       />
       <rect x={0} y={180} width={W} height={340} fill="#2a5a95" opacity={0.5} />
       <rect x={0} y={520} width={W} height={560} fill="#101c44" opacity={0.55} />
-      <text x={200} y={980} fontSize={54} fontWeight={800} fill="#8fb4e8" fontFamily={FONT}>
-        Tầng ngủ sâu
-      </text>
+      <PopLabel frame={frame} at={4} x={420} y={170} text="Sau 30 phút" bg="#e63328" size={54} />
+      <PopLabel frame={frame} at={40} x={420} y={980} text="Tầng ngủ sâu" bg="#2a3a72" size={50} />
+      <PointerArrow frame={frame} at={22} from={[420, 250]} to={[720, 700]} color="#e63328" curve={0.2} />
 
       {/* người chìm xuống */}
       <g transform={`translate(${drift} ${240 + sink * 330})`}>
@@ -367,6 +377,8 @@ export const NapDeep: React.FC<NapProps> = ({ frame }) => {
           <line x1={796} y1={450} x2={676} y2={430} />
         </g>
       </g>
+
+      <PopLabel frame={frame} at={54} x={1440} y={880} text="Rất khó kéo dậy" bg="#e63328" size={42} />
 
       {/* sóng não chậm */}
       <g transform="translate(0 0)">
@@ -570,6 +582,7 @@ export const NapFullCycle: React.FC<NapProps> = ({ frame }) => (
       Ngủ trọn 90 phút
     </text>
     <CycleGraph frame={frame} markAt={1} highlight="full" />
+    <PulseRing frame={frame} at={34} cx={960} cy={760} r={260} color="#e63328" />
     <g opacity={easeOut(progress(frame, 30, 20))}>
       <rect x={700} y={880} width={520} height={96} rx={16} fill="#e63328" stroke={INK} strokeWidth={10} />
       <text x={960} y={946} fontSize={44} fontWeight={800} fill="#ffffff" textAnchor="middle" fontFamily={FONT}>

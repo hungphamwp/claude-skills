@@ -52,9 +52,14 @@ if (!scriptPathArg) {
   process.exit(1);
 }
 
-// Model TTS khả dụng: gemini-3.1-flash-tts-preview (mới nhất),
-// gemini-2.5-flash-preview-tts, gemini-2.5-pro-preview-tts
-const MODEL = flag('model', 'gemini-3.1-flash-tts-preview');
+// Gói miễn phí giới hạn 10 request/ngày/model/key. Hạn mức tính RIÊNG cho từng
+// model, nên khi model chính cạn quota thì đổi model là có thêm lượt.
+// Thứ tự ưu tiên: chất lượng cao trước, dự phòng sau.
+const MODEL_CHAIN = flag('model', 'gemini-3.1-flash-tts-preview,gemini-2.5-flash-preview-tts,gemini-2.5-pro-preview-tts')
+  .split(',')
+  .map((m) => m.trim())
+  .filter(Boolean);
+let modelIdx = 0;
 const DEFAULT_VOICE = flag('voice', 'Laomedeia');
 const PAD = Number(flag('pad', 0.5));
 // Chỉ dẫn ngữ điệu. LƯU Ý: Gemini TTS bỏ qua câu phủ định — viết "không buồn"
@@ -81,8 +86,9 @@ const run = (cmd, cmdArgs) => {
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // Gọi Gemini TTS, trả về Buffer PCM 16-bit 24kHz mono
+const urlFor = (model) => `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
+
 const synthesize = async (text, voiceName, style) => {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
   const body = {
     contents: [{ parts: [{ text: `${style}\n\n${text}` }] }],
     generationConfig: {
@@ -93,12 +99,12 @@ const synthesize = async (text, voiceName, style) => {
     },
   };
 
-  // Mỗi vòng: thử lần lượt tất cả các key. Chỉ khi cả bộ key đều bị giới hạn
-  // mới chờ rồi thử lại vòng mới.
+  // Mỗi vòng: thử lần lượt tất cả các key trên model hiện tại. Cả bộ key cạn thì
+  // chuyển sang model kế tiếp (quota riêng). Hết model mới chịu chờ.
   for (let round = 1; round <= 6; round++) {
     for (let k = 0; k < API_KEYS.length; k++) {
       const current = keyIdx % API_KEYS.length;
-      const res = await fetch(url, {
+      const res = await fetch(urlFor(MODEL_CHAIN[modelIdx]), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-goog-api-key': API_KEYS[current] },
         body: JSON.stringify(body),
@@ -124,11 +130,20 @@ const synthesize = async (text, voiceName, style) => {
       return Buffer.from(data, 'base64');
     }
 
+    // cả bộ key cạn trên model này -> thử model kế tiếp (quota riêng theo model)
+    if (modelIdx < MODEL_CHAIN.length - 1) {
+      modelIdx++;
+      console.log(`    (hết quota trên mọi key -> chuyển model: ${MODEL_CHAIN[modelIdx]})`);
+      continue;
+    }
     const wait = Math.min(round * 6000, 30000);
-    console.log(`    (cả ${API_KEYS.length} key đều bận, chờ ${wait / 1000}s rồi thử lại — vòng ${round}/6)`);
+    console.log(`    (mọi key và mọi model đều cạn, chờ ${wait / 1000}s — vòng ${round}/6)`);
     await sleep(wait);
   }
-  throw new Error(`Cả ${API_KEYS.length} key đều bị giới hạn, thử lại sau.`);
+  throw new Error(
+    `Đã cạn quota trên cả ${API_KEYS.length} key x ${MODEL_CHAIN.length} model. ` +
+    `Gói miễn phí giới hạn 10 request/ngày/model/key — đợi sang ngày mới hoặc thêm key.`
+  );
 };
 
 const voiceDir = resolve('public/assets/voice');
@@ -144,7 +159,7 @@ const failed = [];
 // Ghi tiến độ ngay sau mỗi cảnh, để lỗi giữa chừng không mất phần đã làm
 const saveProgress = () => writeFileSync(scriptPath, JSON.stringify(script, null, 2) + '\n');
 
-console.log(`Model: ${MODEL} | Giọng: ${scriptVoice}\n`);
+console.log(`Model: ${MODEL_CHAIN.join(' -> ')} | Giọng: ${scriptVoice}\n`);
 
 for (const scene of script.scenes) {
   if (!scene.voice) continue;
@@ -183,7 +198,7 @@ for (const scene of script.scenes) {
     changed++;
     saveProgress();
 
-    console.log(`  ${scene.id}: ${scene.durationInSeconds}s  "${scene.voice.slice(0, 50)}${scene.voice.length > 50 ? '…' : ''}"`);
+    console.log(`  ${scene.id}: ${scene.durationInSeconds}s [${MODEL_CHAIN[modelIdx]}]  "${scene.voice.slice(0, 50)}${scene.voice.length > 50 ? '…' : ''}"`);
   } catch (e) {
     failed.push(scene.id);
     console.log(`  ${scene.id}: LỖI — ${e.message}`);
