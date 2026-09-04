@@ -48,6 +48,26 @@ Khai báo bằng field `illustration` trong mỗi cảnh. Một hình dùng đư
 | `fake-balloon-photo` | Ảnh cũ ghép cảnh khinh khí cầu, đường cắt dán lởm chởm, cây kéo | Khinh khí cầu nhích lên xuống, đường cắt nhấp nháy | Bằng chứng giả, ký ức sai, thao túng |
 | `baby-scanner-glow` | Bé nằm trên khay trượt vào máy quét, hồi hải mã tím sáng, màn hình sóng | Khay trượt vào, cá ngựa loé sáng, sóng chạy | Nghiên cứu hiện đại, đo đạc, phát hiện mới |
 | `locked-box-no-key` | Rương gỗ khoá kín, ký ức còn nguyên bên trong lộ qua nét đứt, người xoè tay trống | Rương rung nhẹ, ánh sáng rò qua khe, vòng nhấn | Còn đó nhưng không lấy được, kết mở ấm áp |
+| `tickle-self-fail` | Người tự cù nách mình, mặt tỉnh bơ mí mắt trĩu | Ngón tay ngo ngoe, nhãn "chẳng buồn gì cả" | Không có phản ứng, thất bại, đối chứng |
+| `tickle-other-laugh` | Người bị cù cười nhắm tít giãy nảy, người kia thò tay tới, chữ HA HA bay lên | Người rung lắc, tia cười bật ra, chữ bay lên | Phản ứng mạnh, tương phản với cảnh trước |
+| `brain-prediction-engine` | Đầu cắt nghiêng, tiểu não tím phát sáng, tờ "DỰ BÁO" bay ra | Tiểu não nhấp nháy, tờ dự báo trượt ra kèm mũi tên | Cơ chế dự đoán, tín hiệu gửi đi |
+| `signal-cancel` | Hai sóng ngược pha cộng lại thành đường thẳng xanh lá | Hai sóng vẽ dần rồi kết quả phẳng hiện ra, vòng sáng | Triệt tiêu, cân bằng, hai lực đối nhau |
+| `brain-scan-compare` | Hai ảnh quét não cạnh nhau, một mờ một sáng rực | Vùng sáng phập phồng, vòng nhấn vàng | So sánh hai kết quả đo, bằng chứng ảnh chụp |
+| `robot-tickle-lab` | Người giữa, cần gạt trái, cánh tay robot phải, dây nối đứt quãng | Cần gạt lắc, cánh tay robot theo nhịp | Thí nghiệm có thiết bị, điều khiển từ xa |
+| `delay-dial` | Núm vặn lớn bên trái, thanh đo và mặt cười bên phải | Kim vặn dần, thanh đo đầy lên, mặt đổi từ chán sang cười | Điều chỉnh tham số, quan hệ nhân quả tăng dần |
+| `two-tickle-types` | Chia đôi: lông vũ nhẹ bên trái, người cười ngặt nghẽo bên phải | Lông vũ đung đưa, người rung lắc | Phân loại hai kiểu, nhẹ vs nặng |
+| `surprise-attack` | Người đứng, bốn vòng đỏ khoanh các vùng hiểm kèm nhãn và mũi tên | Vòng khoanh hiện lần lượt kèm mũi tên chỉ vào | Chỉ ra nhiều vị trí trên một đối tượng |
+| `question-still-open` | Dấu hỏi tím khổng lồ giữa khung, hai người nhún vai hai bên | Dấu hỏi nhún lên xuống | Khoa học chưa có lời giải, kết mở |
+| `address-vs-house` | Chia đôi: biển số nhà xanh bên trái, ngôi nhà bên phải | Hai bên hiện lần lượt kèm nhãn giải thích | Phân biệt hai khái niệm hay bị nhầm |
+| `buy-domain-only` | Biển số cắm giữa bãi đất trống, người tới nơi ngơ ngác | Biển đung đưa, cỏ dại lay | Thiếu một nửa, kỳ vọng sai |
+| `hosting-house` | Nhà cắt ngang lộ đồ bên trong (ảnh, bài viết, sản phẩm), tủ máy chủ bên phải | Từng món đồ hiện dần, đèn máy chủ nhấp nháy | Nơi chứa dữ liệu, bên trong có gì |
+| `dns-directory` | Cuốn danh bạ mở, cột tên miền và cột IP, kính lúp rê tìm | Kính lúp di chuyển, dòng khớp được khoanh xanh | Tra cứu, ánh xạ, danh bạ |
+| `nameserver-signpost` | Cột biển chỉ đường hai chiều: tên miền và hosting | Biển đung đưa, mũi tên nối sang nhà | Kết nối hai đầu, trỏ đúng chỗ |
+| `move-house-same-address` | Nhà cũ mờ dần bên trái, nhà mới rõ dần bên phải, biển số bay theo | Biển số bay theo đường vòng cung sang nhà mới | Chuyển đổi nhà cung cấp, giữ nguyên phần còn lại |
+| `separate-bills` | Hai tờ hoá đơn răng cưa cạnh nhau, tiêu đề màu khác nhau | Hai hoá đơn hiện lần lượt | Hai khoản chi riêng, hai chu kỳ khác nhau |
+| `rent-calendar` | Tờ lịch có ô đỏ đánh dấu ngày hết hạn, chuông báo rung bên cạnh | Chuông rung liên tục, nhãn cảnh báo hiện dần | Hạn chót, gia hạn, nhắc nhở |
+| `domain-wrong-owner` | Chủ doanh nghiệp tay không bên trái, hợp đồng trượt sang bên thứ ba cầm chìa khoá | Hợp đồng trượt và nghiêng dần, chìa khoá hiện ra | Mất quyền kiểm soát, bẫy hợp đồng |
+| `full-picture` | Sơ đồ ngang: khách → tên miền → DNS → ngôi nhà, nối bằng mũi tên | Từng mắt xích hiện lần lượt, vòng sáng bao trọn | Tóm tắt quy trình, sơ đồ tổng kết |
 
 Chọn hình theo **ý nghĩa** chứ không theo chữ nghĩa. Ví dụ cảnh nói "và đây là điều
 bất ngờ" thì `lightbulb-idea` hợp hơn là cố tìm hình đúng nội dung.
@@ -85,7 +105,8 @@ nhiều hơn thì người xem đọc không kịp.
 
 Hình nằm ở 3 file: `parts.tsx` (bộ phận dùng lại), `index.tsx` (5 hình đầu + registry),
 `more.tsx` (5 hình tiếp), `story3am.tsx` (8 hình ngủ hai giấc), `nap.tsx` (11 hình ngủ trưa),
-`memory.tsx` (13 hình ký ức tuổi thơ), `fx.tsx` (bộ hiệu ứng giải thích dùng chung).
+`memory.tsx` (13 hình ký ức tuổi thơ), `tickle.tsx` (10 hình về cù và dự đoán của não),
+`domain.tsx` (10 hình về tên miền, hosting, DNS), `fx.tsx` (bộ hiệu ứng giải thích dùng chung).
 
 Mỗi video mới nên có FILE RIÊNG cho bộ hình của nó — đừng nhét chung vào file cũ.
 Hình dùng lại giữa các video làm series trông nghèo nàn, người xem nhận ra ngay.

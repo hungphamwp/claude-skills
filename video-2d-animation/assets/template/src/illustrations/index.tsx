@@ -3,6 +3,30 @@ import { INK, drawOn, progress, wobble } from './anim';
 import { Campfire, Hut, Monkey, QuestionMark, SittingFigure, StandingFigure, Stars } from './parts';
 import { BarChart, CityNight, LightbulbIdea, PersonSleeping, Sunrise } from './more';
 import {
+  AddressVsHouse,
+  BuyDomainOnly,
+  DnsDirectory,
+  DomainWrongOwner,
+  FullPicture,
+  HostingHouse,
+  MoveHouseSameAddress,
+  NameserverSignpost,
+  RentCalendar,
+  SeparateBills,
+} from './domain';
+import {
+  BrainPredictionEngine,
+  BrainScanCompare,
+  DelayDial,
+  QuestionStillOpen,
+  RobotTickleLab,
+  SignalCancel,
+  SurpriseAttack,
+  TickleOtherLaugh,
+  TickleSelfFail,
+  TwoTickleTypes,
+} from './tickle';
+import {
   BabyLearningMontage,
   BabyScannerGlow,
   BabyWordlessBubble,
@@ -259,6 +283,26 @@ export const ILLUSTRATIONS: Record<string, React.FC<IllustrationProps>> = {
   'fake-balloon-photo': FakeBalloonPhoto,
   'baby-scanner-glow': BabyScannerGlow,
   'locked-box-no-key': LockedBoxNoKey,
+  'tickle-self-fail': TickleSelfFail,
+  'tickle-other-laugh': TickleOtherLaugh,
+  'brain-prediction-engine': BrainPredictionEngine,
+  'signal-cancel': SignalCancel,
+  'brain-scan-compare': BrainScanCompare,
+  'robot-tickle-lab': RobotTickleLab,
+  'delay-dial': DelayDial,
+  'two-tickle-types': TwoTickleTypes,
+  'surprise-attack': SurpriseAttack,
+  'question-still-open': QuestionStillOpen,
+  'address-vs-house': AddressVsHouse,
+  'buy-domain-only': BuyDomainOnly,
+  'hosting-house': HostingHouse,
+  'dns-directory': DnsDirectory,
+  'nameserver-signpost': NameserverSignpost,
+  'move-house-same-address': MoveHouseSameAddress,
+  'separate-bills': SeparateBills,
+  'rent-calendar': RentCalendar,
+  'domain-wrong-owner': DomainWrongOwner,
+  'full-picture': FullPicture,
 };
 
 export const ILLUSTRATION_KEYS = Object.keys(ILLUSTRATIONS);
